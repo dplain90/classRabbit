@@ -5,7 +5,7 @@
 [Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
-[trello]: https://trello.com
+[trello]: https://trello.com/b/kU1mbDsO/classrabbit
 
 ## Minimum Viable Product
 
@@ -48,11 +48,11 @@ sufficient CSS styling:
 
 **Objective:** User can create a newTask and provide Location for task via searchBar that autocompletes from Google API nearby places. Potential taskers are selected via API by closest region.
 
-### Phase 4: Availability & Skill Model, API, & newTask/stage2 Component (1.5 day)
+### Phase 4: Availability & Skill Model, API, & newTask/stage2 Component (2 days)
 
 **Objective:** User can view prospective taskers and their skills. User can filter by availability & sort by experience/price.
 
-### Phase 5: newTask/stage3 Component (1 day)
+### Phase 5: newTask/stage3 Component (2 days)
 
 **Objective:** User can review newTask information and complete task booking.
 
