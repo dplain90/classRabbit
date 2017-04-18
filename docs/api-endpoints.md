@@ -13,7 +13,7 @@
 - `POST /api/users`
 - `PATCH /api/users`
 - `GET /api/user/:id`
-- `GET /api/region/:locality/category/:category_id/taskers`
+- `GET /api/taskers`
   - Gets all taskers within region and skill category.
 
 ### Session
