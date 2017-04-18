@@ -1,27 +1,39 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-const signUpState = {
-  fname: "",
-  lname: "",
-  email: "",
-  password: "",
-  zip_code: ""
-}
-
-const logInState = {
-  email: "",
-  password: ""
-};
-
 class sessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { email: "", password: "" };
+    this.setInitialState();
+    // this.state = { email: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.populateForm();
   }
+
+  componentDidMount(){
+
+  }
+
+  setInitialState(){
+    if(this.props.formType === 'signup') {
+      this.state = {
+        email: "",
+        password: ""
+      };
+    }
+    else {
+      this.state = {
+        fname: "",
+        lname: "",
+        email: "",
+        password: "",
+        zip_code: ""
+      };
+    }
+  }
+
+
 
   signUpForm(){
     return (
@@ -48,10 +60,21 @@ class sessionForm extends React.Component {
 
   populateForm() {
     if(this.props.formType === 'signup') {
+      const signUpState = {
+        fname: this.state.fname,
+        lname: this.state.lname,
+        email: this.state.email,
+        password: this.state.password,
+        zip_code: this.state.zip_code
+      }
       this.state = signUpState;
       this.form = this.signUpForm();
     }
     else {
+      const logInState = {
+        email: this.state.email,
+        password: this.state.password
+      };
       this.state = logInState;
       this.form = this.logInForm();
     }
@@ -59,6 +82,7 @@ class sessionForm extends React.Component {
 
   componentDidUpdate() {
     this.redirectIfLoggedIn();
+    this.populateForm();
   }
 
   redirectIfLoggedIn(){
@@ -75,7 +99,8 @@ class sessionForm extends React.Component {
 
   update(field){
     return (e) => {
-      this.setState({
+
+      return this.setState({
         [field]: e.target.value
       });
     }
