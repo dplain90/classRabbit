@@ -18,7 +18,7 @@
 
 class User < ApplicationRecord
   validates :fname, :lname, :email, :password_digest, :session_token, :phone_number, :zip_code, presence: true
-  validates @password, length: { minimum: 6, allow_nil: false }
+  validates :password, length: { minimum: 6}, allow_nil: false
   attr_reader :password
 
   after_initialize :ensure_session_token
@@ -50,6 +50,13 @@ class User < ApplicationRecord
     self.session_token = generate_session_token
     self.save
     self.session_token
+  end
+
+  def ensure_session_token_uniqueness
+    # iterate over session toekn generating a new one until its new.
+    while User.find_by(session_token: self.session_token)
+      self.session_token = generate_session_token
+    end
   end
 
 end
