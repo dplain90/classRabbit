@@ -25,25 +25,32 @@ class sessionForm extends React.Component {
 
   signUpForm(){
     return (
+      <form onSubmit={handleSubmit}>
       <input type="text" value={this.state.fname} onChange={this.update("fname")} />
       <input type="text" value={this.state.lname} onChange={this.update("lname")} />
       <input type="text" value={this.state.email} onChange={this.update("email")} />
       <input type="password" value={this.state.password} onChange={this.update("password")} />
       <input type="text" value={this.state.zip_code} onChange={this.update("zip_code")} />
+      <button type="submit"> Submit </button>
+      </form>
     );
   };
 
   logInForm(){
     return (
+      <form onSubmit={handleSubmit}>
       <input type="text" value={this.state.email} onChange={this.update("email")} />
       <input type="password" value={this.state.password} onChange={this.update("password")} />
+      <button type="submit"> Submit </button>
+      </form>
     );
   };
 
   populateForm() {
-    if(this.props.formType === 'signup')
+    if(this.props.formType === 'signup') {
       this.state = signUpState;
       this.form = signUpForm();
+    }
     else {
       this.state = logInState;
       this.form = signInForm();
@@ -76,10 +83,7 @@ class sessionForm extends React.Component {
   render(){
     return (
       <div className="loginForm">
-        <form onSubmit={handleSubmit}>
           { this.form }
-          <button type="submit"> Submit </button>
-        </form>
       </div>
     );
 

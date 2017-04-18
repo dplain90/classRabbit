@@ -1,3 +1,3 @@
-const dashboardContainer;
+const dashboardContainer = {};
 
 export default dashboardContainer;
