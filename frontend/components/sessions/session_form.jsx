@@ -20,12 +20,12 @@ class sessionForm extends React.Component {
     this.state = { email: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.populateState();
+    this.populateForm();
   }
 
   signUpForm(){
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
       <input type="text" value={this.state.fname} onChange={this.update("fname")} />
       <input type="text" value={this.state.lname} onChange={this.update("lname")} />
       <input type="text" value={this.state.email} onChange={this.update("email")} />
@@ -38,7 +38,7 @@ class sessionForm extends React.Component {
 
   logInForm(){
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
       <input type="text" value={this.state.email} onChange={this.update("email")} />
       <input type="password" value={this.state.password} onChange={this.update("password")} />
       <button type="submit"> Submit </button>
@@ -49,11 +49,11 @@ class sessionForm extends React.Component {
   populateForm() {
     if(this.props.formType === 'signup') {
       this.state = signUpState;
-      this.form = signUpForm();
+      this.form = this.signUpForm();
     }
     else {
       this.state = logInState;
-      this.form = signInForm();
+      this.form = this.logInForm();
     }
   }
 
@@ -71,13 +71,14 @@ class sessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm({user});
-
   }
 
   update(field){
-    this.setState({
-      [field]: e.target.value
-    });
+    return (e) => {
+      this.setState({
+        [field]: e.target.value
+      });
+    }
   }
 
   render(){
