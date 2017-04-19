@@ -2,8 +2,10 @@ class Api::UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+    @user.phone_number = "thisistemoraryfiller"
+    @user.locality = "Thisistemporaryfiller"
 		if @user.save
-			login(@user)
+			log_in!(@user)
 			render "api/users/show"
 		else
 			render json: @user.errors.full_messages, status: 422
@@ -38,7 +40,7 @@ class Api::UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:fname, :zip_code, :phone_number, :tasker, :lname, :locality,:email, :password)
+		params.require(:user).permit(:fname, :lname, :email, :password, :zip_code)
 	end
 
 end

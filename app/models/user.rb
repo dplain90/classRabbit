@@ -17,7 +17,7 @@
 #
 
 class User < ApplicationRecord
-  validates :fname, :lname, :email, :password_digest, :session_token, :phone_number, :zip_code, presence: true
+  validates :fname, :lname, :email, :password_digest, :session_token, :zip_code, presence: true
   validates :password, length: { minimum: 6}, allow_nil: false
   attr_reader :password
 

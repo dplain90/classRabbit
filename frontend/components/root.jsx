@@ -12,7 +12,6 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 
 const Root = ({ store }) => {
-
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
@@ -33,7 +32,8 @@ const Root = ({ store }) => {
         <Route path="/" component={App}>
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-        </Route>
+          <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
+      </Route>
       </Router>
     </Provider>
   );
