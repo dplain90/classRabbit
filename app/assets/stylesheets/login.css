@@ -81,7 +81,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, inp
 }
 
 
-label {
+.auth-label {
   font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -90,6 +90,16 @@ label {
   width: 468px;
   text-align: left;
   color: #242a30;
+}
+
+.name-label {
+  margin-top: 18px;
+}
+.name-fields {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto;
 }
 
 button, input {
@@ -143,9 +153,9 @@ input {
     border:1px solid red;
     box-shadow: 0 0 10px #7dd161;
 }
-
+/*377*/
 .auth-main {
-  height: 377px;
+  min-height: 377px;
   width: 500px;
   background-color: white;
   position: relative;

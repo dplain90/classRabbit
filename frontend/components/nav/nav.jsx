@@ -16,8 +16,8 @@ class Nav extends React.Component {
     if(this.props.loggedIn){
       return (<div className="top-nav links-container">
         <a onClick={this.handleLogOut} className="nav-links">Log Out</a>
-        <Link to="/dashboard" className="nav-links last"> Dashboard </Link>
-        <a> Account </a>
+        <Link to="/dashboard" className="nav-links"> Dashboard </Link>
+        <a className="nav-links last"> Account </a>
       </div>);
     } else {
       return(
@@ -34,7 +34,7 @@ class Nav extends React.Component {
     return (
       <header className="top-nav">
         <div className="top-nav logo">
-        
+
         </div>
         { this.sessionLinks() }
       </header>

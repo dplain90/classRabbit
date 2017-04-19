@@ -36,6 +36,11 @@ class sessionForm extends React.Component {
     );
   }
 
+  componentDidUpdate() {
+    this.redirectIfLoggedIn();
+  }
+
+
   redirectIfLoggedIn(){
     if(this.props.loggedIn){
       this.props.router.push('/dashboard');
@@ -60,12 +65,13 @@ class sessionForm extends React.Component {
     };
   }
 
-
   nameInputs() {
     if(this.props.isSignUp){
       return (
-        <div className="name-fields">
+        <div className="name-fields auth-label" >
+          <label className="name-label">First Name</label>
           <input type="text" value={this.state.fname} onChange={this.update("fname")} />
+        <label className="name-label">Last Name</label>
           <input type="text" value={this.state.lname} onChange={this.update("lname")} />
         </div>
       );
@@ -75,7 +81,11 @@ class sessionForm extends React.Component {
   zipCodeInput() {
     if(this.props.isSignUp){
       return (
+        <div className="auth-label">
+          <label >Zip Code</label>
           <input type="text" value={this.state.zip_code} onChange={this.update("zip_code")} />
+        </div>
+
       );
     }
   }
@@ -103,9 +113,9 @@ class sessionForm extends React.Component {
         <div className="auth-main">
           <form onSubmit={this.handleSubmit} className="auth-form">
             { this.nameInputs() }
-            <label>Email Address</label>
+            <label className="auth-label">Email Address</label>
             <input type="text" value={this.state.email} onChange={this.update("email")} />
-            <label>Password</label>
+            <label className="auth-label">Password</label>
             <input type="password" value={this.state.password} onChange={this.update("password")} />
             { this.zipCodeInput() }
             <button type="submit"> { buttonText } </button>
