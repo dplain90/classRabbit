@@ -4,6 +4,7 @@ import dashboard from './dashboard';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    user: state.session.currentUser
   };
 };
 

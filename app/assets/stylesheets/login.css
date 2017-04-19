@@ -46,11 +46,12 @@ header {
 }
 
 .nav-links {
-  font-family: "Proxima-Nova";
+  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
   font-style: none;
   font-size: 16px;
   text-decoration: none;
   margin-left: 20px;
+  font-weight: 200;
 }
 .nav-links.last {
   margin-right: 60px;
@@ -81,7 +82,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, inp
 
 
 label {
-  font-family: "Proxima-Nova";
+  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -111,7 +112,7 @@ button {
   padding: 0.5em 1.38em 0.5em 1.38em;
   text-align: center;
   line-height: 1.4;
-  font-family: "Proxima-Nova";
+  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
   margin-top: 20px;
   margin-bottom: 10px;
   font-weight: 300;
@@ -165,7 +166,7 @@ input {
 }
 
 a {
-  font-family: "Proxima-Nova";
+  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
   color: rgb(81, 175, 51);
   font-size: 16px;
   text-decoration-line: none;

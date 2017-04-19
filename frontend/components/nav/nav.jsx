@@ -32,9 +32,9 @@ class Nav extends React.Component {
 
   render(){
     return (
-      <header class="top-nav">
-        <div class="top-nav logo">
-          <img src="./imgs/logo.png" alt="hhh" />
+      <header className="top-nav">
+        <div className="top-nav logo">
+        
         </div>
         { this.sessionLinks() }
       </header>
