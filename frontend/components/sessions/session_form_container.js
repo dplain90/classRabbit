@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 import sessionForm from './session_form';
-import { login, logout, signup } from '../../actions/session_actions';
+import { login, logout, signup, receiveErrors } from '../../actions/session_actions';
+
 
 const isSignUp = (formType) => Boolean(formType === 'signup');
 
 const mapStateToProps = (state, ownProps) => {
   const formType = ownProps.location.pathname.slice(1);
-  const buttonText = isSignUp(formType) ? 'Create account' : 'Log In';
   return {
     isSignUp: isSignUp(formType),
-    buttonText: buttonText,
     loggedIn: state.session.currentUser,
     formType: formType,
     errors: state.session.errors
@@ -21,11 +20,11 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const formType = ownProps.location.pathname.slice(1);
   const processForm = isSignUp(formType) ? signup : login;
-
   return {
-    processForm: (data) => dispatch(processForm(data))
+    signup: (user) => dispatch(signup(user)),
+    login: (credentials) => dispatch(login(credentials)),
+    clearErrors: () => dispatch(receiveErrors({}))
   };
-
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(sessionForm);

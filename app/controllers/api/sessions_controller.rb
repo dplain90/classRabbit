@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
 
   	def create
-  		@user = User.find_by_credentials(credentials[:email], credentials[:password])
+  		@user = User.find_by_credentials(user_params[:email], user_params[:password])
       if @user
   			log_in!(@user)
   			render "api/users/show"
@@ -29,7 +29,7 @@ class Api::SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:credentials).permit(:email, :password)
+    params.require(:user).permit(:email, :password)
   end
 
 end
