@@ -64,10 +64,10 @@ class sessionForm extends React.Component {
   nameInputs() {
     if(this.props.isSignUp){
       return (
-        <label className="name-fields">
+        <div className="name-fields">
           <input type="text" value={this.state.fname} onChange={this.update("fname")} />
           <input type="text" value={this.state.lname} onChange={this.update("lname")} />
-        </label>
+        </div>
       );
     }
   }
@@ -99,17 +99,23 @@ class sessionForm extends React.Component {
       };
 
     return (
-      <div className="loginForm">
-        <form onSubmit={this.handleSubmit}>
-          { this.nameInputs() }
-          <input type="text" value={this.state.email} onChange={this.update("email")} />
-          <input type="password" value={this.state.password} onChange={this.update("password")} />
-          { this.zipCodeInput() }
-          <button type="submit"> { buttonText } </button>
-        </form>
-          { navLoc() }
-          { this.renderErrors() }
-      </div>
+      <div className="auth-container">
+        <div className="auth-main">
+          <form onSubmit={this.handleSubmit} className="auth-form">
+            { this.nameInputs() }
+            <label>Email Address</label>
+            <input type="text" value={this.state.email} onChange={this.update("email")} />
+            <label>Password</label>
+            <input type="password" value={this.state.password} onChange={this.update("password")} />
+            { this.zipCodeInput() }
+            <button type="submit"> { buttonText } </button>
+          </form>
+          <div className="login-footer">
+            { navLoc() }
+          </div>
+            { this.renderErrors() }
+        </div>
+    </div>
     );
   }
 }

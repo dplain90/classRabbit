@@ -14,17 +14,17 @@ class Nav extends React.Component {
 
   sessionLinks(){
     if(this.props.loggedIn){
-      return (<div className="nav auth-links">
+      return (<div className="top-nav links-container">
         <a onClick={this.handleLogOut}>Log Out</a>
         <Link to="/dashboard"> Dashboard </Link>
         <a> Account </a>
       </div>);
     } else {
       return(
-        <div className="nav auth-links">
-          <Link to="/login">Log In</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/demo">Demo</Link>
+        <div className="top-nav links-container">
+          <Link to="/login" className="nav-links">Log In</Link>
+          <Link to="/signup" className="nav-links">Sign Up</Link>
+          <Link to="/demo" className="nav-links">Demo</Link>
         </div>
       );
     }
@@ -32,7 +32,10 @@ class Nav extends React.Component {
 
   render(){
     return (
-      <header>
+      <header class="top-nav">
+        <div class="top-nav logo">
+          <img src="./imgs/logo.png" alt="hhh" />
+        </div>
         { this.sessionLinks() }
       </header>
     );
@@ -40,5 +43,6 @@ class Nav extends React.Component {
   }
 
 }
+
 
 export default withRouter(Nav);
