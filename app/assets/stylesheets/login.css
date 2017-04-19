@@ -7,6 +7,7 @@ body, div, li, ul, nav, span, header, section, footer, button, a{
 a:hover {
   cursor: pointer;
 }
+
 #root > div {
   width: inherit;
   height: inherit;
@@ -162,7 +163,6 @@ input {
   width: 434px;
   margin-bottom: 35px;
 }
-
 
 a {
   font-family: "Proxima-Nova";
