@@ -22,7 +22,7 @@ const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/dashboard');
     }
   };
 
@@ -33,7 +33,7 @@ const Root = ({ store }) => {
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
-      </Route>
+          </Route>
       </Router>
     </Provider>
   );

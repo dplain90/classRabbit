@@ -15,9 +15,26 @@ class sessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.populateForm = this.populateForm.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentDidMount(){
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {
+          this.props.errors.map((error, idx) => {
+            return (
+              <li key={idx + "error"}>
+                {error}
+              </li>
+            );
+          })
+        }
+      </ul>
+    );
   }
 
   signUpForm(){
@@ -70,7 +87,6 @@ class sessionForm extends React.Component {
   }
 
   update(field){
-
     return (e) => {
       console.log(this.state);
       return this.setState({
@@ -83,6 +99,7 @@ class sessionForm extends React.Component {
     return (
       <div className="loginForm">
           { this.populateForm() }
+          { this.renderErrors() }
       </div>
     );
   }
