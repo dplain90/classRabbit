@@ -15,8 +15,8 @@ class Nav extends React.Component {
   sessionLinks(){
     if(this.props.loggedIn){
       return (<div className="top-nav links-container">
-        <a onClick={this.handleLogOut}>Log Out</a>
-        <Link to="/dashboard"> Dashboard </Link>
+        <a onClick={this.handleLogOut} className="nav-links">Log Out</a>
+        <Link to="/dashboard" className="nav-links last"> Dashboard </Link>
         <a> Account </a>
       </div>);
     } else {
@@ -24,7 +24,7 @@ class Nav extends React.Component {
         <div className="top-nav links-container">
           <Link to="/login" className="nav-links">Log In</Link>
           <Link to="/signup" className="nav-links">Sign Up</Link>
-          <Link to="/demo" className="nav-links">Demo</Link>
+          <Link to="/demo" className="nav-links last">Demo</Link>
         </div>
       );
     }

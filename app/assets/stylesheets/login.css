@@ -4,6 +4,9 @@ body, div, li, ul, nav, span, header, section, footer, button, a{
   list-style: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
 #root > div {
   width: inherit;
   height: inherit;
@@ -37,18 +40,18 @@ header {
 
 .top-nav.links-container {
   margin-left: auto;
-  display: inherit;
+  display: flex;
   justify-content: space-around;
 }
 
-.nav-links a {
-  font-family: "Proxima-Nova-Light";
+.nav-links {
+  font-family: "Proxima-Nova";
   font-style: none;
   font-size: 16px;
   text-decoration: none;
+  margin-left: 20px;
 }
-.nav-links a:last-child {
-  margin-left: 40px;
+.nav-links.last {
   margin-right: 60px;
 }
 
