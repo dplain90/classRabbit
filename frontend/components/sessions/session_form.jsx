@@ -95,10 +95,36 @@ class sessionForm extends React.Component {
     };
   }
 
+
+
   render(){
+    const nameInputs = () => {
+
+      if(this.props.isSignUp){
+        return (
+          <label className="name-fields">
+            <input type="text" value={this.state.fname} onChange={this.update("fname")} />
+            <input type="text" value={this.state.lname} onChange={this.update("lname")} />
+          </label>
+        );
+      }};
+
+    const zipCodeInput = () => {
+      if(this.props.isSignUp){
+        return (
+            <input type="text" value={this.state.zip_code} onChange={this.update("zip_code")} />
+        );
+      }
+    };
     return (
       <div className="loginForm">
-          { this.populateForm() }
+        <form onSubmit={this.handleSubmit}>
+          { nameInputs() }
+          <input type="text" value={this.state.email} onChange={this.update("email")} />
+          <input type="password" value={this.state.password} onChange={this.update("password")} />
+          { zipCodeInput() }
+          <button type="submit"> {this.props.buttonText} </button>
+        </form>
           { this.renderErrors() }
       </div>
     );
