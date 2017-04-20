@@ -49,6 +49,13 @@ class sessionForm extends React.Component {
   handleRedirect(e){
     this.props.clearErrors();
     this.props.router.push(e.currentTarget.attributes.name.value);
+    this.setState({
+      fname: "",
+      lname: "",
+      email: "",
+      password: "",
+      zip_code: ""
+    });
   }
 
   userInput(type, title, key, state, clname){
