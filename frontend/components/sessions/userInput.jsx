@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class userInput extends React.Component {
   constructor(props){
     super(props);
-    this.props.title
+    this.props.title;
   }
 
   render(){

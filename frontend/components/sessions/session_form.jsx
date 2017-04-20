@@ -69,6 +69,7 @@ class sessionForm extends React.Component {
   }
 
   render(){
+    console.log(this.props.errors);
     const fnameInput = this.userInput("text", "First Name", "fname", this.state.fname, "name-label");
 
     const lnameInput = this.userInput("text", "Last Name", "lname", this.state.lname, "name-label");
@@ -78,6 +79,7 @@ class sessionForm extends React.Component {
     const emailAddressInput = this.userInput("text", "Email Address", "email", this.state.email);
 
     const passwordInput = this.userInput("password", "Password", "password", this.state.password);
+
     return (
       <div className="auth-container">
         <div className="auth-main">
