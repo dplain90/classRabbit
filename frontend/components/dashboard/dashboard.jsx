@@ -5,6 +5,7 @@ class Dashboard extends React.Component {
   constructor(props){
     super(props);
     this.favoriteCategories = this.favoriteCategories.bind(this);
+
   }
 
   componentDidMount(){
@@ -12,12 +13,17 @@ class Dashboard extends React.Component {
   }
 
   favoriteCategories(){
-    const favCats = this.props.categories.map((category) => {
+    let style;
+    return this.props.categories.map((category, idx) => {
+     style = {
+        backgroundImage: `url(${category.img_url_fav_cat})`
+      };
+
       return (
-        <li key={`fav-cat-${category.id}`} style={`background-image: ${category.img_url_fav_cat}`}>
-          <div class="category title">{category.description}</div>
-          <div class="category link">
-            <a href="#" class="category link">{category.title}</a>
+        <li key={`favcat-${idx}`} style={style}>
+          <div className="category title">{category.description}</div>
+          <div className="category link">
+            <a href="#" className="category link">{category.title}</a>
           </div>
         </li>
       );
@@ -27,6 +33,7 @@ class Dashboard extends React.Component {
 
 
   render(){
+
     return (
       <div className="main">
         <section className="search">

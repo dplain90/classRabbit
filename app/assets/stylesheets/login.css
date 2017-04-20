@@ -219,10 +219,19 @@ button:hover {
 body {
 width: 100%;
 height: 100%;
-background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
+background-image:
 background-size: cover;
 background-repeat: no-repeat;
 }
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 .main-container {
   display: flex;
@@ -322,7 +331,6 @@ background-repeat: no-repeat;
 }
 
 .category.link {
-
   font-size: 1.125rem;
   float: left;
   padding: 10.8px 25.2px;

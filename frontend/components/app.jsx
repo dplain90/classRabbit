@@ -5,7 +5,7 @@ import BottomNav from './nav/bottom_nav';
 
 
 const App = ({ children }) => (
-  <div>
+  <div className="app-container">
     <NavContainer />
     <div className="main-container">
       {children}
