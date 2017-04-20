@@ -71,10 +71,17 @@ header {
   width: 66%;
 }
 
+.main-top {
+  width: 66%;
+}
+
+.main-bottom {
+  width: 80%;
+}
+
 .main section {
   display: inherit;
   flex-direction: inherit;
-  border: 1px solid black;
 }
 
 .welcome {
@@ -211,11 +218,7 @@ header {
   background: inherit;
 }
 
-footer {
-  width: 100%;
-  background-color: #67727e;
-  height: 10%;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600

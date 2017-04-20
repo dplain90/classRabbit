@@ -1,4 +1,4 @@
-body, div, li, ul, nav, span, header, section, footer, button, a{
+body, div, li, ul, nav, span, header, section, footer, button, p, h1, h2, h3, h4, h5, h6, a{
   padding: 0;
   margin: 0;
   list-style: none;
@@ -219,7 +219,7 @@ button:hover {
 body {
 width: 100%;
 height: 100%;
-background-image:
+background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 }
@@ -227,9 +227,7 @@ background-repeat: no-repeat;
 .app-container {
   width: 100%;
   height: 100%;
-  background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+
 }
 
 
@@ -237,19 +235,30 @@ background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   width: 100%;
+  background-color: #f9fafd;
+
 }
+
 
 .main {
   display: inherit;
   flex-direction: column;
-  border: 1px solid black;
+  width: 100%;
+  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
+  align-items: center;
+}
+
+.main-top {
   width: 66%;
 }
 
+.main-bottom {
+  width: 80%;
+}
+
 .main section {
-  display: inherit;
-  flex-direction: inherit;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
 .welcome {
@@ -279,7 +288,6 @@ background-repeat: no-repeat;
   display: inline-block;
   text-align: start;
   margin: 0em 0em 0em 0em;
-  font: 11px system-ui;
 }
 
 .get-started {
@@ -293,9 +301,7 @@ background-repeat: no-repeat;
   margin-right: 10px;
 }
 
-.manage-tasks {
-  background-image: url("modal-background.jpg");
-}
+
 
 .can-we-help.list {
   display: flex;
@@ -347,4 +353,93 @@ background-repeat: no-repeat;
   transition: inherit;
   color: inherit;
   background: inherit;
+}
+
+#manage-tasks {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid #dce0e6;
+  border-radius: 4px;
+
+}
+
+#manage-tasks > div {
+  width: 100%;
+  height: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+#manage-tasks button {
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+  font-size: 1rem;
+  width: 118px;
+  margin: 0px 0px 0px 16px;
+
+}
+#manage-tasks div {
+  flex-direction: column;
+  align-items: center;
+}
+
+#manage-tasks .manage-task-background{
+  height: inherit;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  background-size: cover;
+}
+
+#manage-tasks h3 {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  position: relative;
+  z-index: 200;
+}
+
+.manage-task-background * {
+  position: relative;
+  z-index: 200;
+}
+
+
+.manage-task-background{
+    display: flex;
+    justify-content: center;
+    background-image: url("modal-background.jpg");
+    position: absolute;
+    opacity: 0.65;
+    width: 100%;
+    height: auto;
+}
+
+#manage-tasks .manage-tasks.send-text-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+#manage-tasks input{
+  width: 200px;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.25
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600
+}
+
+footer {
+  width: 100%;
+  background-color: #67727e;
+  height: 10%;
 }
