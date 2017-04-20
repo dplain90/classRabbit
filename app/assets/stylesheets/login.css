@@ -217,5 +217,5 @@ width: 100%;
 height: 100%;
 background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
 background-size: cover;
-
+background-repeat: no-repeat;
 }
