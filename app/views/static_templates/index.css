@@ -65,7 +65,7 @@ header {
 }
 
 .main {
-  display: inherit;
+  display: flex;
   flex-direction: inherit;
   border: 1px solid black;
   width: 66%;
@@ -84,7 +84,6 @@ header {
 }
 
 .welcome img {
-
   margin: 0px 20px 0px 20px;
 }
 
@@ -156,7 +155,7 @@ header {
 }
 
 .manage-tasks {
-  background-image: url("./imgs/modal-background.jpg");
+
 }
 
 .can-we-help.list {

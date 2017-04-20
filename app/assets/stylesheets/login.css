@@ -223,3 +223,120 @@ background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_
 background-size: cover;
 background-repeat: no-repeat;
 }
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main {
+  display: inherit;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 66%;
+}
+
+.main section {
+  display: inherit;
+  flex-direction: inherit;
+  border: 1px solid black;
+}
+
+.welcome {
+  display: inherit;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.welcome img {
+  margin: 0px 20px 0px 20px;
+}
+
+.search-bar.input {
+  height: 30px;
+  width: 100%;
+  padding-left: 2.5em;
+  z-index: 50;
+  border: 1px solid #dce0e6;
+  width: 100%;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em 0em 0em 0em;
+  font: 11px system-ui;
+}
+
+.get-started {
+  display: inherit;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.get-started.number-container {
+  margin-top: 27px;
+  margin-right: 10px;
+}
+
+.manage-tasks {
+  background-image: url("modal-background.jpg");
+}
+
+.can-we-help.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: auto;
+}
+
+.can-we-help.list li {
+  border: 1px solid black;
+  width:30%;
+  height: 400px;
+}
+
+.can-we-help.list li{
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.category.title {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-size: 1.75rem;
+  margin-left: 1em;
+  margin-top: 1.6em
+}
+
+.category.link:hover {
+    background: white;
+    color: #51af33;
+}
+
+.category.link {
+
+  font-size: 1.125rem;
+  float: left;
+  padding: 10.8px 25.2px;
+  transition: all .3s ease-in-out;
+  color: #242a30;
+  width: 85px;
+  background: rgba(255,255,255,0.75);
+}
+
+.category.link a {
+  font-size: inherit;
+  float: left;
+  padding: 0px;
+  transition: inherit;
+  color: inherit;
+  background: inherit;
+}
