@@ -9,26 +9,17 @@ class sessionForm extends React.Component {
         lname: "",
         email: "",
         password: "",
-        zip_code: "",
-        errors: {}
+        zip_code: ""
       };
-
+    this.ifSignUp = this.ifSignUp.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.displayError = this.displayError.bind(this);
-    this.zipCodeInput = this.zipCodeInput.bind(this);
-    this.nameInputs = this.nameInputs.bind(this);
+    this.userInput = this.userInput.bind(this);
     this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   componentDidUpdate() {
     this.redirectIfLoggedIn();
-  }
-
-  displayError(key){
-    return (
-      <span className="error"> { this.props.errors[[key]]}</span>
-    );
   }
 
   redirectIfLoggedIn(){
@@ -55,71 +46,56 @@ class sessionForm extends React.Component {
     };
   }
 
-  nameInputs() {
-    if(this.props.isSignUp){
-      return (
-        <div className="name-fields auth-label" >
-          <label className="name-label">First Name</label>
-          <input type="text" value={this.state.fname} onChange={this.update("fname")} />
-          { this.displayError("fname")}
-        <label className="name-label">Last Name</label>
-          <input type="text" value={this.state.lname} onChange={this.update("lname")} />
-          { this.displayError("lname")}
-        </div>
-      );
-    }
-  }
-
-  zipCodeInput() {
-    if(this.props.isSignUp){
-      return (
-        <div className="auth-label">
-          <label >Zip Code</label>
-          <input type="text" value={this.state.zip_code} onChange={this.update("zip_code")} />
-          { this.displayError("zip_code")}
-        </div>
-
-      );
-    }
-  }
-
   handleRedirect(e){
     this.props.clearErrors();
     this.props.router.push(e.currentTarget.attributes.name.value);
   }
 
-  render(){
-    const buttonText = this.props.isSignUp ? "Sign Up" : "Log In";
-    const navLoc = () => {
-      if(this.props.isSignUp){
-        return (
-          <a onClick={this.handleRedirect} name='/login' > Log In </a>
-        ); } else {
-          return (
-          <a onClick={this.handleRedirect} name='/signup' > Sign Up </a>
-          );
-        }
-      };
+  userInput(type, title, key, state, clname){
+    return (
+      <label className={`auth-label${ clname}`}>{title}
+        <input type={type} value={state} onChange={this.update(key)} />
+        <span className="error"> {this.props.errors[key]}</span>
+      </label>
+    );
+  }
 
+  ifSignUp(signUpInput, logInInput){
+    if(this.props.isSignUp){
+      return signUpInput;
+    } else {
+      return logInInput;
+    }
+  }
+
+  render(){
+    const fnameInput = this.userInput("text", "First Name", "fname", this.state.fname, "name-label");
+
+    const lnameInput = this.userInput("text", "Last Name", "lname", this.state.lname, "name-label");
+
+    const zipCodeInput = this.userInput("text", "Zip Code", "zip_code", this.state.zip_code);
+
+    const emailAddressInput = this.userInput("text", "Email Address", "email", this.state.email);
+
+    const passwordInput = this.userInput("password", "Password", "password", this.state.password);
     return (
       <div className="auth-container">
         <div className="auth-main">
           <form onSubmit={this.handleSubmit} className="auth-form">
-            { this.nameInputs() }
-            <label className="auth-label">Email Address</label>
-            <input type="text" value={this.state.email} onChange={this.update("email")} />
-            { this.displayError("email")}
-            <label className="auth-label">Password</label>
-            <input type="password" value={this.state.password} onChange={this.update("password")} />
-            { this.zipCodeInput() }
-            <button type="submit"> { buttonText } </button>
+            { this.ifSignUp(fnameInput, "") }
+            { this.ifSignUp(lnameInput, "") }
+            { emailAddressInput }
+            { passwordInput }
+            { this.ifSignUp(zipCodeInput, "") }
+            <button type="submit">{this.ifSignUp("Sign Up", "Log In")}</button>
           </form>
           <div className="login-footer">
-            { navLoc() }
+            <a onClick={this.handleRedirect} name={this.ifSignUp('/login', '/signup')}>
+              {this.ifSignUp('Log In', 'Sign Up')}
+            </a>
           </div>
-
         </div>
-    </div>
+      </div>
     );
   }
 }
