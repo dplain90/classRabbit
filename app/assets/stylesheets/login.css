@@ -8,6 +8,10 @@ a:hover {
   cursor: pointer;
 }
 
+.prof-pic {
+  border-radius: 50%;
+}
+
 .nav-logo {
   width: 160px;
   height: 36px;

@@ -21,8 +21,10 @@ class Dashboard extends React.Component {
 
     return (
       <div>
-        <b> Welcome, {this.props.user.fname}! </b>
-        { categoryImgs }
+        <b> Welcome, {this.props.user.fname}!
+          <img src={this.props.user.img_url} className="prof-pic" />
+        </b>
+
       </div>
     );
   }

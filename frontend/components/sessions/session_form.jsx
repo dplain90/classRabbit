@@ -15,7 +15,7 @@ class sessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.userInput = this.userInput.bind(this);
-    this.handleRedirect = this.handleRedirect.bind(this);
+    // this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   componentDidUpdate() {
@@ -46,16 +46,17 @@ class sessionForm extends React.Component {
     };
   }
 
-  handleRedirect(e){
-    this.props.clearErrors();
-    this.props.router.push(e.currentTarget.attributes.name.value);
-    this.setState({
-      fname: "",
-      lname: "",
-      email: "",
-      password: "",
-      zip_code: ""
-    });
+  componentWillReceiveProps(newProps){
+    if(newProps.formType !== this.props.formType){
+      this.props.clearErrors();
+      this.setState({
+        fname: "",
+        lname: "",
+        email: "",
+        password: "",
+        zip_code: ""
+      });
+    }
   }
 
   userInput(type, title, key, state, clname){
@@ -101,9 +102,9 @@ class sessionForm extends React.Component {
             <button type="submit">{this.ifSignUp("Sign Up", "Log In")}</button>
           </form>
           <div className="login-footer">
-            <a onClick={this.handleRedirect} name={this.ifSignUp('/login', '/signup')}>
+            <Link to={this.ifSignUp('/login', '/signup')}>
               {this.ifSignUp('Log In', 'Sign Up')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

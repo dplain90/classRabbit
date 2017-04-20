@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+profile_pictures = ['prof_pic1.jpg', "prof_pic2.jpeg", 'prof_pic3.jpg', "prof_pic4.png", "prof_pic5.jpg"]
+
 User.destroy_all
+Category.destroy_all
 
 15.times do
   User.create!(
@@ -16,7 +19,8 @@ User.destroy_all
     tasker: Faker::Boolean.boolean(true_ratio = 0.5),
     phone_number: Faker::PhoneNumber,
     locality: Faker::Address.city,
-    zip_code: Faker::Address.zip_code
+    zip_code: Faker::Address.zip_code,
+    avatar: File.open("app/assets/images/profile_pictures/#{profile_pictures.sample}")
   )
 end
 
@@ -28,8 +32,14 @@ User.create!(
   tasker: false,
   phone_number: '8453921200',
   locality: 'New York City',
-  zip_code: '10031'
-);
+  zip_code: '10031',
+  avatar: File.open("app/assets/images/profile_pictures/#{profile_pictures.sample}")
+)
+
+
+
+
+
 
 picture_print = File.open('app/assets/images/cleaning.jpg')
 picture_chairs = File.open('app/assets/images/chairs.jpg')

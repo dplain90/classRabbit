@@ -24,7 +24,11 @@ class User < ApplicationRecord
   validates :fname, :lname, :email, :password_digest, :session_token, :zip_code, presence: true
   validates :password, length: { minimum: 6}, allow_nil: true
 
-  has_attached_file :avatar, default_url: "bed.jpg"
+  has_attached_file :avatar, default_url: "bed.jpg", :styles => {
+      :thumb => "50x50#",
+      :small  => "150x150>",
+      :medium => "200x200" }
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   attr_reader :password

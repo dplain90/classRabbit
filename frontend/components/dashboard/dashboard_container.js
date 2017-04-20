@@ -4,7 +4,6 @@ import { fetchCategories } from '../../actions/category_actions';
 import { asArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     user: state.session.currentUser,
     categories: asArray(state.categories)
