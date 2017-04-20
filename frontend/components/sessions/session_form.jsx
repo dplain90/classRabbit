@@ -9,37 +9,27 @@ class sessionForm extends React.Component {
         lname: "",
         email: "",
         password: "",
-        zip_code: ""
+        zip_code: "",
+        errors: {}
       };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    this.displayError = this.displayError.bind(this);
     this.zipCodeInput = this.zipCodeInput.bind(this);
     this.nameInputs = this.nameInputs.bind(this);
     this.handleRedirect = this.handleRedirect.bind(this);
-  }
-
-  renderErrors() {
-    return (
-      <ul>
-        {
-          this.props.errors.map((error, idx) => {
-            return (
-              <li key={idx + "error"}>
-                {error}
-              </li>
-            );
-          })
-        }
-      </ul>
-    );
   }
 
   componentDidUpdate() {
     this.redirectIfLoggedIn();
   }
 
+  displayError(key){
+    return (
+      <span className="error"> { this.props.errors[[key]]}</span>
+    );
+  }
 
   redirectIfLoggedIn(){
     if(this.props.loggedIn){
@@ -71,8 +61,10 @@ class sessionForm extends React.Component {
         <div className="name-fields auth-label" >
           <label className="name-label">First Name</label>
           <input type="text" value={this.state.fname} onChange={this.update("fname")} />
+          { this.displayError("fname")}
         <label className="name-label">Last Name</label>
           <input type="text" value={this.state.lname} onChange={this.update("lname")} />
+          { this.displayError("lname")}
         </div>
       );
     }
@@ -84,6 +76,7 @@ class sessionForm extends React.Component {
         <div className="auth-label">
           <label >Zip Code</label>
           <input type="text" value={this.state.zip_code} onChange={this.update("zip_code")} />
+          { this.displayError("zip_code")}
         </div>
 
       );
@@ -115,6 +108,7 @@ class sessionForm extends React.Component {
             { this.nameInputs() }
             <label className="auth-label">Email Address</label>
             <input type="text" value={this.state.email} onChange={this.update("email")} />
+            { this.displayError("email")}
             <label className="auth-label">Password</label>
             <input type="password" value={this.state.password} onChange={this.update("password")} />
             { this.zipCodeInput() }
@@ -123,7 +117,7 @@ class sessionForm extends React.Component {
           <div className="login-footer">
             { navLoc() }
           </div>
-            { this.renderErrors() }
+
         </div>
     </div>
     );
