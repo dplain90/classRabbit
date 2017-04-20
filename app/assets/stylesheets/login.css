@@ -236,11 +236,11 @@ background-repeat: no-repeat;
   justify-content: center;
   width: 100%;
   background-color: #f9fafd;
-
 }
 
 
 .main {
+  margin-top: 20px;
   display: inherit;
   flex-direction: column;
   width: 100%;
@@ -253,6 +253,7 @@ background-repeat: no-repeat;
 }
 
 .main-bottom {
+  margin-top: 20px;
   width: 80%;
 }
 
@@ -272,9 +273,9 @@ background-repeat: no-repeat;
 }
 
 .search-bar.input {
+  padding-right: 0px;
+  padding-left: 0px;
   height: 30px;
-  width: 100%;
-  padding-left: 2.5em;
   z-index: 50;
   border: 1px solid #dce0e6;
   width: 100%;
@@ -287,7 +288,7 @@ background-repeat: no-repeat;
   text-shadow: none;
   display: inline-block;
   text-align: start;
-  margin: 0em 0em 0em 0em;
+  margin-top: 5px;
 }
 
 .get-started {
@@ -427,6 +428,14 @@ background-repeat: no-repeat;
 }
 #manage-tasks input{
   width: 200px;
+}
+
+h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-family: "Proxima-Nova";
+
+  line-height:40px;
 }
 
 h1 {

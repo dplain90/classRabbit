@@ -64,12 +64,24 @@ header {
   margin-right: 60px;
 }
 
+.main-container{
+  margin-top: 20px;
+}
+
 .main {
   display: flex;
   flex-direction: inherit;
   border: 1px solid black;
   width: 66%;
 }
+
+h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height:40px;
+}
+
 
 .main-top {
   width: 66%;
@@ -84,8 +96,11 @@ header {
   flex-direction: inherit;
 }
 
+
+
+
 .welcome {
-  display: inherit;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
 }

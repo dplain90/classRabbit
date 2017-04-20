@@ -40,8 +40,8 @@ class Dashboard extends React.Component {
           <section className="search">
 
             <div className="welcome">
-              Welcome, {this.props.user.fname}!
-                <img src={this.props.user.img_url} className="prof-pic" />
+              <img src={this.props.user.img_url} className="prof-pic" />
+              <h2> Welcome, {this.props.user.fname}! </h2>
             </div>
 
             <div className="search-bar">
@@ -70,7 +70,7 @@ class Dashboard extends React.Component {
         <div className="main-bottom">
           <section className="can-we-help">
             <div className="can-we-help heading">
-              How We Can Help:
+              <h2>How We Can Help:</h2>
             </div>
             <div className="can-we-help">
               <ul className="can-we-help list">
