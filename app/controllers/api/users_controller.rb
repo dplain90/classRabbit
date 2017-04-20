@@ -2,7 +2,6 @@ class Api::UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-    @user.phone_number = "thisistemoraryfiller"
     @user.locality = "Thisistemporaryfiller"
 		if @user.save
 			log_in!(@user)
