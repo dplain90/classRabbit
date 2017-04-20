@@ -6,10 +6,16 @@ class Nav extends React.Component {
     super(props);
     this.handleLogOut = this.handleLogOut.bind(this);
     this.sessionLinks = this.sessionLinks.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleLogOut(){
     this.props.logout().then(this.props.router.push('/'));
+  }
+
+  handleDemo(){
+    
+
   }
 
   sessionLinks(){
