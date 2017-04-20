@@ -30,3 +30,23 @@ User.create!(
   locality: 'New York City',
   zip_code: '10031'
 );
+
+picture_print = File.open('app/assets/images/cleaning.jpg')
+picture_chairs = File.open('app/assets/images/chairs.jpg')
+picture_couch = File.open('app/assets/images/couch-w-pillow.jpg')
+picture_home = File.open('app/assets/images/home_improvements.jpg')
+picture_bed = File.open('app/assets/images/bed.jpg')
+picture_tv = File.open('app/assets/images/tv.jpg')
+
+
+Category.create!(title: 'Printing', description: 'Printing, organizing, stapling galore', image: picture_print)
+
+Category.create!(title: 'Chairs', description: 'Stack the chairs', image: picture_chairs)
+
+Category.create!(title: 'Couch', description: 'Sit on the couch', image: picture_couch)
+
+Category.create!(title: 'Home', description: 'Go home and do stuff', image: picture_home)
+
+Category.create!(title: 'Bed', description: 'Sleep in the bed', image: picture_bed)
+
+Category.create!(title: 'TV', description: 'Cool tv bro', image: picture_tv)
