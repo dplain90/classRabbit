@@ -52,8 +52,9 @@ class sessionForm extends React.Component {
   }
 
   userInput(type, title, key, state, clname){
+
     return (
-      <label className={`auth-label${ clname}`}>{title}
+      <label className="auth-label">{title}
         <input type={type} value={state} onChange={this.update(key)} />
         <span className="error"> {this.props.errors[key]}</span>
       </label>
