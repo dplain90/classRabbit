@@ -17,6 +17,7 @@ a:hover {
   margin-top: 24px;
   max-width: 50%;
 }
+
 #root > div {
   width: inherit;
   height: inherit;
