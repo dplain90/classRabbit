@@ -57,6 +57,17 @@ header {
   margin-right: 60px;
 }
 
+.auth-input.err{
+  color: #da9e07;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 0.5px #da9e07;
+  border: -11.5px solid #da9e07;
+}
+
+.error {
+  color: #da9e07;
+  font-size: 12px;
+}
 
 input[type=text], input[type=password], input[type=email], input[type=search], input[type=url], input[type=submit], input[type=number], textarea {
     outline: none

@@ -52,10 +52,10 @@ class sessionForm extends React.Component {
   }
 
   userInput(type, title, key, state, clname){
-
+    const err = this.props.errors[key] ? " err" : "";
     return (
       <label className="auth-label">{title}
-        <input type={type} value={state} onChange={this.update(key)} />
+        <input className={`auth-input${err}`} type={type} value={state} onChange={this.update(key)} />
         <span className="error"> {this.props.errors[key]}</span>
       </label>
     );
