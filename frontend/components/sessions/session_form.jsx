@@ -70,7 +70,6 @@ class sessionForm extends React.Component {
   }
 
   render(){
-    console.log(this.props.errors);
     const fnameInput = this.userInput("text", "First Name", "fname", this.state.fname, "name-label");
 
     const lnameInput = this.userInput("text", "Last Name", "lname", this.state.lname, "name-label");
@@ -84,6 +83,8 @@ class sessionForm extends React.Component {
     return (
       <div className="auth-container">
         <div className="auth-main">
+          <img className="auth-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
+
           <form onSubmit={this.handleSubmit} className="auth-form">
             { this.ifSignUp(fnameInput, "") }
             { this.ifSignUp(lnameInput, "") }

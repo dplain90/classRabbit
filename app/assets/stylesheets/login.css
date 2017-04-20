@@ -8,6 +8,15 @@ a:hover {
   cursor: pointer;
 }
 
+.nav-logo {
+  width: 160px;
+  height: 36px;
+}
+
+.auth-logo{
+  margin-top: 24px;
+  max-width: 50%;
+}
 #root > div {
   width: inherit;
   height: inherit;
@@ -46,7 +55,7 @@ header {
 }
 
 .nav-links {
-  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
+  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
   font-style: none;
   font-size: 16px;
   text-decoration: none;
@@ -93,7 +102,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, inp
 
 
 .auth-label {
-  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
+  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -133,7 +142,7 @@ button {
   padding: 0.5em 1.38em 0.5em 1.38em;
   text-align: center;
   line-height: 1.4;
-  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
+  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
   margin-top: 20px;
   margin-bottom: 10px;
   font-weight: 300;
@@ -187,7 +196,7 @@ input {
 }
 
 a {
-  font-family: "Proxima-Nova", Arial, Helvetica, sans-serif;
+  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
   color: rgb(81, 175, 51);
   font-size: 16px;
   text-decoration-line: none;
