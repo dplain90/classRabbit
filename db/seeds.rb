@@ -19,3 +19,14 @@ User.destroy_all
     zip_code: Faker::Address.zip_code
   )
 end
+
+User.create!(
+  fname: 'Guest',
+  lname: 'Account',
+  password: 'starwars',
+  email: 'guest@classrabbit.com',
+  tasker: false,
+  phone_number: '8453921200',
+  locality: 'New York City',
+  zip_code: '10031'
+);

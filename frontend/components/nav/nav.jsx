@@ -14,8 +14,14 @@ class Nav extends React.Component {
   }
 
   handleDemo(){
-    
+    const guestUser = {
+      user: {
+        email: 'guest@classrabbit.com',
+        password: 'starwars'
+      }
+    };
 
+    this.props.login(guestUser);
   }
 
   sessionLinks(){
@@ -30,7 +36,7 @@ class Nav extends React.Component {
         <div className="top-nav links-container">
           <Link to="/login" className="nav-links">Log In</Link>
           <Link to="/signup" className="nav-links">Sign Up</Link>
-          <Link to="/demo" className="nav-links last">Demo</Link>
+          <a onClick={this.handleDemo} className="nav-links last">Demo</a>
         </div>
       );
     }
