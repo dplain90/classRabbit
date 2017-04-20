@@ -22,3 +22,10 @@ export const signup = (user) => {
     data: user
   });
 };
+
+export const categories = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/categories'
+  });
+};
