@@ -260,6 +260,7 @@ background-repeat: no-repeat;
 .main section {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .welcome {
@@ -269,7 +270,7 @@ background-repeat: no-repeat;
 }
 
 .welcome img {
-  margin: 0px 20px 0px 20px;
+  margin: 0px 20px 0px 0px;
 }
 
 .search-bar.input {
@@ -288,7 +289,7 @@ background-repeat: no-repeat;
   text-shadow: none;
   display: inline-block;
   text-align: start;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .get-started {
@@ -309,12 +310,7 @@ background-repeat: no-repeat;
   justify-content: space-between;
   flex-wrap: wrap;
   flex: auto;
-}
-
-.can-we-help.list li {
-  border: 1px solid black;
-  width:30%;
-  height: 400px;
+  padding-top: 10px;
 }
 
 .can-we-help.list li{
@@ -322,14 +318,17 @@ background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width:30%;
+  height: 400px;
+  margin-top: 10px;
 }
 
 .category.title {
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   font-size: 1.75rem;
-  margin-left: 1em;
-  margin-top: 1.6em
+  margin-left: 11px;
+  margin-top: -1.4em;
 }
 
 .category.link:hover {
@@ -351,9 +350,9 @@ background-repeat: no-repeat;
   font-size: inherit;
   float: left;
   padding: 0px;
-  transition: inherit;
-  color: inherit;
-  background: inherit;
+  color: #242a30;
+  width: 85px;
+  background: transparent;
 }
 
 #manage-tasks {
