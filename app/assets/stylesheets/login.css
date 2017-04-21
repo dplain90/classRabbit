@@ -63,6 +63,26 @@ a:hover {
   height: 100%;
 }
 
+.search-container {
+  position: relative;
+}
+
+.search-results-container {
+  display: flex;
+  position: relative;
+  z-index: 500;
+  flex-direction: column;
+  width: 100%;
+}
+
+.search-result {
+  height: 75px;
+  position: relative;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 header {
   background-color: #ffffff;
   height: 60px;
@@ -319,6 +339,13 @@ background-repeat: no-repeat;
   color: rgb(135, 140, 146);
 }
 
+.search-cat {
+  border-radius: 50%;
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 60px;
+  width: auto;
+}
 
 #search-bar i {
   background-color: white;

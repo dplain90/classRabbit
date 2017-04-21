@@ -7,7 +7,7 @@ class Search extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.filterResults = this.filterResults.bind(this);
     this.state = {
-      value: " ",
+      value: "",
       results: {},
       active: "hidden"
     };
@@ -25,33 +25,37 @@ class Search extends React.Component {
   }
   // eventually build with a callback...
   filterResults(val){
-
     let filteredResults = [];
+    const keys = Object.keys(this.state.results);
+    const results = this.state.results;
 
-    const lastChar = val.slice(-1);
-    const lastCharIdx = val.length - 1;
     if(this.state.results === {}){
       return [];
-    } else {
-
-    const keys = Object.keys(this.state.results);
-
-    keys.forEach( (key) => {
-      if(this.state.results[key][lastCharIdx] === lastChar || lastChar === " ") {
-        filteredResults.push(this.state.results[key]);
-      }
-    });
-    return filteredResults;
+    } else if( val === "") {
+      keys.forEach( (key) => {
+        filteredResults.push(results[key]);
+      });
+      return filteredResults;
+    }
+    else {
+      let lastChar = val.slice(-1).toLowerCase();
+      const lastCharIdx = val.length - 1;
+      keys.forEach( (key) => {
+        let resultChar = results[key].title[lastCharIdx].toLowerCase();
+        if(resultChar === lastChar || lastChar === "") {
+          filteredResults.push(results[key]);
+        }
+      });
+      return filteredResults;
+    }
   }
-  }
+
 
   handleSearch(){
     return (e) => {
-      console.log(e);
       const results = this.filterResults(e.currentTarget.value);
       this.setState({
         value: e.currentTarget.value,
-        results: results,
         active: ""
       });
     };
@@ -62,22 +66,25 @@ class Search extends React.Component {
     console.log(this.state);
     console.log(this.state.results);
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
+      console.log(category.title);
       return (
-        <div key={`search-result-${id}`} className={`search-result-${id} ${this.state.active}`}>
+        <div key={`search-result-${id}`} className={`search-result category ${this.state.active}`}>
           <img src={category.img_url_search} className="search-cat" />
           {category.title}
         </div>
       );
     });
 
-    console.log(resultDivs);
-
     return (
-      <div id="search-bar">
-          <i className="icon-search" />
-          <input type="text" className="search-bar input" value={this.state.value} onChange={this.handleSearch}/>
-          <i className="icon-cancel-circle" />
-        { resultDivs }
+      <div className="search-container">
+        <div id="search-bar">
+            <i className="icon-search" />
+            <input type="text" className="search-bar input" value={this.state.value} onChange={this.handleSearch()}/>
+            <i className="icon-cancel-circle" />
+        </div>
+        <div className="search-results-container">
+          { resultDivs }
+        </div>
       </div>
     );
   }
