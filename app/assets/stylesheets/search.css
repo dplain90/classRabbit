@@ -25,6 +25,11 @@
   position: relative;
 }
 
+
+.search-result.category.hidden {
+  display: none;
+}
+
 .search-results-container {
   display: flex;
   position: relative;

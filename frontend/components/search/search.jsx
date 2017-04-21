@@ -64,7 +64,7 @@ class Search extends React.Component {
 
   render(){
     console.log(this.state);
-    console.log(this.state.results);
+    console.log(this.state.active);
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
       console.log(category.title);
       return (
