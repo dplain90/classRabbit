@@ -73,6 +73,8 @@ a:hover {
   z-index: 500;
   flex-direction: column;
   width: 100%;
+  border: 0.25px solid #dce0e6;
+  /*box-shadow */
 }
 
 .search-result {
@@ -82,7 +84,14 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: rgb(81, 175, 51);
 }
+
+.search-result:hover {
+  background-color: rgba(245, 245, 245, 0.98);
+  cursor: pointer;
+}
+
 header {
   background-color: #ffffff;
   height: 60px;

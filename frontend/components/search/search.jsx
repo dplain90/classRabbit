@@ -20,10 +20,10 @@ class Search extends React.Component {
     }
   }
 
-
   componentDidMount(){
   }
   // eventually build with a callback...
+  // need to fix to iterate through full word 
   filterResults(val){
     let filteredResults = [];
     const keys = Object.keys(this.state.results);
