@@ -28,19 +28,20 @@ class RequestedTask extends React.Component {
 
   render(){
     const { task } = this.props;
-
+    const taskDate = new Date(task.date);
     return (
       <div className="requested-task">
         <div className="task-header">
           <h3> { task.title }</h3>
           <div className="task-tasker">
-            <img src={ task.tasker_img_url} />
+            <img src={ task.tasker_img_url} className="prof-pic"/>
           </div>
         </div>
 
         <div className="task-date-info">
           <div className="task-date month-day">
-            { task.date }
+            <h4> { taskDate.getDate() } </h4>
+            <p> { dateAbrev[taskDate.getMonth()] } </p>
           </div>
 
           <div className="task-date time">
