@@ -8,15 +8,26 @@ class RequestedTask extends React.Component {
     this.toggleDetails = this.toggleDetails.bind(this);
     this.showDetails = this.showDetails.bind(this);
     this.state = {
-      details: false
+      details: false,
+      chevron: "icon-chevron-down"
     };
   }
 
   toggleDetails(e){
-    let newDetailState = this.state.details ? false : true;
-    this.setState({
-      details: newDetailState
-    });
+    let newDetailState;
+
+    if(this.state.details) {
+      newDetailState = {
+        details: false,
+        chevron: "icon-chevron-down" };
+      } else {
+        newDetailState = {
+          details: true,
+          chevron: "icon-chevron-up"
+        };
+      }
+
+    this.setState(newDetailState);
   }
 
   showDetails(){
@@ -48,10 +59,12 @@ class RequestedTask extends React.Component {
             { task.time }
           </div>
         </div>
-        <div className="task-details-container">
-          <a onClick={this.toggleDetails}> Details </a>
-        </div>
         { this.showDetails() }
+        <div className="task-details-container">
+
+          <a onClick={this.toggleDetails}> Details <i className={this.state.chevron} /> </a>
+        </div>
+
       </div>
     );
   }

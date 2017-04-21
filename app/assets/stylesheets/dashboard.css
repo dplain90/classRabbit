@@ -18,6 +18,28 @@
   margin-top: 18px;
 }
 
+
+.icon-heart-o:before {
+  content: "\e900";
+}
+.icon-chevron-down:before {
+  content: "\e901";
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.icon-chevron-up:before {
+  content: "\e902";
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+}
+.icon-location2:before {
+  content: "\e948";
+}
+
+
 .task-header {
   border-bottom: inherit;
   border-radius: inherit;
@@ -67,6 +89,17 @@
   font-size: 14px;
 }
 
+.task-date.time {
+  margin-left: 15px;
+}
+
+.task-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 1px solid rgb(220, 224, 230);
+
+}
 
 
 .welcome img {
