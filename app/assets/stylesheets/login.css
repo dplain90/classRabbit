@@ -276,6 +276,10 @@ background-repeat: no-repeat;
   width: 66%;
 }
 
+.hidden {
+  display: none;
+}
+
 .main-bottom {
   margin-top: 20px;
   width: 100%;

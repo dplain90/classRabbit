@@ -6,7 +6,7 @@ import { asArray } from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.session.currentUser,
-    categories: asArray(state.categories)
+    categories: state.categories
   };
 };
 

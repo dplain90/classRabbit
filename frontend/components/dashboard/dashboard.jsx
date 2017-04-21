@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import SearchContainer from '../search/search_container';
+import { asArray } from '../../reducers/selectors';
 
 class Dashboard extends React.Component {
   constructor(props){
     super(props);
     this.favoriteCategories = this.favoriteCategories.bind(this);
-
   }
 
   componentDidMount(){
@@ -14,7 +15,7 @@ class Dashboard extends React.Component {
 
   favoriteCategories(){
     let style;
-    return this.props.categories.map((category, idx) => {
+    return asArray(this.props.categories).map((category, idx) => {
      style = {
         backgroundImage: `url(${category.img_url_fav_cat})`
       };
@@ -33,7 +34,6 @@ class Dashboard extends React.Component {
 
 
   render(){
-
     return (
       <div className="main">
         <div className="main-top">
@@ -43,12 +43,7 @@ class Dashboard extends React.Component {
               <img src={this.props.user.img_url} className="prof-pic" />
               <h2> Welcome, {this.props.user.fname}! </h2>
             </div>
-
-            <div id="search-bar">
-                <i className="icon-search" />
-                <input type="text" className="search-bar input" placeholder="What do you need help with?"/>
-                <i className="icon-cancel-circle" />
-            </div>
+            <SearchContainer categories={this.props.categories} />
           </section>
           <section className="get-started">
 
