@@ -1,0 +1,81 @@
+
+footer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: #67727e;
+  height: 352px;
+
+}
+
+footer a, footer p {
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  height: 30px;
+  line-height: 30px;
+  list-style-position: outside;
+}
+
+.download-app.desc {
+  color: white;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-nav > div {
+  width: 33%;
+}
+
+.social-media img {
+  height: 24px;
+  width: 24px;
+}
+
+.social-media {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.social-media a {
+  padding: 0px 8px 0px 8px;
+}
+
+.download-app {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+.download-app img {
+  height: 45px;
+  width: auto;
+}
+
+.app-store-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 5px;
+}
+
+footer span {
+  color: #b1b9c3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  height: auto;
+  line-height: 30px;
+}
+
+footer > section {
+  width: 65%;
+}

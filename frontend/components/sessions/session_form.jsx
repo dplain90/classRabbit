@@ -89,22 +89,24 @@ class sessionForm extends React.Component {
     const passwordInput = this.userInput("password", "Password", "password", this.state.password);
 
     return (
-      <div className="auth-container">
-        <div className="auth-main">
-          <img className="auth-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
+      <div className="auth-background">
+        <div className="auth-container">
+          <div className="auth-main">
+            <img className="auth-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
 
-          <form onSubmit={this.handleSubmit} className="auth-form">
-            { this.ifSignUp(fnameInput, "") }
-            { this.ifSignUp(lnameInput, "") }
-            { emailAddressInput }
-            { passwordInput }
-            { this.ifSignUp(zipCodeInput, "") }
-            <button type="submit">{this.ifSignUp("Sign Up", "Log In")}</button>
-          </form>
-          <div className="login-footer">
-            <Link to={this.ifSignUp('/login', '/signup')}>
-              {this.ifSignUp('Log In', 'Sign Up')}
-            </Link>
+            <form onSubmit={this.handleSubmit} className="auth-form">
+              { this.ifSignUp(fnameInput, "") }
+              { this.ifSignUp(lnameInput, "") }
+              { emailAddressInput }
+              { passwordInput }
+              { this.ifSignUp(zipCodeInput, "") }
+              <button type="submit">{this.ifSignUp("Sign Up", "Log In")}</button>
+            </form>
+            <div className="login-footer">
+              <Link to={this.ifSignUp('/login', '/signup')}>
+                {this.ifSignUp('Log In', 'Sign Up')}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

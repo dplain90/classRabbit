@@ -1,0 +1,114 @@
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e986";
+}
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-results-container {
+  display: flex;
+  position: relative;
+  z-index: 500;
+  flex-direction: column;
+  width: 100%;
+  border: 0.25px solid #dce0e6;
+  /*box-shadow */
+}
+
+.search-result {
+  height: 75px;
+  position: relative;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgb(81, 175, 51);
+}
+
+.search-result:hover {
+  background-color: rgba(245, 245, 245, 0.98);
+  cursor: pointer;
+}
+
+
+#search-bar {
+  margin-top: 15px;
+  height: auto;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #dce0e6;
+  border-radius: 4px;
+}
+
+.icon-search {
+  color: rgb(81, 175, 51);
+}
+.icon-cancel-circle {
+  color: rgb(135, 140, 146);
+}
+
+.search-cat {
+  border-radius: 50%;
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 60px;
+  width: auto;
+}
+
+#search-bar i {
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#search-bar input[type=text]:focus,
+.search-bar.input {
+  flex: 1;
+  padding-right: 0px;
+  padding-left: 0px;
+  height: 20px;
+  font-size: 1em;
+  padding-left: 2.5em;
+  z-index: 50;
+  border: 0px;
+  vertical-align: middle;
+  border-radius: 0px;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  margin-top: 0px;
+  line-height: 24px;
+  -webkit-appearance: textfield;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  user-select: text;
+  cursor: auto;
+  width: 80%;
+}

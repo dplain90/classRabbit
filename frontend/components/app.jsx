@@ -9,8 +9,8 @@ const App = ({ children }) => (
     <NavContainer />
     <div className="main-container">
       {children}
+      <BottomNav />
     </div>
-    <BottomNav />
   </div>
 );
 

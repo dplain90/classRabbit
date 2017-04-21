@@ -1,40 +1,3 @@
-body, div, li, ul, nav, span, header, section, footer, button, p, h1, h2, h3, h4, h5, h6, a{
-  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-search:before {
-  content: "\e986";
-}
-.icon-cancel-circle:before {
-  content: "\ea0d";
-}
-
-
-a:hover {
-  cursor: pointer;
-}
-
-.prof-pic {
-  border-radius: 50%;
-}
 
 .nav-logo {
   width: 160px;
@@ -46,83 +9,27 @@ a:hover {
   max-width: 50%;
 }
 
-#root > div {
-  width: inherit;
-  height: inherit;
+.auth-background{
+  background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 950px;
+  position: relative;
 }
+
 
 .auth-container{
   width: 100%;
   height: 100%;
   position: absolute;
   left: 40%;
+
 }
 
-#root {
-  width: 100%;
-  height: 100%;
-}
 
-.search-container {
-  position: relative;
-}
 
-.search-results-container {
-  display: flex;
-  position: relative;
-  z-index: 500;
-  flex-direction: column;
-  width: 100%;
-  border: 0.25px solid #dce0e6;
-  /*box-shadow */
-}
 
-.search-result {
-  height: 75px;
-  position: relative;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: rgb(81, 175, 51);
-}
-
-.search-result:hover {
-  background-color: rgba(245, 245, 245, 0.98);
-  cursor: pointer;
-}
-
-header {
-  background-color: #ffffff;
-  height: 60px;
-  border-bottom: 1px solid #dce0e6;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-}
-
-.top-nav.logo {
-  margin-left: 10px;
-}
-
-.top-nav.links-container {
-  margin-left: auto;
-  display: flex;
-  justify-content: space-around;
-}
-
-.nav-links {
-  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
-  font-style: none;
-  font-size: 16px;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: 200;
-}
-.nav-links.last {
-  margin-right: 60px;
-}
 
 .auth-input.err{
   color: #da9e07;
@@ -136,28 +43,11 @@ header {
   font-size: 12px;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=search], input[type=url], input[type=submit], input[type=number], textarea {
-    outline: none
-}
-
- input[type=text], input[type=password], input[type=email], input[type=search], input[type=url], input[type=number], textarea, select {
-    font-weight: normal;
-    border: 1px solid #b1b9c3;
-    font-size: 1em;
-    border-radius: 4px;
-    -webkit-transition-property: border-color, color, box-shadow;
-    transition-property: border-color, color, box-shadow;
-    -webkit-transition-duration: 0.15s;
-    transition-duration: 0.15s;
-    max-width: 100%
-}
-
 .auth-main input[type=text]:focus, .auth-main input[type=password]:focus, .auth-main input[type=email]:focus, .auth-main input[type=search]:focus, .auth-main input[type=url]:focus, .auth-main input[type=number]:focus, textarea:focus {
     color: #242a30;
     border-color: transparent;
     box-shadow: inset 0 0 0 1px #51af33
 }
-
 
 .auth-label {
   font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
@@ -173,6 +63,7 @@ input[type=text], input[type=password], input[type=email], input[type=search], i
 .name-label {
   margin-top: 18px;
 }
+
 .name-fields {
   display:flex;
   flex-direction: column;
@@ -225,12 +116,6 @@ input {
   display: flex;
   justify-content: flex-end;
 }
-
-.input:focus {
-    outline: none !important;
-    border:1px solid red;
-
-}
 /*377*/
 .auth-main {
   min-height: 377px;
@@ -253,44 +138,6 @@ input {
   margin-bottom: 35px;
 }
 
-a {
-  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
-  color: rgb(81, 175, 51);
-  font-size: 16px;
-  text-decoration-line: none;
-}
-
-button:hover {
-  color: white;
-  border: 1px solid #438e29;
-  background-color: #438e29;
-  transition-timing-function: ease;
-  transition-duration: 0.16s;
-  cursor: pointer;
-}
-
-body {
-width: 100%;
-height: 100%;
-background-image: url("https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg");
-background-size: cover;
-background-repeat: no-repeat;
-}
-
-.app-container {
-  width: 100%;
-  height: 100%;
-
-}
-
-
-.main-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: #f9fafd;
-}
-
 
 .main {
   margin-top: 20px;
@@ -305,10 +152,6 @@ background-repeat: no-repeat;
   width: 66%;
 }
 
-.hidden {
-  display: none;
-}
-
 .main-bottom {
   margin-top: 20px;
   width: 100%;
@@ -318,321 +161,4 @@ background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-}
-
-.welcome {
-  display: inherit;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.welcome img {
-  margin: 0px 20px 0px 0px;
-}
-
-#search-bar {
-  margin-top: 15px;
-  height: auto;
-  width:100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 1px solid #dce0e6;
-  border-radius: 4px;
-}
-
-.icon-search {
-  color: rgb(81, 175, 51);
-}
-.icon-cancel-circle {
-  color: rgb(135, 140, 146);
-}
-
-.search-cat {
-  border-radius: 50%;
-  margin-left: 25px;
-  margin-right: 25px;
-  height: 60px;
-  width: auto;
-}
-
-#search-bar i {
-  background-color: white;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#search-bar input[type=text]:focus,
-.search-bar.input {
-  flex: 1;
-  padding-right: 0px;
-  padding-left: 0px;
-  height: 20px;
-  font-size: 1em;
-  padding-left: 2.5em;
-  z-index: 50;
-  border: 0px;
-  vertical-align: middle;
-  border-radius: 0px;
-  text-rendering: auto;
-  color: initial;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  text-align: start;
-  margin-top: 0px;
-  line-height: 24px;
-  -webkit-appearance: textfield;
-  background-color: white;
-  -webkit-rtl-ordering: logical;
-  user-select: text;
-  cursor: auto;
-  width: 80%;
-}
-
-.get-started {
-  display: inherit;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.get-started.number-container {
-  margin-top: 27px;
-  margin-right: 10px;
-}
-
-
-
-.can-we-help.list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex: auto;
-  padding-top: 10px;
-}
-
-.can-we-help.list li{
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 32%;
-  height: 400px;
-  margin-top: 10px;
-  padding-bottom: 47px;
-  padding-top: 57px;
-  padding: 57px, 0px, 47px, 0px;
-}
-
-.category.title {
-  margin-left: 31px;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  font-size: 1.75rem;
-  /*margin-left: 11px;
-  margin-top: -1.4em;*/
-}
-
-.category.link:hover {
-    background: white;
-    color: #51af33;
-}
-
-.category.link a:hover {
-    background: inherit;
-    color: inherit;
-}
-
-.category.link {
-  font-size: 1.125rem;
-  float: left;
-  padding: 10.8px 25.2px;
-  transition: all .3s ease-in-out;
-  color: #242a30;
-  width: 85px;
-  background: rgba(255,255,255,0.75);
-}
-
-.category.link a {
-  font-family: "Proxima-Nova";
-  font-size: inherit;
-  float: left;
-  padding: 0px;
-  color: #242a30;
-  width: 85px;
-  background: transparent;
-}
-
-#manage-tasks {
-  height: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border: 1px solid #dce0e6;
-  border-radius: 4px;
-
-}
-
-#manage-tasks > div {
-  width: 100%;
-  height: inherit;
-  position: relative;
-  overflow: hidden;
-}
-
-#manage-tasks button {
-  padding-top: 0.625em;
-  padding-bottom: 0.625em;
-  font-size: 1rem;
-  width: 118px;
-  margin: 0px 0px 0px 16px;
-
-}
-#manage-tasks div {
-  flex-direction: column;
-  align-items: center;
-}
-
-#manage-tasks .manage-task-background{
-  height: inherit;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  overflow: hidden;
-  background-size: cover;
-}
-
-#manage-tasks h3 {
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 40px;
-  position: relative;
-  z-index: 200;
-}
-
-.manage-task-background * {
-  position: relative;
-  z-index: 200;
-}
-
-
-.manage-task-background{
-    display: flex;
-    justify-content: center;
-    background-image: url("modal-background.jpg");
-    position: absolute;
-    opacity: 0.65;
-    width: 100%;
-    height: auto;
-}
-
-#manage-tasks .manage-tasks.send-text-form{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-
-}
-#manage-tasks input{
-  width: 200px;
-}
-
-h2 {
-  font-size: 32px;
-  font-style: normal;
-  font-family: "Proxima-Nova";
-
-  line-height:40px;
-}
-
-h1 {
-    font-size: 2rem;
-    line-height: 1.25
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600
-}
-
-
-footer {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  background-color: #67727e;
-  height: 352px;
-}
-
-footer a, footer p {
-  display: block;
-  color: white;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: normal;
-  height: 30px;
-  line-height: 30px;
-  list-style-position: outside;
-}
-
-.download-app.desc {
-  color: white;
-}
-
-.bottom-nav {
-  display: flex;
-  justify-content: center;
-}
-
-.bottom-nav > div {
-  width: 33%;
-}
-
-.social-media img {
-  height: 24px;
-  width: 24px;
-}
-
-.social-media {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-.social-media a {
-  padding: 0px 8px 0px 8px;
-}
-
-.download-app {
-  display: flex;
-  flex-direction: column;
-  align-items: space-around;
-}
-
-.download-app img {
-  height: 45px;
-  width: auto;
-}
-
-.app-store-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-  margin-top: 5px;
-}
-
-footer span {
-  color: #b1b9c3;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 300;
-  height: auto;
-  line-height: 30px;
-}
-
-footer > section {
-  width: 65%;
 }
