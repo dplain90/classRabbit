@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import TaskDetails from './task_details';
-
+import SmoothCollapse from 'react-smooth-collapse';
 class RequestedTask extends React.Component {
   constructor(props){
     super(props);
@@ -59,9 +59,10 @@ class RequestedTask extends React.Component {
             { task.time }
           </div>
         </div>
-        { this.showDetails() }
+        <SmoothCollapse expanded={this.state.details}>
+          { this.showDetails() }
+        </SmoothCollapse>
         <div className="task-details-container">
-
           <a onClick={this.toggleDetails}> Details <i className={this.state.chevron} /> </a>
         </div>
 
