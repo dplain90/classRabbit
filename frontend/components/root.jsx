@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import SessionFormContainer from '../components/sessions/session_form_container';
 import DashboardContainer from '../components/dashboard/dashboard_container';
+import SplashPage from '../components/splashPage/splash_page';
 import stage1Container from '../components/newTask/stage1_container';
 import stage2Container from '../components/newTask/stage2_container';
 import stage3Container from '../components/newTask/stage3_container';
@@ -30,6 +31,7 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <IndexRoute component={SplashPage} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
