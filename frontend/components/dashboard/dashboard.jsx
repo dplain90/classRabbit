@@ -44,10 +44,10 @@ class Dashboard extends React.Component {
               <h2> Welcome, {this.props.user.fname}! </h2>
             </div>
 
-            <div className="search-bar">
-              <i className="mag-glass"></i>
-              <input type="text" className="search-bar input" placeholder="What do you need help with?"/>
-              <i className="cancel"></i>
+            <div id="search-bar">
+                <i className="icon-search" />
+                <input type="text" className="search-bar input" placeholder="What do you need help with?"/>
+                <i className="icon-cancel-circle" />
             </div>
           </section>
           <section className="get-started">
