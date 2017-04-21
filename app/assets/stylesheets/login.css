@@ -1,4 +1,5 @@
 body, div, li, ul, nav, span, header, section, footer, button, p, h1, h2, h3, h4, h5, h6, a{
+  font-family: "Proxima-Nova-Light", Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -276,10 +277,14 @@ background-repeat: no-repeat;
 .search-bar.input {
   padding-right: 0px;
   padding-left: 0px;
-  height: 30px;
+  height: 20px;
+  font-size: 1em;
+  padding-left: 2.5em;
   z-index: 50;
   border: 1px solid #dce0e6;
   width: 100%;
+  vertical-align: middle;
+  border-radius: 4px;
   text-rendering: auto;
   color: initial;
   letter-spacing: normal;
@@ -290,6 +295,13 @@ background-repeat: no-repeat;
   display: inline-block;
   text-align: start;
   margin-top: 8px;
+  line-height: 24px;
+  -webkit-appearance: textfield;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  user-select: text;
+  cursor: auto;
+
 }
 
 .get-started {
@@ -456,8 +468,83 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600
 }
 
+
 footer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   background-color: #67727e;
-  height: 10%;
+  height: 352px;
+}
+
+footer a, footer p {
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  height: 30px;
+  line-height: 30px;
+  list-style-position: outside;
+}
+
+.download-app.desc {
+  color: white;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-nav > div {
+  width: 33%;
+}
+
+.social-media img {
+  height: 24px;
+  width: 24px;
+}
+
+.social-media {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.social-media a {
+  padding: 0px 8px 0px 8px;
+}
+
+.download-app {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+.download-app img {
+  height: 45px;
+  width: auto;
+}
+
+.app-store-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 5px;
+}
+
+footer span {
+  color: #b1b9c3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  height: auto;
+  line-height: 30px;
+}
+
+footer > section {
+  width: 65%;
 }

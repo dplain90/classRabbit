@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
 
             <div className="search-bar">
               <i className="mag-glass"></i>
-              <input type="text" className="search-bar input" />
+              <input type="text" className="search-bar input" placeholder="What do you need help with?"/>
               <i className="cancel"></i>
             </div>
           </section>

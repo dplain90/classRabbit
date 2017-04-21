@@ -14,13 +14,13 @@ class BottomNav extends React.Component {
             Follow Us! We are friendly:
           </span>
           <a href="#" className="social-media links">
-            <img src="" alt="facebook" />
+            <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/facebook-white-c3a6136eef265690fc96b6d0d4ab06e4.svg" alt="facebook" />
+          </a>
+          <a href="#" className="social-media link twitter">
+            <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/twitter-white-3079b06bb5d6e9db5d69a649abc70a32.svg" alt="twitter" />
           </a>
           <a href="#" className="social-media links">
-            <img src="" alt="twitter" />
-          </a>
-          <a href="#" className="social-media links">
-            <img src="" alt="instagram" />
+            <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/instagram-white-8371c5be5bffe9b46f865c33738d4187.svg" alt="instagram" />
           </a>
         </section>
 
@@ -49,9 +49,14 @@ class BottomNav extends React.Component {
 
           <div className="download-app">
             <span className="footer-title">Download our app</span>
-            <p> Tackle your to-do list wherever you are with our mobile app. </p>
-            <span> <img src="" alt="App Store" /></span>
-            <span> <img src="" alt="Google Play" /></span>
+              <span className="download-app desc">
+                Tackle your to list wherever you are the best damn mobile app the world has ever seen.
+              </span>
+
+            <span className="app-store-buttons">
+              <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/appstore_badge-b38296811f274beb5cf9e8811fd0ea73.svg" alt="App Store" />
+              <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/google_play_badge-f22ef50734324ff62305edcefa657fc0.svg" alt="Google Play" />
+            </span>
           </div>
         </section>
 
