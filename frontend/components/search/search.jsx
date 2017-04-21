@@ -16,7 +16,7 @@ class Search extends React.Component {
   componentWillReceiveProps(newProps){
     console.log(newProps);
     if(this.props.categories !== newProps.categories){
-      this.setState({ results: newProps.categories});
+      this.setState({ results: newProps.categories });
     }
   }
 

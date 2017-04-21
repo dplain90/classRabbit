@@ -12,7 +12,6 @@ export const logout = () => {
     method: 'DELETE',
     url: '/api/session/'
   });
-
 };
 
 export const signup = (user) => {
@@ -27,5 +26,12 @@ export const categories = () => {
   return $.ajax({
     method: 'GET',
     url: '/api/categories'
+  });
+};
+
+export const requestedTasks = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/tasks'
   });
 };

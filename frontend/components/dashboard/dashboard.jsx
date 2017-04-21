@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SearchContainer from '../search/search_container';
 import { asArray } from '../../reducers/selectors';
+import RequestedTasksContainer from './requested_tasks_container';
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -45,9 +46,8 @@ class Dashboard extends React.Component {
             </div>
             <SearchContainer categories={this.props.categories} />
           </section>
-          <section className="get-started">
 
-          </section>
+          <RequestedTasksContainer />
 
           <section id="manage-tasks">
             <div className="manage-task-container">

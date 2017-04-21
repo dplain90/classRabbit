@@ -30,6 +30,18 @@ Category.create!(title: 'Bed', description: 'Sleep in the bed', image: picture_b
 
 Category.create!(title: 'TV', description: 'Cool tv bro', image: picture_tv)
 
+User.create!(
+  fname: 'Guest',
+  lname: 'Account',
+  password: 'starwars',
+  email: 'guest@classrabbit.com',
+  tasker: false,
+  phone_number: '8453921200',
+  locality: 'New York City',
+  zip_code: '10031',
+  avatar: File.open("app/assets/images/profile_pictures/#{profile_pictures.sample}")
+)
+
 15.times do
   User.create!(
     fname: Faker::Name.first_name,
@@ -54,15 +66,3 @@ Category.create!(title: 'TV', description: 'Cool tv bro', image: picture_tv)
     tasker_id: User.last.id
   )
 end
-
-User.create!(
-  fname: 'Guest',
-  lname: 'Account',
-  password: 'starwars',
-  email: 'guest@classrabbit.com',
-  tasker: false,
-  phone_number: '8453921200',
-  locality: 'New York City',
-  zip_code: '10031',
-  avatar: File.open("app/assets/images/profile_pictures/#{profile_pictures.sample}")
-)
