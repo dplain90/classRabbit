@@ -6,7 +6,7 @@ const _initialNewTask = Object.freeze({
 });
 
 
-const tasksReducer = (state = _initialNewTask, action) => {
+const newTaskReducer = (state = _initialNewTask, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEW_TASK:
