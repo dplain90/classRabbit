@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router';
 import SearchContainer from '../search/search_container';
 import { asArray } from '../../reducers/selectors';
 import RequestedTasksContainer from './requested_tasks_container';
+import { getTask, setTask } from '../../util/session_util';
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -17,10 +18,7 @@ class Dashboard extends React.Component {
 
   handleNewTask(category_id) {
     return () => {
-      this.props.receiveNewTask({
-        category_id: category_id,
-        stage: 1
-      });
+      setTask({category_id: category_id, title: this.props.categories[category_id].title, stage: 1});
     };
   }
 
@@ -53,7 +51,7 @@ class Dashboard extends React.Component {
               <img src={this.props.user.img_url} className="prof-pic" />
               <h2> Welcome, {this.props.user.fname}! </h2>
             </div>
-            <SearchContainer categories={this.props.categories} />
+            <SearchContainer data={this.props.categories} handleSelect={this.handleNewTask} />
           </section>
           <section className="current-task-header">
             <p className="current-tasks-link">

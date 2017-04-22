@@ -4,10 +4,10 @@ import { updateSearch } from '../../actions/search_actions';
 import { asArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-
   return {
     searchResults: state.search.results,
-    categories: ownProps.categories
+    data: ownProps.data,
+    handleSelect: ownProps.handleSelect
   };
 };
 

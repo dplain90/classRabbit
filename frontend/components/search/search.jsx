@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router';
 class Search extends React.Component {
   constructor(props){
     super(props);
+    this.handleSelect = this.props.handleSelect.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.filterResults = this.filterResults.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -16,8 +17,8 @@ class Search extends React.Component {
 
   componentWillReceiveProps(newProps){
     console.log(newProps);
-    if(this.props.categories !== newProps.categories){
-      this.setState({ results: newProps.categories });
+    if(this.props.data !== newProps.data){
+      this.setState({ results: newProps.data });
     }
   }
 
@@ -58,7 +59,7 @@ class Search extends React.Component {
   handleCancel(e){
     this.setState({
       value: "",
-      results: this.props.categories,
+      results: this.props.data,
       active: "hidden"
     });
   }
@@ -66,7 +67,7 @@ class Search extends React.Component {
   render(){
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
       return (
-        <Link to={`/dashboard/newTask/${category.id}`} key={`search-result-${id}`}>
+        <Link to={`/dashboard/newTask/${category.id}`} key={`search-result-${id}`} onClick={this.handleSelect(category.id)}>
         <div className={`search-result category ${this.state.active}`}>
           <img src={category.img_url_search} className="search-cat" />
           {category.title}

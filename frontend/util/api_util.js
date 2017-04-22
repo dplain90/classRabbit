@@ -6,7 +6,6 @@ export const login = (user) => {
   });
 };
 
-
 export const logout = () => {
   return $.ajax({
     method: 'DELETE',

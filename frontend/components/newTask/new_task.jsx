@@ -4,11 +4,15 @@ import Stage1 from './stage1.jsx';
 import Stage2 from './stage2.jsx';
 import Stage3 from './stage3.jsx';
 import React from 'react';
+import { fetchCategory } from '../../util/api_util';
+import { getTask, setTask, clearTask } from '../../util/session_util';
+import { Link } from 'react-router';
 
 class newTask extends React.Component {
   constructor(props){
     super(props);
     this.renderStage = this.renderStage.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
 
   renderStage() {
@@ -27,8 +31,13 @@ class newTask extends React.Component {
 
   }
 
+  handleCategoryChange(){
+    clearTask();
+  }
+
   render(){
-    debugger
+    console.log(this.props.category);
+    console.log(this.props.task);
     return (
       <div className="new-task-container">
       <section className="task-step-bar">
@@ -55,8 +64,8 @@ class newTask extends React.Component {
 
       <section className="new-task-form">
         <div className="category-title">
-          <h2> { this.props.category.title }</h2>
-          <a> Change </a>
+          <h2> { this.props.task.title }</h2>
+          <Link to='/dashboard' onClick={this.handleCategoryChange}> Change </Link>
         </div>
 
         <div className="stage-container">
@@ -68,12 +77,10 @@ class newTask extends React.Component {
   }
 }
 
-
-
 const mapStateToProps = (state, ownProps) => {
+  let newTask = getTask();
   return {
-    task: state.task,
-    category: state.categories[ownProps.params.catId]
+    task: newTask
   };
 };
 

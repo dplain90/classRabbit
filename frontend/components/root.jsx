@@ -4,7 +4,7 @@ import SessionFormContainer from '../components/sessions/session_form_container'
 import DashboardContainer from '../components/dashboard/dashboard_container';
 import SplashPage from '../components/splashPage/splash_page';
 import newTaskContainer from '../components/newTask/new_task';
-
+import { getTask, clearTask } from '../util/session_util';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
@@ -23,6 +23,9 @@ const Root = ({ store }) => {
       replace('/dashboard');
     }
   };
+
+
+
 
   return (
     <Provider store={store}>
