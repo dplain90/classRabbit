@@ -19,6 +19,7 @@
 }
 .icon-cancel-circle:before {
   content: "\ea0d";
+  cursor: pointer;
 }
 
 .search-container {

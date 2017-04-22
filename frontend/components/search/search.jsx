@@ -6,13 +6,14 @@ class Search extends React.Component {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
     this.filterResults = this.filterResults.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.state = {
       value: "",
       results: {},
       active: "hidden"
     };
-
   }
+  
   componentWillReceiveProps(newProps){
     console.log(newProps);
     if(this.props.categories !== newProps.categories){
@@ -20,10 +21,6 @@ class Search extends React.Component {
     }
   }
 
-  componentDidMount(){
-  }
-  // eventually build with a callback...
-  // need to fix to iterate through full word
   filterResults(val){
     let filteredResults = [];
     const keys = Object.keys(this.state.results);
@@ -38,18 +35,15 @@ class Search extends React.Component {
       return filteredResults;
     }
     else {
-      let lastChar = val.slice(-1).toLowerCase();
-      const lastCharIdx = val.length - 1;
       keys.forEach( (key) => {
-        let resultChar = results[key].title[lastCharIdx].toLowerCase();
-        if(resultChar === lastChar || lastChar === "") {
+        let resultStr = results[key].title.substring(0, val.length).toLowerCase();
+        if( resultStr === val.toLowerCase()) {
           filteredResults.push(results[key]);
         }
       });
       return filteredResults;
     }
   }
-
 
   handleSearch(){
     return (e) => {
@@ -61,12 +55,16 @@ class Search extends React.Component {
     };
   }
 
+  handleCancel(e){
+    this.setState({
+      value: "",
+      results: this.props.categories,
+      active: "hidden"
+    });
+  }
 
   render(){
-    console.log(this.state);
-    console.log(this.state.active);
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
-      console.log(category.title);
       return (
         <div key={`search-result-${id}`} className={`search-result category ${this.state.active}`}>
           <img src={category.img_url_search} className="search-cat" />
@@ -80,7 +78,7 @@ class Search extends React.Component {
         <div id="search-bar">
             <i className="icon-search" />
             <input type="text" className="search-bar input" value={this.state.value} onChange={this.handleSearch()}/>
-            <i className="icon-cancel-circle" />
+            <i className="icon-cancel-circle" onClick={this.handleCancel} />
         </div>
         <div className="search-results-container">
           { resultDivs }
@@ -88,8 +86,6 @@ class Search extends React.Component {
       </div>
     );
   }
-
 }
-
 
 export default withRouter(Search);
