@@ -8,7 +8,7 @@ footer {
   width: 100%;
   background-color: #67727e;
   height: 352px;
-
+  padding-top: 32px;
 }
 
 footer a, footer p {
@@ -41,10 +41,12 @@ footer a, footer p {
 }
 
 .social-media {
-  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
+  margin-left: 4px;
 }
+
 .social-media a {
   padding: 0px 8px 0px 8px;
 }
@@ -52,7 +54,7 @@ footer a, footer p {
 .download-app {
   display: flex;
   flex-direction: column;
-  align-items: space-around;
+  align-items: space-between;
 }
 
 .download-app img {
@@ -63,7 +65,7 @@ footer a, footer p {
 .app-store-buttons {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
   margin-top: 5px;
 }
 

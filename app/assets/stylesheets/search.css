@@ -32,7 +32,7 @@
 
 .search-results-container {
   display: flex;
-  position: relative;
+  position: absolute;
   z-index: 500;
   flex-direction: column;
   width: 100%;
@@ -65,6 +65,7 @@
   align-items: center;
   border: 1px solid #dce0e6;
   border-radius: 4px;
+  background-color: white;
 }
 
 .icon-search {
