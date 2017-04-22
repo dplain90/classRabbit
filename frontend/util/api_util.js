@@ -35,3 +35,11 @@ export const requestedTasks = () => {
     url: '/api/tasks'
   });
 };
+
+export const createTask = (task) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/tasks',
+    data: task
+  });
+};

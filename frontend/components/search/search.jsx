@@ -13,7 +13,7 @@ class Search extends React.Component {
       active: "hidden"
     };
   }
-  
+
   componentWillReceiveProps(newProps){
     console.log(newProps);
     if(this.props.categories !== newProps.categories){
@@ -66,10 +66,12 @@ class Search extends React.Component {
   render(){
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
       return (
+        <Link to={`/dashboard/newTask/${category.id}`}>
         <div key={`search-result-${id}`} className={`search-result category ${this.state.active}`}>
           <img src={category.img_url_search} className="search-cat" />
           {category.title}
         </div>
+        </Link>
       );
     });
 

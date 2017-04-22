@@ -1,4 +1,4 @@
-import { RECEIVE_TASKS } from '../actions/task_actions';
+import { RECEIVE_TASK, RECEIVE_TASKS } from '../actions/task_actions';
 import merge from 'lodash/merge';
 
 const tasksReducer = (state = {}, action) => {
@@ -6,6 +6,9 @@ const tasksReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_TASKS:
       return action.tasks;
+    case RECEIVE_TASK:
+      const newTaskState = Object.merge({}, state, action.task);
+      return newTaskState;
     default:
       return state;
   }

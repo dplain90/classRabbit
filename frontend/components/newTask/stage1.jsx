@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-class SplashPage extends React.Component {
+
+class Stage1 extends React.Component {
   constructor(props){
     super(props);
-
   }
+
+
   render(){
     return (
-      <div>
+      <div className="stage1-container">
       </div>
     );
   }
 
 }
 
-
-export default withRouter(SplashPage);
+export default withRouter(Stage1);

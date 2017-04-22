@@ -1,5 +1,6 @@
 @categories.each do |category|
   json.set! category.id do
+    json.id category.id
     json.title category.title
     json.description category.description
     json.img_url_search asset_path(category.image.url(:thumb))

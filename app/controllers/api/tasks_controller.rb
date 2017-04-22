@@ -6,8 +6,12 @@ class Api::TasksController < ApplicationController
   end
 
   def create
-
-
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to 'api/tasks/index'
+    else
+      render json: @task.errors.messages, status: 422
+    end
   end
 
   def destroy
@@ -17,5 +21,11 @@ class Api::TasksController < ApplicationController
 
   def update
 
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:description, :location, :locality, :date, :time, :requestor_id, :category_id, :tasker_id)
   end
 end

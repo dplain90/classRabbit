@@ -6,7 +6,7 @@ import SplashPage from '../components/splashPage/splash_page';
 import stage1Container from '../components/newTask/stage1_container';
 import stage2Container from '../components/newTask/stage2_container';
 import stage3Container from '../components/newTask/stage3_container';
-import newTaskContainer from '../components/newTask/new_task_container';
+import newTaskContainer from '../components/newTask/new_task';
 
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
@@ -35,6 +35,8 @@ const Root = ({ store }) => {
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
+            <Route path="/dashboard/newTask/:catId" component={newTaskContainer} onEnter={_ensureLoggedIn}>
+            </Route>
           </Route>
       </Router>
     </Provider>
@@ -43,8 +45,7 @@ const Root = ({ store }) => {
 
 export default Root;
 
-/* <Route path="/dashboard/newTask/" component={newTaskContainer} onEnter={_ensureLoggedIn}>
-  <Route path="/dashboard/newTask/stage1/" component={stage1Container} />
-  <Route path="/dashboard/newTask/stage2/" component={stage2Container} />
-  <Route path="/dashboard/newTask/stage3/" component={stage3Container} />
-</Route> */
+  //
+  // <Route path="/dashboard/newTask/stage1/" component={stage1Container} />
+  // <Route path="/dashboard/newTask/stage2/" component={stage2Container} />
+  // <Route path="/dashboard/newTask/stage3/" component={stage3Container} />
