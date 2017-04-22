@@ -1,9 +1,9 @@
 import { RECEIVE_CATEGORIES } from '../actions/category_actions';
 import merge from 'lodash/merge';
 
-const initialState = Object.freeze({
-   1: "done"
-});
+const initialState = {
+  1: "done"
+};
 
 const CategoriesReducer = (state = initialState, action) => {
   Object.freeze(state);

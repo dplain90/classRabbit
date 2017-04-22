@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   categories: categoryReducer,
   search: searchReducer,
   tasks: taskReducer,
-  newTask: newTaskReducer
+  task: newTaskReducer
 });
 
 export default rootReducer;

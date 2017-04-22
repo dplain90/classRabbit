@@ -29,6 +29,13 @@ export const categories = () => {
   });
 };
 
+export const fetchCategory = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/category/${id}`
+  });
+};
+
 export const requestedTasks = () => {
   return $.ajax({
     method: 'GET',

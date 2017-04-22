@@ -8,11 +8,22 @@ class Dashboard extends React.Component {
   constructor(props){
     super(props);
     this.favoriteCategories = this.favoriteCategories.bind(this);
+    this.handleNewTask = this.handleNewTask.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchCategories();
   }
+
+  handleNewTask(category_id) {
+    return () => {
+      this.props.receiveNewTask({
+        category_id: category_id,
+        stage: 1
+      });
+    };
+  }
+
 
   favoriteCategories(){
     let style;
@@ -25,14 +36,12 @@ class Dashboard extends React.Component {
         <li key={`favcat-${idx}`} style={style}>
           <div className="category title">{category.description}</div>
           <div className="category link">
-            <a href="#" className="category link">{category.title}</a>
+            <Link to={`/dashboard/newTask/${category.id}`} onClick={this.handleNewTask(category.id)} className="category link">{category.title}</Link>
           </div>
         </li>
       );
     });
   }
-
-
 
   render(){
     return (

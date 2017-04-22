@@ -66,8 +66,8 @@ class Search extends React.Component {
   render(){
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
       return (
-        <Link to={`/dashboard/newTask/${category.id}`}>
-        <div key={`search-result-${id}`} className={`search-result category ${this.state.active}`}>
+        <Link to={`/dashboard/newTask/${category.id}`} key={`search-result-${id}`}>
+        <div className={`search-result category ${this.state.active}`}>
           <img src={category.img_url_search} className="search-cat" />
           {category.title}
         </div>

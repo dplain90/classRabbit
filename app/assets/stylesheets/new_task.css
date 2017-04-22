@@ -1,0 +1,47 @@
+.new-task-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.new-task-container > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: inherit;
+}
+.task-step-bar {
+  background: white;
+  border-bottom: 1px solid #dce0e6;
+  padding: 1px 0;
+  line-height: 1.25em;
+}
+
+.new-task-container ol {
+  width: 65%;
+  list-style-type: decimal;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trust-and-safety {
+  width: 65%;
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+}
+
+h4 {
+
+}
+
+
+.new-task-form {
+  width: 65%;
+}
+
+.new-task-form > div {
+ width: 100%;
+ flex-direction: row;
+}

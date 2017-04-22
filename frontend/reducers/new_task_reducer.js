@@ -7,10 +7,11 @@ const _initialNewTask = Object.freeze({
 
 
 const newTaskReducer = (state = _initialNewTask, action) => {
+
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEW_TASK:
-      const newTaskState = Object.merge({}, state, action.task);
+      const newTaskState = merge({}, state, action.task);
       return newTaskState;
     default:
       return state;

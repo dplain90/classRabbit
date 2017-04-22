@@ -3,9 +3,6 @@ import { asArray } from '../../reducers/selectors';
 import Stage1 from './stage1.jsx';
 import Stage2 from './stage2.jsx';
 import Stage3 from './stage3.jsx';
-
-
-
 import React from 'react';
 
 class newTask extends React.Component {
@@ -26,22 +23,47 @@ class newTask extends React.Component {
     }
   }
 
+  componentDidMount(){
+
+  }
+
   render(){
+    debugger
     return (
       <div className="new-task-container">
-        <section className="task-step-bar">
+      <section className="task-step-bar">
+        <ol>
+          <li>
+            Fill Out Task Details
+          </li>
 
-        </section>
+          <li>
+            View Tasksers & Prices
+          </li>
 
-        <section className="trust-and-safety">
+          <li>
+            Confirm & Book
+          </li>
+        </ol>
+      </section>
+      <section className="trust-and-safety-container">
+        <div className="trust-and-safety">
+          <strong> Trust & Safety Guarantee: </strong>
+          <p> $1MM insurance guarantee on every task. </p>
+        </div>
+      </section>
 
-        </section>
+      <section className="new-task-form">
+        <div className="category-title">
+          <h2> { this.props.category.title }</h2>
+          <a> Change </a>
+        </div>
 
-        <section className="stage-container">
+        <div className="stage-container">
           { this.renderStage() }
-        </section>
-
-      </div>
+        </div>
+      </section>
+    </div>
     );
   }
 }
@@ -50,8 +72,8 @@ class newTask extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    task: state.newTask,
-    category: state.categories[this.props.params.catId]
+    task: state.task,
+    category: state.categories[ownProps.params.catId]
   };
 };
 
