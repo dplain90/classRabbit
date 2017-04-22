@@ -18,7 +18,6 @@
   margin-top: 18px;
 }
 
-
 .icon-heart-o:before {
   content: "\e900";
 }
@@ -98,9 +97,77 @@
   flex-direction: row;
   justify-content: center;
   border-top: 1px solid rgb(220, 224, 230);
-
 }
 
+
+.task-details .rowOne {
+  margin: 24px 20.8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.rowOne label:first-child {
+  flex: 2;
+}
+
+.rowOne label {
+
+  height: 53px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.task-details .rowTwo {
+  margin: 24px 20.8px;
+  flex: 1;
+}
+
+.task-details {
+  color: #67727e;
+  font-size: 16px;
+  line-height: 24px;
+  border-top: 1px solid rgb(220, 224, 230);
+}
+
+.task-details p {
+  color: rgb(36, 42, 48);
+}
+
+.current-task-header{
+  margin-bottom: 0px;
+  border-bottom: rgb(220, 224, 230);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  right: 54px;
+  width: 114.5%;
+}
+
+.main .current-task-header{
+    margin-top: 50px;
+    border-bottom: 1px solid rgb(220, 224, 230);
+}
+
+.task-right-space {
+  flex: 1;
+}
+.main-top .requested-tasks{
+  margin-top: 0px;
+}
+
+.current-tasks-link{
+  line-height: 24px;
+  width: 100px;
+  padding: 0px 24px 12px 24px;
+  border-bottom: 2px solid rgb(81, 175, 51);
+  color: rgb(81, 175, 51);
+  font-size: 16px;
+  display: inline;
+}
 
 .welcome img {
   margin: 0px 20px 0px 0px;

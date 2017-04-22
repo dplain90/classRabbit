@@ -13,15 +13,20 @@ class taskDetails extends React.Component {
       <div className="task-details">
         <div className="rowOne">
           <label> Location
-            <i className="locationIcon"> </i>
-            { details.location }
+            <p>
+              <i className="icon-location2" />
+              { details.location }
+            </p>
           </label>
 
           <label> Tasker
-            <b> {details.tasker_fname} {details.tasker_linitial} </b>
+            <a> {details.tasker_fname} {details.tasker_linitial}. </a>
+          </label>
+
+          <label> Price
+            <p> $40/hr </p>
           </label>
         </div>
-
         <div className="rowTwo">
           <label> Description
             <p> { details.description } </p>

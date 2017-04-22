@@ -46,7 +46,12 @@ class Dashboard extends React.Component {
             </div>
             <SearchContainer categories={this.props.categories} />
           </section>
+          <section className="current-task-header">
+            <p className="current-tasks-link">
+              Current Tasks
+            </p>
 
+          </section>
           <RequestedTasksContainer />
 
           <section id="manage-tasks">
