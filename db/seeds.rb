@@ -31,12 +31,16 @@ category_descriptions = [
 category_images = [ picture_print, picture_chairs, picture_couch, picture_home, picture_bed ]
 category_ids = []
 regular_user_ids = []
+localities = ['Chelsea', 'West Village', 'Clinton']
 
 Skill.destroy_all
 User.destroy_all
 Category.destroy_all
 Task.destroy_all
 Availability.destroy_all
+Region.destroy_all
+
+localities.each{ |locality| Region.create!( locality: locality ) }
 
 category_names.each_with_index do |category_name, idx|
   Category.create!(title: category_name, description: category_descriptions[idx], image: category_images[idx])
@@ -51,7 +55,7 @@ User.create!(
   email: 'guest@classrabbit.com',
   tasker: false,
   phone_number: '8453921200',
-  locality: 'New York City',
+  locality: 'Chelsea',
   zip_code: '10031',
   avatar: File.open("app/assets/images/profile_pictures/regular_users/#{profile_pictures.sample}")
 )
@@ -67,7 +71,7 @@ User.create!(
     email: Faker::Internet.email,
     tasker: false,
     phone_number: Faker::PhoneNumber.cell_phone,
-    locality: Faker::Address.city,
+    locality: localities.sample,
     zip_code: Faker::Address.zip_code,
     avatar: File.open("app/assets/images/profile_pictures/regular_users/#{profile_pictures.sample}")
   )
@@ -84,11 +88,12 @@ end
     email: Faker::Internet.email,
     tasker: true,
     phone_number: Faker::PhoneNumber.cell_phone,
-    locality: Faker::Address.city,
+    locality: localities.sample,
     zip_code: Faker::Address.zip_code,
     avatar: File.open("app/assets/images/profile_pictures/taskers/#{taskers.sample}")
   )
 
+#give taskers skills
   4.times do
   Skill.create(
     tasker_id: User.last.id,
@@ -111,10 +116,11 @@ end
     )
   end
 
+  #make some tasks!
   Task.create!(
     description: Faker::ChuckNorris.fact,
     location: Faker::Address.street_address,
-    locality: Faker::Address.city,
+    locality: localities.sample,
     date: Faker::Date.between(2.days.ago, Date.today),
     time: "Morning",
     requestor_id: User.first.id,

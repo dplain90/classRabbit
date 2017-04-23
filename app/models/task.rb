@@ -15,4 +15,10 @@ class Task < ApplicationRecord
   primary_key: :id,
   foreign_key: :tasker_id,
   class_name: "User"
+
+  belongs_to :region,
+  primary_key: :locality,
+  foreign_key: :locality,
+  class_name: "Region"
+
 end
