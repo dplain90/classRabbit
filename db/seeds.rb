@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 profile_pictures = ['prof_pic1.jpg', "prof_pic2.jpeg", 'prof_pic3.jpg', "prof_pic4.png", "prof_pic5.jpg"]
+taskers = ['tasker1.jpg', 'tasker2.jpg', 'tasker3.jpg', 'tasker4.jpg']
+sample_dates = (Date.today..Date.today + 12).to_a
+sample_times = ['Morning', 'Afternoon', 'Evening', 'Anytime']
+
 
 User.destroy_all
 Category.destroy_all
@@ -30,6 +35,7 @@ Category.create!(title: 'Bed', description: 'Sleep in the bed', image: picture_b
 
 Category.create!(title: 'TV', description: 'Cool tv bro', image: picture_tv)
 
+# generate guest account
 User.create!(
   fname: 'Guest',
   lname: 'Account',
@@ -39,21 +45,46 @@ User.create!(
   phone_number: '8453921200',
   locality: 'New York City',
   zip_code: '10031',
-  avatar: File.open("app/assets/images/profile_pictures/#{profile_pictures.sample}")
+  avatar: File.open("app/assets/images/profile_pictures/regular_users/#{profile_pictures.sample}")
 )
 
+# Faker::Boolean.boolean(true_ratio = 0.5)
+
 15.times do
+  # generate regular users
   User.create!(
     fname: Faker::Name.first_name,
     lname: Faker::Name.last_name,
     password: Faker::Internet.password(min_length = 8, max_length = 16),
     email: Faker::Internet.email,
-    tasker: Faker::Boolean.boolean(true_ratio = 0.5),
-    phone_number: Faker::PhoneNumber,
+    tasker: false,
+    phone_number: Faker::PhoneNumber.cell_phone,
     locality: Faker::Address.city,
     zip_code: Faker::Address.zip_code,
-    avatar: File.open("app/assets/images/profile_pictures/#{profile_pictures.sample}")
+    avatar: File.open("app/assets/images/profile_pictures/regular_users/#{profile_pictures.sample}")
   )
+
+# generate taskers
+  User.create!(
+    fname: Faker::Name.first_name,
+    lname: Faker::Name.last_name,
+    password: Faker::Internet.password(min_length = 8, max_length = 16),
+    email: Faker::Internet.email,
+    tasker: true,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    locality: Faker::Address.city,
+    zip_code: Faker::Address.zip_code,
+    avatar: File.open("app/assets/images/profile_pictures/taskers/#{taskers.sample}")
+  )
+
+  # generate availabilities for tasker just created
+  30.times do
+    Availability.create(
+      date: sample_dates.sample,
+      time: sample_times.sample,
+      tasker_id: User.last.id
+    )
+  end
 
   Task.create!(
     description: Faker::ChuckNorris.fact,

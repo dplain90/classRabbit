@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421175638) do
+ActiveRecord::Schema.define(version: 20170423030011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.integer "tasker_id", null: false
+    t.date    "date"
+    t.string  "time"
+    t.index ["tasker_id", "time", "date"], name: "index_availabilities_on_tasker_id_and_time_and_date", unique: true, using: :btree
+    t.index ["tasker_id"], name: "index_availabilities_on_tasker_id", using: :btree
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",              null: false
