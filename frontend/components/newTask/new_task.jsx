@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { asArray } from '../../reducers/selectors';
 import Stage1 from './stage1.jsx';
-import Stage2 from './stage2.jsx';
+import Stage2Container from './stage2.jsx';
 import Stage3 from './stage3.jsx';
 import React from 'react';
 import { fetchCategory } from '../../util/api_util';
 import { getTask, setTask, clearTask } from '../../util/session_util';
+import { updateNewTask } from '../../actions/task_actions';
 import { Link } from 'react-router';
 
 class newTask extends React.Component {
@@ -13,17 +14,18 @@ class newTask extends React.Component {
     super(props);
     this.renderStage = this.renderStage.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
+
   }
 
   renderStage() {
     const task = this.props.task;
     const stage = this.props.task.stage ;
     if(stage === 1){
-      return ( <Stage1 task={task} /> );
+      return ( <Stage1 updateTask={this.props.updateTask} /> );
     } else if( stage === 2) {
-      return ( <Stage2 task={task} />);
+      return ( <Stage2Container updateTask={this.props.updateTask} />);
     } else {
-      return ( <Stage3 task={task} />);
+      return ( <Stage3 updateTask={this.props.updateTask} />);
     }
   }
 
@@ -36,8 +38,6 @@ class newTask extends React.Component {
   }
 
   render(){
-    console.log(this.props.category);
-    console.log(this.props.task);
     return (
       <div className="new-task-container">
       <section className="task-step-bar">
@@ -86,7 +86,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return { };
+  return {
+    updateTask: (task) => dispatch(updateNewTask(task))
+   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(newTask);

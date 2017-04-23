@@ -1,20 +1,66 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-
+import { connect } from 'react-redux';
+import { getTask, setTask, clearTask } from '../../util/session_util';
+import { getTaskers } from '../../actions/user_actions';
 
 class Stage2 extends React.Component {
   constructor(props){
     super(props);
   }
 
+  componentDidMount(){
+    let currentTask = getTask();
+    this.props.getTaskers(currentTask.category_id, currentTask.locality);
+  }
 
   render(){
+
     return (
       <div className="stage2-container">
+        <section className="filter-container">
+          <div className="sorted-by-container">
+            <h4 className="sorted-by-title"> SORTED BY: </h4>
+            <select className="sorted-by-filter"> </select>
+          </div>
+
+          <div className='time-and-date-container'>
+            <span className="time-and-date-title">
+              TASK DATE & TIME
+            </span>
+
+            <div className="date-carousel">
+
+            </div>
+
+            <select className="time"> </select>
+          </div>
+        </section>
+
+        <section className="taskers-index">
+          
+
+        </section>
+
       </div>
     );
   }
-
 }
 
-export default withRouter(Stage2);
+const newTask = getTask();
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    task: newTask,
+    taskers: state.taskers,
+    availabilities: state.availabilities
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stage2);

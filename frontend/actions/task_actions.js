@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/api_util';
-
+import { setTask, getTask } from '../util/session_util';
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 
@@ -19,12 +19,16 @@ return {
   };
 };
 
-
 export const receiveTask = task => {
   return {
     type: RECEIVE_TASK,
     task
   };
+};
+
+export const updateNewTask = (task) => dispatch => {
+  setTask(task);
+  return dispatch(receiveNewTask(task));
 };
 
 export const fetchTasks = () => dispatch => {

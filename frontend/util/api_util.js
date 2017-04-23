@@ -49,3 +49,14 @@ export const createTask = (task) => {
     data: task
   });
 };
+
+export const fetchTaskers = (category_id, locality) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/taskers',
+    data: {
+      category_id: category_id,
+      locality: locality
+    }
+  });
+};

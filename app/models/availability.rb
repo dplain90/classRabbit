@@ -17,6 +17,4 @@ class Availability < ApplicationRecord
 
     date_hash
   end
-
-
 end

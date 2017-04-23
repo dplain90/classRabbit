@@ -30,8 +30,8 @@ class Api::UsersController < ApplicationController
   end
 
   def taskers
-    @category_id = params[:cid]
-    @taskers = User.in_region_with_skill(params[:locality], params[:cid])
+    @category_id = params[:category_id]
+    @taskers = User.in_region_with_skill(params[:locality], params[:category_id])
     @availabilities = User.recent_availabilities(@taskers, Date.today, Date.today + 12)
     render "api/users/taskers"
   end

@@ -30,7 +30,7 @@ category_descriptions = [
 category_images = [ picture_print, picture_chairs, picture_couch, picture_home, picture_bed ]
 category_ids = []
 regular_user_ids = []
-localities = ['Chelsea', 'West Village', 'Clinton']
+localities = ['New York', 'Clinton']
 
 Skill.destroy_all
 User.destroy_all
@@ -54,7 +54,7 @@ User.create!(
   email: 'guest@classrabbit.com',
   tasker: false,
   phone_number: '8453921200',
-  locality: 'Chelsea',
+  locality: 'New York',
   zip_code: '10031',
   avatar: File.open("app/assets/images/profile_pictures/regular_users/#{profile_pictures.sample}")
 )

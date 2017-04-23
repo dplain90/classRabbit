@@ -4,16 +4,17 @@ import taskReducer from './task_reducer';
 import sessionReducer from './session_reducer';
 import searchReducer from './search_reducer';
 import newTaskReducer from './new_task_reducer';
+import availabilitiesReducer from './availability_reducer';
+import taskerReducer from './tasker_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   categories: categoryReducer,
   search: searchReducer,
   tasks: taskReducer,
-  task: newTaskReducer
+  task: newTaskReducer,
+  availabilities: availabilitiesReducer,
+  taskers: taskerReducer
 });
 
 export default rootReducer;
-
-//
-// import newTaskReducer from './new_task_reducer';
