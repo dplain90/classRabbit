@@ -12,15 +12,23 @@ footer {
 }
 
 footer a, footer p {
+  font-family: "Proxima-Nova-Thin";
   display: block;
   color: white;
   font-size: 20px;
   font-style: normal;
   font-weight: normal;
-  height: 30px;
-  line-height: 30px;
+  height: 1.5em;
+  line-height: 1.5em;
   list-style-position: outside;
 }
+
+footer span {
+  font-family: "Proxima-Nova-Thin";
+  height: 1.5em;
+  line-height: 1.5em;
+}
+
 
 .download-app.desc {
   color: white;

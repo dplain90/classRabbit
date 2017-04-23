@@ -11,7 +11,8 @@ class Search extends React.Component {
     this.state = {
       value: "",
       results: {},
-      active: "hidden"
+      active: "hidden",
+      style: "none"
     };
   }
 
@@ -51,7 +52,8 @@ class Search extends React.Component {
       const results = this.filterResults(e.currentTarget.value);
       this.setState({
         value: e.currentTarget.value,
-        active: ""
+        active: "",
+        style: "0.25px solid #dce0e6"
       });
     };
   }
@@ -60,7 +62,8 @@ class Search extends React.Component {
     this.setState({
       value: "",
       results: this.props.data,
-      active: "hidden"
+      active: "hidden",
+      style: "none"
     });
   }
 
@@ -83,7 +86,7 @@ class Search extends React.Component {
             <input type="text" className="search-bar input" value={this.state.value} onChange={this.handleSearch()}/>
             <i className="icon-cancel-circle" onClick={this.handleCancel} />
         </div>
-        <div className="search-results-container">
+        <div className="search-results-container" style={{border: this.state.style}}>
           { resultDivs }
         </div>
       </div>
