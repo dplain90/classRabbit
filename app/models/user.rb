@@ -40,13 +40,25 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
+  def task_count(category_id)
+    self.assigned_tasks.where(category_id: category_id).count
+  end
+
+  def review_count(category_id)
+    self.skills.where(category_id: category_id).first.reviews.count
+  end
 
   def self.with_recent_availabilities(taskers, start_date, end_date)
     taskers.includes(:availabilities).where("availabilities.date >= ? AND availabilities.date <= ?", start_date, end_date).references(:availabilities)
   end
 
   def self.in_region_with_skill(locality, category_id)
-    @taskers = User.is_tasker.where(locality: locality).joins(:categories).where('categories.id = ?', category_id)
+    @taskers = User.is_tasker
+    .where(locality: locality)
+    .joins(:categories)
+    .where('categories.id = ?', category_id)
+    .includes(:skills)
+    .where(skills: {category_id: category_id })
   end
 
   has_many :categories,
