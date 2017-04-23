@@ -29,6 +29,9 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def taskers
+
+  end
 
   def show
     @user = User.find(params[:id])

@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 profile_pictures = ['prof_pic1.jpg', "prof_pic2.jpeg", 'prof_pic3.jpg', "prof_pic4.png", "prof_pic5.jpg"]
 taskers = ['tasker1.jpg', 'tasker2.jpg', 'tasker3.jpg', 'tasker4.jpg']
 sample_dates = (Date.today..Date.today + 12).to_a
