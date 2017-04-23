@@ -24,6 +24,10 @@ class User < ApplicationRecord
   validates :fname, :lname, :email, :password_digest, :session_token, :zip_code, presence: true
   validates :password, length: { minimum: 6}, allow_nil: true
 
+  scope :is_tasker, ->  { where(tasker: true) }
+
+
+
   has_attached_file :avatar, default_url: "bed.jpg", :styles => {
       :thumb => "50x50#",
       :small  => "150x150>",
@@ -35,6 +39,17 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
+
+
+
+  def self.in_region_with_skill(locality, category_id)
+    @taskers = User.is_tasker.where(locality: locality).joins(:categories).where('categories.id = ?', category_id)
+  end
+
+  has_many :categories,
+  through: :skills,
+  source: :category
+
 
   has_many :requested_tasks,
   primary_key: :id,

@@ -30,7 +30,7 @@ class Api::UsersController < ApplicationController
   end
 
   def taskers
-
+    @taskers = User.
   end
 
   def show
