@@ -15,7 +15,8 @@ class Availability < ApplicationRecord
       date_hash[availability.date] = date_hash[availability.date] << availability
     end
 
-    by_date
+    date_hash
   end
+
 
 end

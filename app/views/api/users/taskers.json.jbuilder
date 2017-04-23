@@ -11,9 +11,12 @@
     tasker.skills.each do |skill|
       json.pitch skill.pitch
       json.quote skill.quote
-      json.author_avatar_url asset_path(skill.author.avatar.url(:thumb))
+      json.author_avatar_url asset_path(skill.quote_author.avatar.url(:thumb))
     end
 
-    json.availabilities Availability.by_date(tasker.availabilities)
   end
 end
+
+json.availabilities Availability.by_date(@availabilities)
+
+# @availabilities.sort_by(json.availabilities Availability.by_date(tasker.availabilities)

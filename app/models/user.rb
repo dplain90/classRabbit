@@ -48,8 +48,15 @@ class User < ApplicationRecord
     self.skills.where(category_id: category_id).first.reviews.count
   end
 
-  def self.with_recent_availabilities(taskers, start_date, end_date)
-    taskers.includes(:availabilities).where("availabilities.date >= ? AND availabilities.date <= ?", start_date, end_date).references(:availabilities)
+  def self.recent_availabilities(taskers, start_date, end_date)
+    all_availabilities = []
+    taskers.each do |tasker|
+      tasker.availabilities.where("availabilities.date >= ? AND availabilities.date <= ?", start_date, end_date).each do |availability|
+        all_availabilities << availability
+      end
+    end
+
+    all_availabilities
   end
 
   def self.in_region_with_skill(locality, category_id)
