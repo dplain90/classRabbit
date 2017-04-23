@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SearchContainer from '../search/search_container';
-
+import SmoothCollapse from 'react-smooth-collapse';
 class Stage1 extends React.Component {
   constructor(props){
     super(props);
@@ -10,9 +10,9 @@ class Stage1 extends React.Component {
     this.fillInAddress = this.fillInAddress.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.state =  {
-      description: false
+      description: false,
+      location: true
     };
-
   }
 
 
@@ -22,7 +22,14 @@ class Stage1 extends React.Component {
 
 
 
-  handleLocation(){ }
+  handleLocation(){
+    const newDescriptionState = this.state.description ? false : true;
+    const newLocationState = this.state.location ? false : true;
+    this.setState({
+      description: newDescriptionState,
+      location: newLocationState
+    });
+  }
 
 
   initAutocomplete() {
@@ -56,33 +63,38 @@ class Stage1 extends React.Component {
     return (
       <div className="stage1-container">
         <div className="location-container">
-          <form className="stage1-form" onSubmit={this.handleLocation} >
+          <form className="stage1-form"  >
             <h3> YOUR TASK LOCATION </h3>
 
             <span className="addressInputs">
             <input id="autocomplete" placeholder="Enter your address" onFocus={this.geolocate} type="text"></input>
               <input id="apt-num" placeholder="Unit or Apt #"/>
             </span>
-            <span className="continue-container">
-              <button className="location-button">Continue</button>
-            </span>
+            <SmoothCollapse expanded={this.state.location}>
+              <span className="continue-container">
+                <button className="location-button" onClick={this.handleLocation}>Continue</button>
+              </span>
+            </SmoothCollapse>
           </form>
         </div>
 
-      <div className="location-container">
-        <div className="description-form">
-        <h3 className="about-task-header"> TELL US ABOUT YOUR TASK </h3>
-        <p> If you need two or more Taskers, please post additional tasks for each Tasker needed. </p>
-        <textarea>
-          EXAMPLE: We have a few lightbulbs that need replacing. We've got the lightbulbs, but we'd need you to provide the ladder.
-        </textarea>
-        <span className="continue-container">
-          <button>
-            See Taskers & Prices
-          </button>
-        </span>
+        <div className="location-container">
+          <div className="description-form">
+          <h3 className="about-task-header"> TELL US ABOUT YOUR TASK </h3>
+          <p> If you need two or more Taskers, please post additional tasks for each Tasker needed. </p>
+          <SmoothCollapse expanded={this.state.description}>
+          <textarea>
+            EXAMPLE: We have a few lightbulbs that need replacing. We've got the lightbulbs, but we'd need you to provide the ladder.
+          </textarea>
+          <span className="continue-container">
+            <button>
+              See Taskers & Prices
+            </button>
+          </span>
+          </SmoothCollapse>
+          </div>
         </div>
-      </div>
+
     </div>
     );
   }
