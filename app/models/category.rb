@@ -12,4 +12,10 @@ class Category < ApplicationRecord
   foreign_key: :category_id,
   class_name: "Task"
 
+  has_many :skills,
+  primary_key: :id,
+  foreign_key: :category_id,
+  class_name: "Category"
+
+  
 end

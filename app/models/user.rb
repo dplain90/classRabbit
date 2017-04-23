@@ -51,6 +51,11 @@ class User < ApplicationRecord
   foreign_key: :tasker_id,
   class_name: "Availability"
 
+  has_many :skills,
+  primary_key: :id,
+  foreign_key: :tasker_id,
+  class_name: "Skill"
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
