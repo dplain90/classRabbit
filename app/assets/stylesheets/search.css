@@ -93,9 +93,9 @@
 #search-bar input[type=text]:focus,
 .search-bar.input {
   flex: 1;
-  padding-right: 0px;
-  padding-left: 0px;
-  height: 20px;
+  padding: 10px 0px;
+  /*padding-right: 0px;*/
+  height: 24px;
   font-size: 1em;
   padding-left: 2.5em;
   z-index: 50;

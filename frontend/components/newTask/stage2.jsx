@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { getTask, setTask, clearTask } from '../../util/session_util';
 import { getTaskers } from '../../actions/user_actions';
+import { asArray } from '../../reducers/selectors';
+import Tasker from './tasker';
 
 class Stage2 extends React.Component {
   constructor(props){
@@ -15,6 +17,13 @@ class Stage2 extends React.Component {
   }
 
   render(){
+    let taskers = asArray(this.props.taskers).map( (tasker) => {
+      return (
+        <Tasker tasker={tasker} title='Sample' key={tasker.id} />
+        );
+    });
+
+
 
     return (
       <div className="stage2-container">
@@ -38,8 +47,7 @@ class Stage2 extends React.Component {
         </section>
 
         <section className="taskers-index">
-          
-
+          { taskers }
         </section>
 
       </div>

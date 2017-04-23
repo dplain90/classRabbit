@@ -98,7 +98,7 @@ button {
 
 }
 
-._authForm input {
+.auth-input {
   border: 1px solid rgb(177, 185, 195);
   min-height: 22px;
   padding: 10px 16px 10px 16px;
