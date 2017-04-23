@@ -12,7 +12,7 @@ json.taskers do
       tasker.skills.each do |skill|
         json.pitch skill.pitch
         json.quote skill.quote
-        json.author_avatar_url asset_path(skill.quote_author.avatar.url(:thumb))
+        json.author_avatar_url asset_path(skill.quote_author.avatar.url(:small))
       end
     end
   end

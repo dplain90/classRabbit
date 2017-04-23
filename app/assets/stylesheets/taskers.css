@@ -1,0 +1,96 @@
+
+
+.stage2-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.filter-container {
+  flex: 1;
+}
+
+.taskers-index {
+  flex: 1;
+}
+
+.tasker-container {
+  background: white;
+  border: 1px solid #dce0e6;
+  border-radius: 4px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.profile-aside {
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  flex: 2;
+}
+
+.profile-aside img {
+  height: 200px;
+  width: 200px;
+}
+
+.tasker-info {
+  margin-left: 2rem;
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  flex: 5;
+}
+
+
+
+.tasker-title  h3{
+  font-size: 2em;
+  font-family: "Proxima-Nova-Bold";
+  margin-bottom: 8px;
+  /*font-weight: bold;*/
+}
+
+
+.tasker-title{
+  margin-bottom: 16px;
+}
+
+.tasker-title p {
+  line-height: 24px;
+  font-size: 16px;
+
+}
+
+.select-tasker {
+  margin: 16px 0px;
+  padding: 10.125px 20.250px;
+  width: 100%;
+}
+
+.tasker-body {
+  padding-top: 16px;
+  border-top: 1px solid rgb(220, 224, 230);
+  height: 100%;
+}
+
+.tasker-body h6 {
+  font-size: 1rem;
+  font-family: "Proxima-Nova-Bold";
+  line-height: 24px;
+
+}
+
+.tasker-quote-container {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.tasker-quote {
+  font-style: italic;
+}
