@@ -41,6 +41,9 @@ class User < ApplicationRecord
   before_validation :ensure_session_token_uniqueness
 
 
+  def self.with_recent_availabilities(taskers, start_date, end_date)
+    taskers.includes(:availabilities).where("availabilities.date >= ? AND availabilities.date <= ?", start_date, end_date).references(:availabilities)
+  end
 
   def self.in_region_with_skill(locality, category_id)
     @taskers = User.is_tasker.where(locality: locality).joins(:categories).where('categories.id = ?', category_id)
