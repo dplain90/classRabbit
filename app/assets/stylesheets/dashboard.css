@@ -86,10 +86,12 @@
 .month-day p {
   margin-top: 10px;
   font-size: 14px;
+  font-family: "Proxima-Nova-Thin";
 }
 
 .task-date.time {
   margin-left: 15px;
+  font-family: "Proxima-Nova-Thin";
 }
 
 .task-details-container {

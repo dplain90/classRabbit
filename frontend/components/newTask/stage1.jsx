@@ -9,6 +9,10 @@ class Stage1 extends React.Component {
     this.initAutocomplete = this.initAutocomplete.bind(this);
     this.fillInAddress = this.fillInAddress.bind(this);
     this.geolocate = this.geolocate.bind(this);
+    this.state =  {
+      description: false
+    };
+
   }
 
 
@@ -52,21 +56,34 @@ class Stage1 extends React.Component {
     return (
       <div className="stage1-container">
         <div className="location-container">
-          <form onSubmit={this.handleLocation} >
-            <span>
+          <form className="stage1-form" onSubmit={this.handleLocation} >
+            <h3> YOUR TASK LOCATION </h3>
 
+            <span className="addressInputs">
             <input id="autocomplete" placeholder="Enter your address" onFocus={this.geolocate} type="text"></input>
-
-              <input className="apt-num" />
+              <input id="apt-num" placeholder="Unit or Apt #"/>
             </span>
-            <button className="location-button">Continue</button>
+            <span className="continue-container">
+              <button className="location-button">Continue</button>
+            </span>
           </form>
         </div>
 
-        <div className="description-container">
-
+      <div className="location-container">
+        <div className="description-form">
+        <h3 className="about-task-header"> TELL US ABOUT YOUR TASK </h3>
+        <p> If you need two or more Taskers, please post additional tasks for each Tasker needed. </p>
+        <textarea>
+          EXAMPLE: We have a few lightbulbs that need replacing. We've got the lightbulbs, but we'd need you to provide the ladder.
+        </textarea>
+        <span className="continue-container">
+          <button>
+            See Taskers & Prices
+          </button>
+        </span>
         </div>
       </div>
+    </div>
     );
   }
 

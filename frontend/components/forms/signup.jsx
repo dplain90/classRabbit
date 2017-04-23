@@ -10,7 +10,7 @@ class signUpForm extends React.Component {
 
   render(){
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="_authForm">
         <input type="text" value={this.user.fname} onChange={this.update("fname")} />
         <input type="text" value={this.user.lname} onChange={this.update("lname")} />
         <input type="text" value={this.user.email} onChange={this.update("email")} />

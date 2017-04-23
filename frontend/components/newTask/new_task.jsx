@@ -57,8 +57,9 @@ class newTask extends React.Component {
       </section>
       <section className="trust-and-safety-container">
         <div className="trust-and-safety">
-          <strong> Trust & Safety Guarantee: </strong>
-          <p> $1MM insurance guarantee on every task. </p>
+          <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/build/icons/trust_badge-7aa9db43e1fd330df7a2bd3d4d9e120c.svg" />
+          <p> <strong> Trust & Safety Guarantee: </strong>
+           $1MM insurance guarantee on every task. </p>
         </div>
       </section>
 

@@ -9,6 +9,16 @@
 }
 
 @font-face {
+  font-family: "Proxima-Nova-Bold";
+  src: url('./proximanova-bold-webfont.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "Proxima-Nova-Thin";
+  src: url('./proximanovat-thin-webfont.ttf') format("truetype");
+}
+
+@font-face {
   font-family: 'icomoon';
   src:  url('./icomoon.eot?rttkyj');
   src:  url('./icomoon.eot?rttkyj#iefix') format('embedded-opentype'),
