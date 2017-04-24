@@ -6,6 +6,7 @@ import DateAvailability from './date_availability';
 class DateCarousel extends React.Component {
   constructor(props){
     super(props);
+    this.dateAvailabilities = this.dateAvailabilities.bind(this);
     this.settings = {
       arrows: true,
       speed: 500,
@@ -14,8 +15,8 @@ class DateCarousel extends React.Component {
     };
   }
 
-  render(){
-    const date_availabilities = Object.keys(this.props.availabilities).map( (date, idx) => {
+  dateAvailabilities(){
+    return Object.keys(this.props.availabilities).map( (date, idx) => {
       let taskers = [];
       this.props.availabilities[date].forEach( (time_slot) => {
         if(!taskers.includes(time_slot.tasker_id)){
@@ -24,16 +25,17 @@ class DateCarousel extends React.Component {
       });
       return (<div key={idx}><DateAvailability date={date} taskers={taskers} /></div>);
     });
+  }
 
 
-      if(date_availabilities.length === 0){
+  render(){
+      const dates = this.dateAvailabilities();
+      if(dates.length === 0){
         return (<div> </div>);
       } else {
         return (
           <Slider {...this.settings}>
-
-          {date_availabilities}
-
+          {dates}
         </Slider>);
       }
 

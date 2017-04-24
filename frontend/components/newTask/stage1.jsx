@@ -72,6 +72,7 @@ class Stage1 extends React.Component {
   fillInAddress() {
     // Get the place details from the autocomplete object.
      let place = this.autocomplete.getPlace();
+     debugger
      let locality = "";
   //    street_number: 'short_name',
   //    route: 'long_name',

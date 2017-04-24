@@ -19,7 +19,7 @@ class newTask extends React.Component {
 
   renderStage() {
     const task = this.props.task;
-    const stage = this.props.task.stage ;
+    const stage = task.stage ;
     if(stage === 1){
       return ( <Stage1 updateTask={this.props.updateTask} /> );
     } else if( stage === 2) {

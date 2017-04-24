@@ -45,7 +45,7 @@ const Root = ({ store }) => {
 
 export default Root;
 
+// <Route path="/dashboard/newTask/stage1/" component={stage1Container} />
+// <Route path="/dashboard/newTask/stage2/" component={stage2Container} />
+// <Route path="/dashboard/newTask/stage3/" component={stage3Container} />
   //
-  // <Route path="/dashboard/newTask/stage1/" component={stage1Container} />
-  // <Route path="/dashboard/newTask/stage2/" component={stage2Container} />
-  // <Route path="/dashboard/newTask/stage3/" component={stage3Container} />
