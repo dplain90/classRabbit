@@ -1,0 +1,44 @@
+.filter-container {
+  margin: 0px 24px 0px 0px;
+  width: 376px;
+  min-width: 376px;
+  max-width: 376px;
+  padding: 24px 32px;
+  border: 1px solid rgb(220, 224, 230);
+  border-radius: 4px;
+  background-color: white;
+  height: auto;
+}
+
+
+.sorted-by-title {
+  text-transform: uppercase;
+  font-family: "Proxima-Nova-Semibold";
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0;
+}
+
+.filter-container select {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+
+}
+
+select {
+  margin: 0;
+  padding: 0.5em 0.75em;
+  background-color: white;
+  height: 40px;
+
+}
+
+.time-and-date-container {
+  border-top: 1px solid #dce0e6;
+  padding-top: 1.75rem;
+}
+
+.time-and-date-title {
+  font-family: "Proxima-Nova-Semibold";
+}

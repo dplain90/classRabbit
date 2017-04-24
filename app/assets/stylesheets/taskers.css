@@ -29,6 +29,7 @@
   display: inherit;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex: 2;
 }
 
@@ -88,7 +89,7 @@
   margin-top: 18px;
   display: flex;
   flex-direction: row;
-  
+
 }
 
 .tasker-quote {
