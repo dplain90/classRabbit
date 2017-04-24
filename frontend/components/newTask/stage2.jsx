@@ -5,6 +5,7 @@ import { getTask, setTask, clearTask } from '../../util/session_util';
 import { getTaskers } from '../../actions/user_actions';
 import { asArray } from '../../reducers/selectors';
 import Tasker from './tasker';
+import DateCarousel from './date_carousel';
 
 class Stage2 extends React.Component {
   constructor(props){
@@ -30,7 +31,13 @@ class Stage2 extends React.Component {
         <section className="filter-container">
           <div className="sorted-by-container">
             <h4 className="sorted-by-title"> SORTED BY: </h4>
-            <select className="sorted-by-filter"> </select>
+            <select className="sorted-by-filter">
+              <option value="recomended">Recomended</option>
+              <option value="price-high-low">Price (Lowest to Highest)</option>
+              <option value="price-low-high">Price (Highest to Lowest)</option>
+              <option value="highest-rating">Highest Rating</option>
+              <option value="most-reviews">Most Reviews</option>
+            </select>
           </div>
 
           <div className='time-and-date-container'>
@@ -39,10 +46,15 @@ class Stage2 extends React.Component {
             </span>
 
             <div className="date-carousel">
-
+              <DateCarousel availabilities={this.props.availabilities} />
             </div>
 
-            <select className="time"> </select>
+            <select className="time">
+              <option value="flexible">I'M FLEXIBLE</option>
+              <option value="morning">MORNING 8am - 12pm</option>
+              <option value="afternoon">AFTERNOON 12pm - 4pm</option>
+              <option value="evening">EVENING 4pm - 8pm</option>
+             </select>
           </div>
         </section>
 

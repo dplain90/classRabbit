@@ -42,3 +42,18 @@ select {
 .time-and-date-title {
   font-family: "Proxima-Nova-Semibold";
 }
+
+.date-availability-container{
+  cursor: pointer;
+  border-radius: 4px;
+  width: 80px;
+  height: 80px;
+}
+
+
+.date-availability-container:checked {
+  background-color: #51af33;
+  border-color: #51af33;
+  color: white;
+  font-weight: bold;
+}

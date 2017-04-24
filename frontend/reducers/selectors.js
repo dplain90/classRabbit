@@ -3,3 +3,11 @@ export const asArray = (categories) => {
     return categories[key];
   });
 };
+
+
+export const uniqTaskers = (availabilities) => {
+  asArray(this.props.availabilities).map( (availability) => {
+    
+    return taskers;
+  });
+};
