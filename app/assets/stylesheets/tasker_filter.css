@@ -34,6 +34,12 @@ select {
 
 }
 
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+
 .time-and-date-container {
   border-top: 1px solid #dce0e6;
   padding-top: 1.75rem;
@@ -48,10 +54,15 @@ select {
   border-radius: 4px;
   width: 80px;
   height: 80px;
+  display: inline-block;
 }
 
+.slick-arrow button {
+  width: 10px;
 
-.date-availability-container:checked {
+}
+
+.date-availability-container{
   background-color: #51af33;
   border-color: #51af33;
   color: white;

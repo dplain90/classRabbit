@@ -7,7 +7,7 @@ class DateCarousel extends React.Component {
   constructor(props){
     super(props);
     this.settings = {
-      infinite: true,
+      arrows: true,
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1
@@ -33,6 +33,7 @@ class DateCarousel extends React.Component {
           <Slider {...this.settings}>
 
           {date_availabilities}
+
         </Slider>);
       }
 
