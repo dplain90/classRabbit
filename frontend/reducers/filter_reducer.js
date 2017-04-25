@@ -1,22 +1,24 @@
 import merge from 'lodash/merge';
 import { UPDATE_FILTER, SET_FILTER } from '../actions/filter_actions';
 const _defaultFilter = Object.freeze({
-  parameters: {},
+  sorting_filter: {},
+  date: "",
+  time: "",
   results: [],
   potential_results: []
 });
 
-const SearchReducer = (state = _defaultSearch, action) => {
+const FilterReducer = (state = _defaultFilter, action) => {
   Object.freeze(state);
   switch(action.type) {
     case SET_FILTER:
       return action.filter;
     case UPDATE_FILTER:
-      return action.filter;
+      const newFilter = { [action.filter]: action.value };
+      return merge({}, state, newFilter);
     default:
       return state;
   }
 };
 
-// need to update the update filter result
 export default FilterReducer;

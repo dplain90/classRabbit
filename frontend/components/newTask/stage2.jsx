@@ -16,6 +16,9 @@ class Stage2 extends React.Component {
 
   }
 
+  
+
+
   render(){
 
     let taskers = asArray(this.props.taskers).map( (tasker) => {
@@ -49,7 +52,7 @@ class Stage2 extends React.Component {
             </div>
 
             <select className="time">
-              <option value="flexible">I'M FLEXIBLE</option>
+              <option value="flexible">IM FLEXIBLE</option>
               <option value="morning">MORNING 8am - 12pm</option>
               <option value="afternoon">AFTERNOON 12pm - 4pm</option>
               <option value="evening">EVENING 4pm - 8pm</option>
