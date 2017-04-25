@@ -6,7 +6,10 @@ import { getTask, setTask, clearTask } from '../../util/session_util';
 import { connect } from 'react-redux';
 import { getTaskers } from '../../actions/user_actions';
 import { updateNewTask } from '../../actions/task_actions';
-import { setFilter } from '../../actions/filter_actions';
+import { calculateFilterResults, updateFilter } from '../../actions/filter_actions';
+import { filterTaskers } from '../../reducers/selectors';
+
+
 class Stage1 extends React.Component {
   constructor(props){
     super(props);
@@ -83,6 +86,9 @@ class Stage1 extends React.Component {
     const updatedTask = Object.assign({}, newTaskState, newTaskInfo);
     setTask(updatedTask);
     this.props.updateTask(updatedTask);
+
+    this.props.updateFilter({});
+    this.props.calculateFilterResults(this.props.filter, this.props.taskers, this.props.availabilities);
   }
 
 
@@ -262,27 +268,23 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
+    taskers: state.taskers,
+    filter: state.filter,
     task: newTask,
-    present: taskerPresence
+    present: taskerPresence,
+    availabilities: state.availabilities
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setFilter: (potential_results) => dispatch(setFilter(potential_results)),
+    updateFilter: (params) => dispatch(updateFilter(params)),
+    calculateFilterResults: (filters, taskers, availabilities) => dispatch(calculateFilterResults(filters, taskers, availabilities)),
     updateTask: (task) => dispatch(updateNewTask(task)),
     getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
   };
 };
-
-updateFilter(timeFilterParams).then( () => updateFilterResults(filterTaskers(filterstate, this.props.taskers))))
-
-mapDispatchToProps(dispatch) {
-  updateFilterResults: () => dispatch(updateFilterResults())
-}
-
-
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stage1);

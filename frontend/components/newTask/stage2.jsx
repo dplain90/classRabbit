@@ -6,6 +6,7 @@ import { getTaskers } from '../../actions/user_actions';
 import { asArray } from '../../reducers/selectors';
 import Tasker from './tasker';
 import DateCarousel from './date_carousel';
+import { generateSort } from '../../util/sort_util';
 
 class Stage2 extends React.Component {
   constructor(props){
@@ -15,8 +16,7 @@ class Stage2 extends React.Component {
   }
 
   componentDidMount(){
-    debugger
-    this.props.getTaskers(this.props.task.category_id, this.props.task.locality);
+    // this.props.getTaskers(this.props.task.category_id, this.props.task.locality);
   }
 
   handleTimeFilter(e){
@@ -30,7 +30,7 @@ class Stage2 extends React.Component {
 
   render(){
 
-    let taskers = asArray(this.props.taskers).map( (tasker) => {
+    let taskers = this.props.filter.results.map( (tasker) => {
       if(tasker !== true){
         return (
           <Tasker tasker={tasker} title='Sample' key={tasker.id} />
@@ -44,11 +44,10 @@ class Stage2 extends React.Component {
           <div className="sorted-by-container">
             <h4 className="sorted-by-title"> SORTED BY: </h4>
             <select className="sorted-by-filter" onChange={this.handleSortByFilter}>
-              <option value="recomended">Recomended</option>
-              <option value="price-high-low">Price (Lowest to Highest)</option>
-              <option value="price-low-high">Price (Highest to Lowest)</option>
-              <option value="highest-rating">Highest Rating</option>
-              <option value="most-reviews">Most Reviews</option>
+              <option value={generateSort('desc', 'price')}>Price (Lowest to Highest)</option>
+              <option value={generateSort('asc', 'price')}>Price (Highest to Lowest)</option>
+              // <option value="highest-rating">Highest Rating</option>
+              <option value={generateSort('desc', 'review_count')}>Most Reviews</option>
             </select>
           </div>
 

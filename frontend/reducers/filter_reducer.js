@@ -1,11 +1,12 @@
 import merge from 'lodash/merge';
-import { UPDATE_FILTER, SET_FILTER } from '../actions/filter_actions';
+import { UPDATE_FILTER, SET_FILTER, UPDATE_FILTER_RESULTS } from '../actions/filter_actions';
 import { RECEIVE_TASKERS } from '../actions/user_actions';
+import { generateSort } from '../util/sort_util';
 import { asArray } from './selectors';
 const _defaultFilter = Object.freeze({
-  sort_by: "",
-  date: "",
-  time: "",
+  sort_by: generateSort('desc', 'review_count'),
+  date: "2017-04-25",
+  time: "Morning",
   results: []
 });
 
@@ -16,8 +17,7 @@ const FilterReducer = (state = _defaultFilter, action) => {
       const newResults =  { results: asArray(action.taskers)};
       return Object.assign({}, state, newResults);
     case UPDATE_FILTER:
-      const newFilter = { [action.filter]: action.value };
-      return merge({}, state, newFilter);
+      return Object.assign({}, state, action.parameter);
     default:
       return state;
   }

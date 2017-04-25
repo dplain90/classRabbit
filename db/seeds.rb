@@ -99,7 +99,7 @@ end
     category_id: category_ids.sample,
     pitch: Faker::Lorem.paragraph,
     price: Faker::Commerce.price,
-    reviews: Faker::Lorem.sentences,
+    reviews: Faker::Lorem.sentences * Random.rand(5)
     quote: Faker::Lorem.sentence,
     author_id: regular_user_ids.sample
   )
@@ -115,6 +115,12 @@ end
     )
   end
 
+
+  Availability.create(
+    date: Date.today,
+    time: "Morning",
+    tasker_id: User.last.id
+  )
   #make some tasks!
   Task.create!(
     description: Faker::ChuckNorris.fact,

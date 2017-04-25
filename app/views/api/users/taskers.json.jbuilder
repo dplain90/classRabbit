@@ -5,7 +5,7 @@ json.taskers do
       json.fname tasker.fname
       json.lname_initial tasker.lname[0]
       json.tasker_avatar_url asset_path(tasker.avatar.url(:medium))
-
+      json.price Random.rand(50)
       json.task_count tasker.task_count(@category_id)
       json.review_count tasker.review_count(@category_id)
 

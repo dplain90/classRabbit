@@ -1,6 +1,6 @@
 import * as APIUtil from '../util/api_util';
 import { filterTaskers } from '../reducers/selectors';
-
+export const UPDATE_FILTER_RESULTS = "UPDATE_FILTER_RESULTS";
 export const UPDATE_FILTER = "UPDATE_FILTER";
 export const SET_FILTER = "SET_FILTER";
 
@@ -16,20 +16,14 @@ export const updateFilterResults = taskers => ({
   taskers
 })
 
-export const setFilter = parameters => {
-  return {
-    type: SET_FILTER,
-    parameters
-  };
-};
 
-export const calculateFilterResults = (filters, taskers) => dispatch => {
-  const filteredTaskers = filterTaskers(filters, taskers);
+export const UpdateFilter = (parameter) => dispatch => {
+  return dispatch(updateFilter(parameter));
+}
+
+
+export const calculateFilterResults = (filters, taskers, availabilities) => dispatch => {
+  debugger
+  const filteredTaskers = filterTaskers(filters, taskers, availabilities);
   return dispatch(updateFilterResults(filteredTaskers));
 };
-
-
-
-
-
-updateFilter(timeFilterParams).then( () => updateFilterResults(filterTaskers(filterstate, this.props.taskers))))

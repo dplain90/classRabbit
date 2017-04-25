@@ -1,4 +1,4 @@
-import { compareTaskers } from '../util/sort_util';
+import { generateSort } from '../util/sort_util';
 
 export const asArray = (categories) => {
   return Object.keys(categories).map((key) => {
@@ -13,10 +13,11 @@ export const uniqTaskers = (availabilities) => {
 };
 
 export const filterTaskers = (filters, taskers, availabilities) => {
+
   let filteredTaskers = {};
   availabilities[filters.date].forEach( (availability) => {
     if(availability.time === filters.time){
-      filteredTaskers[availability.tasker_id] = taskers[tasker_id];
+      filteredTaskers[availability.tasker_id] = taskers[availability.tasker_id];
     }
   });
 
