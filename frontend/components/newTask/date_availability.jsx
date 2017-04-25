@@ -1,26 +1,18 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 
 class DateAvailability extends React.Component {
   constructor(props){
     super(props);
     this.date = new Date(this.props.date);
+
+  }
+
+  handleClick(){
+    this.props.updateFilter({date: this.date});
   }
 
   render(){
-
-    // background-color: #51af33;
-    // border-color: #51af33;
-    // color: white;
-    // font-weight: bold;
-    console.log(this.props.taskers);
-    console.log(this.props.date);
-    const divStyle = {
-      height: '80px',
-      width: '80px',
-      borderRadius: '4px'
-    };
-// style={{height:'80px', width:'80px', borderRadius:'4px', backgroundColor:'#51af33', color:"white"}}
     return (
       <div className='date-availability-container' >
         <label className='weekday'> {dayAbrev[this.date.getUTCDay()]} </label>
@@ -32,4 +24,18 @@ class DateAvailability extends React.Component {
 
 }
 
-export default DateAvailability;
+
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    filter: state.filter
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateFilter: (parameters) => dispatch(updateFilter(parameters))
+   };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DateAvailability);

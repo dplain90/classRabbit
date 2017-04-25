@@ -6,6 +6,7 @@ import searchReducer from './search_reducer';
 import newTaskReducer from './new_task_reducer';
 import availabilitiesReducer from './availability_reducer';
 import taskerReducer from './tasker_reducer';
+import filterReducer from './filter_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   tasks: taskReducer,
   task: newTaskReducer,
   availabilities: availabilitiesReducer,
-  taskers: taskerReducer
+  taskers: taskerReducer,
+  filter: filterReducer
 });
 
 export default rootReducer;
