@@ -34,6 +34,8 @@ select {
 
 }
 
+
+
 * {
   min-height: 0;
   min-width: 0;
@@ -52,17 +54,11 @@ select {
 .date-availability-container{
   cursor: pointer;
   border-radius: 4px;
-
   height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.slick-arrow button {
-  width: 10px;
 
+.slick-arrow button {
 }
 
 .weekday {
@@ -74,37 +70,46 @@ select {
 }
 
 .date-carousel-container {
-  display: flex;
-  /*justify-content: center;*/
   position: relative;
 }
 
 .date-carousel{
 
 }
+.date-availability-container{
+  background: #f9fafb;
+  border: 1px solid #b1b9c3;
+  border-radius: 4px;
+  color: #545e69;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-.slick-slide.slick-active.slick-center {
+.slick-slide.slick-active.slick-center .date-availability-container {
   background-color: #51af33;
   border-color: #51af33;
   color: white;
   font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  border-radius: 4px;
+
 
 }
 
 .slick-slide{
-  background-color: white;
-  border: 1px solid #dce0e6;
-  font-weight: bold;
-  color: black;
-  display: flex;
+  /*background-color: white;*/
+  /*border: 1px solid #dce0e6;*/
+  /*font-weight: bold;
+  color: black;*/
+  /*display: flex;
   flex-direction: column;
 
   justify-content: center;
-  align-items: center;
+  align-items: center;*/
 
-  margin: 0px 4px;
+  /*margin: 0px 4px;*/
 
 }

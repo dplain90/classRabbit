@@ -11,7 +11,6 @@ class DateCarousel extends React.Component {
       arrows: true,
       centerMode: true,
       infinite: true,
-      centerPadding: '60px',
       slidesToShow: 3,
       speed: 500,
       variableWidth: false
