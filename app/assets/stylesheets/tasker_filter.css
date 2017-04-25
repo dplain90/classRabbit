@@ -10,10 +10,13 @@
   height: auto;
 }
 
-div[data-index="-2"], div[data-index="-1"], div[data-index="0"], div[data-index="1"] {
+/*div[data-index="-2"], div[data-index="-1"], div[data-index="0"], div[data-index="1"] {
+  width: 90px !important;
+}*/
+
+.slick-slide{
   width: 90px !important;
 }
-
 
 .time-and-date-container {
   max-width: 310px;

@@ -13,7 +13,7 @@ class DateCarousel extends React.Component {
       infinite: true,
       slidesToShow: 2,
       speed: 500,
-      variableWidth: false
+      variableWidth: true
     };
   }
 
