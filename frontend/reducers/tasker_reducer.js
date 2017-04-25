@@ -1,7 +1,9 @@
 import { RECEIVE_TASKERS } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
-const initialState = {};
+const initialState = {
+  present: ""
+};
 
 const TaskersReducer = (state = initialState, action) => {
   console.log(action);

@@ -52,9 +52,12 @@ select {
 .date-availability-container{
   cursor: pointer;
   border-radius: 4px;
-  width: 80px;
+
   height: 80px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .slick-arrow button {
@@ -62,9 +65,46 @@ select {
 
 }
 
-.date-availability-container{
+.weekday {
+  font-family: "Proxima-Nova-Bold";
+}
+
+.weekday, .avail-date {
+  height: 24px;
+}
+
+.date-carousel-container {
+  display: flex;
+  /*justify-content: center;*/
+  position: relative;
+}
+
+.date-carousel{
+
+}
+
+.slick-slide.slick-active.slick-center {
   background-color: #51af33;
   border-color: #51af33;
   color: white;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.slick-slide{
+  background-color: white;
+  border: 1px solid #dce0e6;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px 4px;
+
 }

@@ -10,6 +10,7 @@
   justify-content: center;
   width: inherit;
 }
+
 .task-step-bar {
   background: white;
   border-bottom: 1px solid #dce0e6;
@@ -116,6 +117,18 @@ strong {
   width: 100%;
 }
 
+.error.location {
+  font-size: 16px;
+}
+
+.location-input.err{
+  color: #da9e07;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 0.5px #da9e07;
+  border: -11.5px solid #da9e07;
+}
+
+
 .stage1-form .addressInputs {
   display: flex;
   flex-direction: row;
@@ -129,19 +142,36 @@ strong {
   margin-bottom: 32px;
 }
 
+
 #autocomplete {
   width: 100%;
+  height: 24px;
+  font-size: 1em;
+  font-family: "Proxima-Nova-Light";
 }
 
 .addressInputs #apt-num {
   width: 108.594;
   margin-left: 16px;
+  height: 24px;
+  font-size: 1em;
+  font-family: "Proxima-Nova-Light";
+  border-radius: 4px;
+  border: 1px solid rgb(177, 185, 195);
+  outline: none;
+  transition-property: border-color;
 }
 
-.continue-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+#autocomplete:focus {
+  color: #242a30;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px #51af33;
+}
+
+#apt-num:focus {
+  color: #242a30;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px #51af33;
 }
 
 .description-form {
@@ -150,9 +180,18 @@ strong {
   width: 100%;
 }
 
-
+.continue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .description-form textarea {
+  font-size: 1em;
+  font-family: "Proxima-Nova-Light";
+  border-radius: 4px;
+  outline: none;
   margin-top: 16px;
   height: 160px;
   width: 95%;

@@ -1,4 +1,9 @@
 json.taskers do
+  if @taskers.length > 0
+    json.present true
+  else
+    json.present false
+  end 
   @taskers.each do |tasker|
     json.set! tasker.id do
       json.id tasker.id

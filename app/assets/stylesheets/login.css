@@ -27,10 +27,6 @@
 
 }
 
-
-
-
-
 .auth-input.err{
   color: #da9e07;
   border-color: transparent;
@@ -46,7 +42,7 @@
 .auth-main input[type=text]:focus, .auth-main input[type=password]:focus, .auth-main input[type=email]:focus, .auth-main input[type=search]:focus, .auth-main input[type=url]:focus, .auth-main input[type=number]:focus, textarea:focus {
     color: #242a30;
     border-color: transparent;
-    box-shadow: inset 0 0 0 1px #51af33
+    box-shadow: inset 0 0 0 1px #51af33;
 }
 
 .auth-label {

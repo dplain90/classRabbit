@@ -26,7 +26,6 @@
   position: relative;
 }
 
-
 .search-result.category.hidden {
   display: none;
 }
@@ -97,6 +96,7 @@
   /*padding-right: 0px;*/
   height: 24px;
   font-size: 1em;
+  font-family: "Proxima-Nova-Light";
   padding-left: 2.5em;
   z-index: 50;
   border: 0px;

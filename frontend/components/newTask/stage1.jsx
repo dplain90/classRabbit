@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router';
 import SearchContainer from '../search/search_container';
 import SmoothCollapse from 'react-smooth-collapse';
 import { getTask, setTask, clearTask } from '../../util/session_util';
+import { connect } from 'react-redux';
+import { getTaskers } from '../../actions/user_actions';
 
 class Stage1 extends React.Component {
   constructor(props){
@@ -10,20 +12,48 @@ class Stage1 extends React.Component {
     this.handleLocation = this.handleLocation.bind(this);
     this.initAutocomplete = this.initAutocomplete.bind(this);
     this.fillInAddress = this.fillInAddress.bind(this);
+    this.handleToDescription = this.handleToDescription.bind(this);
+    this.clearDescription = this.clearDescription.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-
+    this.handleReturnToLocation = this.handleReturnToLocation.bind(this);
+    this.generateFinalAddress = this.generateFinalAddress.bind(this);
     this.state =  {
+      tasker_presence: "",
+      default_desc: true,
+      errors: "",
       description: false,
+      cursor: 'default',
       location: true,
       locality: "",
       address: "",
       apt_num: "",
-      task_desc: ""
+      task_desc: "EXAMPLE: We have a few lightbulbs that need replacing. We've got the lightbulbs, but we'd need you to provide the ladder."
     };
   }
 
+  componentWillReceiveProps(nextProps){
+
+    this.setState({
+      tasker_presence: nextProps.present
+    });
+    console.log(nextProps);
+  }
+
+  handleReturnToLocation(){
+    if(this.state.location === false){
+      this.handleLocation();
+    }
+  }
+
+  clearDescription(){
+    if(this.state.default_desc){
+      this.setState({
+        default_desc: false,
+        task_desc: ""
+      }); }
+  }
 
   update(property) {
     return e => this.setState({
@@ -37,14 +67,12 @@ class Stage1 extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-
     const newTaskInfo = {
       locality: this.fillInAddress(),
       address: this.state.address,
       apt_num: this.state.apt_num,
       task_desc: this.state.task_desc
     };
-
     const newTaskState = getTask();
     newTaskState.stage = 2;
 
@@ -54,44 +82,89 @@ class Stage1 extends React.Component {
 
 
   handleLocation(){
+    const finalAddress = this.generateFinalAddress(this.state.address);
     const newDescriptionState = this.state.description ? false : true;
     const newLocationState = this.state.location ? false : true;
+    const newCursorState = this.state.cursor === "default" ? "pointer" : "default";
     this.setState({
       description: newDescriptionState,
-      location: newLocationState
+      location: newLocationState,
+      cursor: newCursorState,
+      address: finalAddress,
+      errors: ""
     });
+
   }
 
+  handleToDescription(){
+      let place =  this.autocomplete.getPlace();
+      if(document.getElementById('autocomplete').value === ""){
+        this.setState({
+          errors: "Task location required to continue",
+          locality: "",
+          address: ""
+        });
+      } else if(this.state.location === true) {
+        this.handleLocation();
+      } else { }
+    }
 
+  locationInput(){
+    const err = this.state.errors !== "" ? "err" : "";
+    if(this.state.address === "" || this.state.location){
+      return (
+        <span className="addressInputs">
+          <input id="autocomplete" className={`location-input ${err}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" ></input>
+          <input id="apt-num" onChange={this.update("apt_num")} placeholder="Unit or Apt #"/>
+        </span>
+      );
+    } else {
+      return (
+        <span className="addressInputs">
+          <p className="selectedAddress"> { this.state.address }</p>
+          { this.state.tasker_presence }
+        </span>
+      );
+    }
+  }
+  // new google.maps.places.AutocompleteService();
   initAutocomplete() {
     this.autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('autocomplete')), {types: ['geocode']});
     this.autocomplete.addListener('place_changed', this.fillInAddress);
   }
 
+  generateFinalAddress(address){
+    let finalAddress = address.split(",");
+    if(this.state.apt_num !== ""){
+     finalAddress = finalAddress.slice(0, 1)
+     .concat(this.state.apt_num, finalAddress.slice(1));
+    }
+
+    return finalAddress.join(",");
+  }
+
   fillInAddress() {
-    // Get the place details from the autocomplete object.
      let place = this.autocomplete.getPlace();
-     debugger
      let locality = "";
-  //    street_number: 'short_name',
-  //    route: 'long_name',
-  //    administrative_area_level_1: 'short_name',
-  //    country: 'long_name',
-  //    postal_code: 'short_name'
      let componentForm = {
       locality: 'long_name'
     };
 
-  //   // Get each component of the address from the place details
-  //   // and fill the corresponding field on the form.
     for (var i = 0; i < place.address_components.length; i++) {
       let addressType = place.address_components[i].types[0];
       if (componentForm[addressType]) {
         locality = place.address_components[i][componentForm[addressType]];
       }
     }
-    return locality;
+
+    this.setState({
+      locality: locality,
+      address: place.formatted_address
+    });
+
+    console.log(this.generateFinalAddress(place.formatted_address));
+    this.props.getTaskers(this.props.task.category_id, locality);
   }
 
   geolocate() {
@@ -111,31 +184,29 @@ class Stage1 extends React.Component {
   }
 
   render(){
+    console.log(this.state.address);
     return (
       <div className="stage1-container">
-        <div className="location-container">
-          <form className="stage1-form" >
+        <div className="location-container" style={{cursor: this.state.cursor}}>
+          <form className="stage1-form" onClick={this.handleReturnToLocation}>
             <h3> YOUR TASK LOCATION </h3>
-
-            <span className="addressInputs">
-            <input id="autocomplete" placeholder="Enter your address" onFocus={this.geolocate} type="text"></input>
-              <input id="apt-num" onChange={this.update("apt_num")} placeholder="Unit or Apt #"/>
-            </span>
+            {this.locationInput()}
             <SmoothCollapse expanded={this.state.location}>
               <span className="continue-container">
-                <button className="location-button" onClick={this.handleLocation}>Continue</button>
-              </span>
+                <button className="location-button" onClick={this.handleToDescription}>Continue</button>
+                <label className="error location">{ this.state.errors }</label>
+            </span>
             </SmoothCollapse>
           </form>
         </div>
 
         <div className="location-container">
-          <div className="description-form">
+          <div className="description-form" >
           <h3 className="about-task-header"> TELL US ABOUT YOUR TASK </h3>
           <p> If you need two or more Taskers, please post additional tasks for each Tasker needed. </p>
           <SmoothCollapse expanded={this.state.description}>
-          <textarea onChange={this.update("task_desc")}>
-            EXAMPLE: We have a few lightbulbs that need replacing. We've got the lightbulbs, but we'd need you to provide the ladder.
+          <textarea onClick={this.clearDescription} onChange={this.update("task_desc")} value={this.state.task_desc}  >
+
           </textarea>
           <span className="continue-container">
             <button onClick={this.handleSubmit}>
@@ -152,4 +223,29 @@ class Stage1 extends React.Component {
 
 }
 
-export default withRouter(Stage1);
+const mapStateToProps = (state, ownProps) => {
+  let taskerPresence;
+  let newTask = getTask();
+  if(state.taskers.present === true){
+    taskerPresence = "Good news! ClassRabbit is available in your area";
+  } else if (state.taskers.present === false) {
+    taskerPresence = "Sorry! ClassRabbit is not yet available in your area!";
+  } else {
+    taskerPresence = "";
+  }
+
+  return {
+    task: newTask,
+    taskers: state.taskers.present,
+    present: taskerPresence
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateTask: (task) => dispatch(updateNewTask(task)),
+    getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stage1);

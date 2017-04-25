@@ -21,7 +21,7 @@ class newTask extends React.Component {
     const task = this.props.task;
     const stage = task.stage ;
     if(stage === 1){
-      return ( <Stage1 updateTask={this.props.updateTask} /> );
+      return ( <Stage1 /> );
     } else if( stage === 2) {
       return ( <Stage2Container updateTask={this.props.updateTask} />);
     } else {
@@ -87,7 +87,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    updateTask: (task) => dispatch(updateNewTask(task))
+    updateTask: (task) => dispatch(updateNewTask(task)),
+    getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
    };
 };
 

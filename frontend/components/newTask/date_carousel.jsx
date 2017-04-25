@@ -9,9 +9,12 @@ class DateCarousel extends React.Component {
     this.dateAvailabilities = this.dateAvailabilities.bind(this);
     this.settings = {
       arrows: true,
-      speed: 500,
+      centerMode: true,
+      infinite: true,
+      centerPadding: '60px',
       slidesToShow: 3,
-      slidesToScroll: 1
+      speed: 500,
+      variableWidth: false
     };
   }
 
@@ -29,6 +32,7 @@ class DateCarousel extends React.Component {
 
 
   render(){
+
       const dates = this.dateAvailabilities();
       if(dates.length === 0){
         return (<div> </div>);

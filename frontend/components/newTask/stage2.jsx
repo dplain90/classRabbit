@@ -44,9 +44,8 @@ class Stage2 extends React.Component {
             <span className="time-and-date-title">
               TASK DATE & TIME
             </span>
-
-            <div className="date-carousel">
-              <DateCarousel availabilities={this.props.availabilities} />
+            <div className="date-carousel-container">
+                <DateCarousel availabilities={this.props.availabilities} />
             </div>
 
             <select className="time">
