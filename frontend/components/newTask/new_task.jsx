@@ -30,10 +30,6 @@ class newTask extends React.Component {
     }
   }
 
-  componentDidMount(){
-
-  }
-
   handleCategoryChange(){
     clearTask();
   }

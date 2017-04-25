@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const TaskersReducer = (state = initialState, action) => {
-  console.log(action);
+
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_TASKERS:

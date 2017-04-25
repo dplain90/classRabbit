@@ -23,7 +23,6 @@ export const UpdateFilter = (parameter) => dispatch => {
 
 
 export const calculateFilterResults = (filters, taskers, availabilities) => dispatch => {
-  debugger
   const filteredTaskers = filterTaskers(filters, taskers, availabilities);
   return dispatch(updateFilterResults(filteredTaskers));
 };

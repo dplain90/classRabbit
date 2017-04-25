@@ -44,7 +44,6 @@ class Stage1 extends React.Component {
     this.setState({
       tasker_presence: nextProps.present
     });
-    console.log(nextProps);
   }
 
   handleReturnToLocation(){
@@ -131,78 +130,78 @@ class Stage1 extends React.Component {
     }
   }
   // new google.maps.places.AutocompleteService();
-  initAutocomplete() {
-    this.autocomplete = new google.maps.places.Autocomplete(
-      (document.getElementById('autocomplete')), {types: ['geocode']});
-    this.autocomplete.addListener('place_changed', this.fillInAddress);
-  }
+  // initAutocomplete() {
+  //   this.autocomplete = new google.maps.places.Autocomplete(
+  //     (document.getElementById('autocomplete')), {types: ['geocode']});
+  //   this.autocomplete.addListener('place_changed', this.fillInAddress);
+  // }
 
-  generateFinalAddress(address){
-    let finalAddress = address.split(",");
-    if(this.state.apt_num !== ""){
-     finalAddress = finalAddress.slice(0, 1)
-     .concat(this.state.apt_num, finalAddress.slice(-3));
-   } else {
-     return this.autocomplete.getPlace().formatted_address;
-   }
+  // generateFinalAddress(address){
+  //   let finalAddress = address.split(",");
+  //   if(this.state.apt_num !== ""){
+  //    finalAddress = finalAddress.slice(0, 1)
+  //    .concat(this.state.apt_num, finalAddress.slice(-3));
+  //  } else {
+  //    return this.autocomplete.getPlace().formatted_address;
+  //  }
+  //
+  //   return finalAddress.join(",");
+  // }
 
-    return finalAddress.join(",");
-  }
-
-  handlePencilIcon(){
-    if(!this.state.location) {
-      this.setState({
-        location_icon: "icon-pencil"
-      });
-    }
-  }
-
-  handleCheckIcon(){
-    if(!this.state.location) {
-      this.setState({
-        location_icon: "icon-checkmark"
-      });
-    }
-  }
+  // handlePencilIcon(){
+  //   if(!this.state.location) {
+  //     this.setState({
+  //       location_icon: "icon-pencil"
+  //     });
+  //   }
+  // }
+  //
+  // handleCheckIcon(){
+  //   if(!this.state.location) {
+  //     this.setState({
+  //       location_icon: "icon-checkmark"
+  //     });
+  //   }
+  // }
 
 
-  fillInAddress() {
-     let place = this.autocomplete.getPlace();
-     let locality = "";
-     let componentForm = {
-      locality: 'long_name'
-    };
+  // fillInAddress() {
+  //    let place = this.autocomplete.getPlace();
+  //    let locality = "";
+  //    let componentForm = {
+  //     locality: 'long_name'
+  //   };
+  //
+  //   for (var i = 0; i < place.address_components.length; i++) {
+  //     let addressType = place.address_components[i].types[0];
+  //     if (componentForm[addressType]) {
+  //       locality = place.address_components[i][componentForm[addressType]];
+  //     }
+  //   }
+  //
+  //   this.setState({
+  //     locality: locality,
+  //     address: place.formatted_address
+  //   });
+  //
+  //   this.props.getTaskers(this.props.task.category_id, locality);
+  // }
 
-    for (var i = 0; i < place.address_components.length; i++) {
-      let addressType = place.address_components[i].types[0];
-      if (componentForm[addressType]) {
-        locality = place.address_components[i][componentForm[addressType]];
-      }
-    }
-
-    this.setState({
-      locality: locality,
-      address: place.formatted_address
-    });
-
-    this.props.getTaskers(this.props.task.category_id, locality);
-  }
-
-  geolocate() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const geolocation = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        const circle = new google.maps.Circle({
-          center: geolocation,
-          radius: position.coords.accuracy
-        });
-        this.autocomplete.setBounds(circle.getBounds());
-      });
-    }
-  }
+  // geolocate() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       const geolocation = {
+  //         lat: position.coords.latitude,
+  //         lng: position.coords.longitude
+  //       };
+  //       const circle = new google.maps.Circle({
+  //         center: geolocation,
+  //         radius: position.coords.accuracy
+  //       });
+  //       this.autocomplete.setBounds(circle.getBounds());
+  //     });
+  //   }
+  // }
 
   render(){
     const err = this.state.errors !== "" ? "err" : "";
@@ -210,81 +209,81 @@ class Stage1 extends React.Component {
     if(this.state.address === "" || this.state.location ) {
      hide = "";
     }
-    console.log(this.state.address);
+
     return (
       <div className="stage1-container">
-        <div className="location-container" onMouseOut={this.handleCheckIcon} onMouseOver={this.handlePencilIcon} style={{cursor: this.state.cursor}}>
-          <form className="stage1-form" onClick={this.handleReturnToLocation}>
-            <div className="stage1-form-header">
-              <h3> YOUR TASK LOCATION </h3>
-              <i className={`${this.state.location_icon} task-location-icon`} />
-            </div>
-            {this.locationInput()}
-            <span className="addressInputs">
-              <input id="autocomplete" className={`location-input ${err} ${hide}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" ></input>
-              <input id="apt-num" className={`location-input ${hide}`} onChange={this.update("apt_num")} placeholder="Unit or Apt #"/>
-            </span>
-            <SmoothCollapse expanded={this.state.location}>
-              <span className="continue-container">
-                <button className="location-button" onClick={this.handleToDescription}>Continue</button>
-                <label className="error location">{ this.state.errors }</label>
-            </span>
-            </SmoothCollapse>
-          </form>
-        </div>
+        // <div className="location-container" onMouseOut={this.handleCheckIcon} onMouseOver={this.handlePencilIcon} style={{cursor: this.state.cursor}}>
+        //   <form className="stage1-form" onClick={this.handleReturnToLocation}>
+        //     <div className="stage1-form-header">
+        //       <h3> YOUR TASK LOCATION </h3>
+        //       <i className={`${this.state.location_icon} task-location-icon`} />
+        //     </div>
+        //     {this.locationInput()}
+        //     <span className="addressInputs">
+        //       <input id="autocomplete" className={`location-input ${err} ${hide}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" ></input>
+        //       <input id="apt-num" className={`location-input ${hide}`} onChange={this.update("apt_num")} placeholder="Unit or Apt #"/>
+        //     </span>
+        //     <SmoothCollapse expanded={this.state.location}>
+        //       <span className="continue-container">
+        //         <button className="location-button" onClick={this.handleToDescription}>Continue</button>
+        //         <label className="error location">{ this.state.errors }</label>
+        //     </span>
+        //     </SmoothCollapse>
+        //   </form>
+        // </div>
 
-        <div className="location-container">
-          <div className="description-form" >
-          <h3 className="about-task-header"> TELL US ABOUT YOUR TASK </h3>
-          <p> If you need two or more Taskers, please post additional tasks for each Tasker needed. </p>
-          <SmoothCollapse expanded={this.state.description}>
-          <textarea onClick={this.clearDescription} onChange={this.update("task_desc")} value={this.state.task_desc}  >
-
-          </textarea>
-          <span className="continue-container">
-            <button onClick={this.handleSubmit}>
-              See Taskers & Prices
-            </button>
-          </span>
-          </SmoothCollapse>
-          </div>
-        </div>
+        // <div className="location-container">
+        //   <div className="description-form" >
+        //   <h3 className="about-task-header"> TELL US ABOUT YOUR TASK </h3>
+        //   <p> If you need two or more Taskers, please post additional tasks for each Tasker needed. </p>
+        //   <SmoothCollapse expanded={this.state.description}>
+        //   <textarea onClick={this.clearDescription} onChange={this.update("task_desc")} value={this.state.task_desc}  >
+        //
+        //   </textarea>
+        //   <span className="continue-container">
+        //     <button onClick={this.handleSubmit}>
+        //       See Taskers & Prices
+        //     </button>
+        //   </span>
+        //   </SmoothCollapse>
+        //   </div>
+        // </div>
 
     </div>
     );
   }
 
 }
-
-const mapStateToProps = (state, ownProps) => {
-  let taskerPresence;
-  let newTask = getTask();
-  if(state.task.present === 'true'){
-    taskerPresence = "Good news! ClassRabbit is available in your area";
-  } else if (state.task.present === 'false') {
-    taskerPresence = "Sorry! ClassRabbit is not yet available in your area!";
-  } else {
-    taskerPresence = "";
-  }
-
-  return {
-    taskers: state.taskers,
-    filter: state.filter,
-    task: newTask,
-    present: taskerPresence,
-    availabilities: state.availabilities
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    setFilter: (potential_results) => dispatch(setFilter(potential_results)),
-    updateFilter: (params) => dispatch(updateFilter(params)),
-    calculateFilterResults: (filters, taskers, availabilities) => dispatch(calculateFilterResults(filters, taskers, availabilities)),
-    updateTask: (task) => dispatch(updateNewTask(task)),
-    getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
-  };
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Stage1);
+//
+// const mapStateToProps = (state, ownProps) => {
+//   let taskerPresence;
+//   let newTask = getTask();
+//   if(state.task.present === 'true'){
+//     taskerPresence = "Good news! ClassRabbit is available in your area";
+//   } else if (state.task.present === 'false') {
+//     taskerPresence = "Sorry! ClassRabbit is not yet available in your area!";
+//   } else {
+//     taskerPresence = "";
+//   }
+//
+//   return {
+//     taskers: state.taskers,
+//     filter: state.filter,
+//     task: newTask,
+//     present: taskerPresence,
+//     availabilities: state.availabilities
+//   };
+// };
+//
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//   return {
+//     setFilter: (potential_results) => dispatch(setFilter(potential_results)),
+//     updateFilter: (params) => dispatch(updateFilter(params)),
+//     calculateFilterResults: (filters, taskers, availabilities) => dispatch(calculateFilterResults(filters, taskers, availabilities)),
+//     updateTask: (task) => dispatch(updateNewTask(task)),
+//     getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
+//   };
+// };
+//
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(Stage1);

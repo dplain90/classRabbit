@@ -7,6 +7,7 @@ import newTaskReducer from './new_task_reducer';
 import availabilitiesReducer from './availability_reducer';
 import taskerReducer from './tasker_reducer';
 import filterReducer from './filter_reducer';
+import stageReducer from './stage_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   task: newTaskReducer,
   availabilities: availabilitiesReducer,
   taskers: taskerReducer,
-  filter: filterReducer
+  filter: filterReducer,
+  stage: stageReducer
 });
 
 export default rootReducer;

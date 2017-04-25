@@ -99,7 +99,7 @@ end
     category_id: category_ids.sample,
     pitch: Faker::Lorem.paragraph,
     price: Faker::Commerce.price,
-    reviews: Faker::Lorem.sentences * Random.rand(5)
+    reviews: Faker::Lorem.sentences * Random.rand(5),
     quote: Faker::Lorem.sentence,
     author_id: regular_user_ids.sample
   )

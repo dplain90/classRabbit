@@ -7,12 +7,31 @@ import { asArray } from '../../reducers/selectors';
 import Tasker from './tasker';
 import DateCarousel from './date_carousel';
 import { generateSort } from '../../util/sort_util';
+import { updateFilter } from '../../actions/filter_actions';
+import { calculateFilterResults } from '../../actions/filter_actions';
+
+
 
 class Stage2 extends React.Component {
   constructor(props){
     super(props);
     this.handleTimeFilter = this.handleTimeFilter.bind(this);
     this.handleSortByFilter = this.handleSortByFilter.bind(this);
+
+    this.state = {
+      time_filter: "",
+      sort_by: ""
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    debugger
+    const oldFilter = this.props.filter;
+    const newFilter = newProps.filter;
+
+    if (newFilter.sort_by !== oldFilter.sort_by || newFilter.date !== oldFilter.date || newFilter.time !== oldFilter.time) {
+      this.props.calculateFilterResults(this.props.filter, this.props.taskers, this.props.availabilities);
+    }
   }
 
   componentDidMount(){
@@ -20,11 +39,14 @@ class Stage2 extends React.Component {
   }
 
   handleTimeFilter(e){
+
+    this.setState({time_filter: e.target.value});
     this.props.updateFilter({time: e.target.value});
   }
 
   handleSortByFilter(e){
-    this.props.updateSortByFilter({sort_by: e.target.value});
+    this.setState({sort_by: e.target.value});
+    this.props.updateFilter({sort_by: e.target.value});
   }
 
 
@@ -43,7 +65,7 @@ class Stage2 extends React.Component {
         <section className="filter-container">
           <div className="sorted-by-container">
             <h4 className="sorted-by-title"> SORTED BY: </h4>
-            <select className="sorted-by-filter" onChange={this.handleSortByFilter}>
+            <select className="sorted-by-filter" value={this.state.sort_by} onChange={this.handleSortByFilter}>
               <option value={generateSort('desc', 'price')}>Price (Lowest to Highest)</option>
               <option value={generateSort('asc', 'price')}>Price (Highest to Lowest)</option>
               // <option value="highest-rating">Highest Rating</option>
@@ -59,7 +81,7 @@ class Stage2 extends React.Component {
                 <DateCarousel availabilities={this.props.availabilities} />
             </div>
 
-            <select className="time" onChange={this.handleTimeFilter}>
+            <select className="time" value={this.state.time_filter} onChange={this.handleTimeFilter} >
               <option value="flexible">IM FLEXIBLE</option>
               <option value="morning">MORNING 8am - 12pm</option>
               <option value="afternoon">AFTERNOON 12pm - 4pm</option>
@@ -91,7 +113,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality)),
-    updateFilter: (parameter) => dispatch(updateFilter(parameter))
+    updateFilter: (parameter) => dispatch(updateFilter(parameter)),
+    calculateFilterResults: (filters, taskers, availabilities) => dispatch(calculateFilterResults(filters, taskers, availabilities))
   };
 };
 
