@@ -10,13 +10,22 @@ import DateCarousel from './date_carousel';
 class Stage2 extends React.Component {
   constructor(props){
     super(props);
+    this.handleTimeFilter = this.handleTimeFilter.bind(this);
+    this.handleSortByFilter = this.handleSortByFilter.bind(this);
   }
 
   componentDidMount(){
-
+    debugger
+    this.props.getTaskers(this.props.task.category_id, this.props.task.locality);
   }
 
-  
+  handleTimeFilter(e){
+    this.props.updateFilter({time: e.target.value});
+  }
+
+  handleSortByFilter(e){
+    this.props.updateSortByFilter({sort_by: e.target.value});
+  }
 
 
   render(){
@@ -34,7 +43,7 @@ class Stage2 extends React.Component {
         <section className="filter-container">
           <div className="sorted-by-container">
             <h4 className="sorted-by-title"> SORTED BY: </h4>
-            <select className="sorted-by-filter">
+            <select className="sorted-by-filter" onChange={this.handleSortByFilter}>
               <option value="recomended">Recomended</option>
               <option value="price-high-low">Price (Lowest to Highest)</option>
               <option value="price-low-high">Price (Highest to Lowest)</option>
@@ -51,7 +60,7 @@ class Stage2 extends React.Component {
                 <DateCarousel availabilities={this.props.availabilities} />
             </div>
 
-            <select className="time">
+            <select className="time" onChange={this.handleTimeFilter}>
               <option value="flexible">IM FLEXIBLE</option>
               <option value="morning">MORNING 8am - 12pm</option>
               <option value="afternoon">AFTERNOON 12pm - 4pm</option>
@@ -75,13 +84,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     task: newTask,
     taskers: state.taskers,
-    availabilities: state.availabilities
+    availabilities: state.availabilities,
+    filter: state.filter
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality))
+    getTaskers: (category_id, locality) => dispatch(getTaskers(category_id, locality)),
+    updateFilter: (parameter) => dispatch(updateFilter(parameter))
   };
 };
 
