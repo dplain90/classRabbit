@@ -11,6 +11,15 @@
   width: inherit;
 }
 
+.trust-safety-info-icon {
+  margin-left: 32px;
+  color: rgb(81, 175, 51);
+  font-size: 20px;
+}
+
+.step-icon {
+  margin-right: 16px;
+}
 .tasker-presence, .task-location-icon{
   color: #36b5bb;
   font-size: 16px;

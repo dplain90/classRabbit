@@ -14,7 +14,8 @@ class newTask extends React.Component {
     super(props);
     this.renderStage = this.renderStage.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
-
+    this.renderStep = this.renderStep.bind(this);
+    this.pencilIcon = this.pencilIcon.bind(this);
   }
 
   renderStage() {
@@ -37,22 +38,34 @@ class newTask extends React.Component {
     clearTask();
   }
 
+  pencilIcon(){
+    return ( <i className='icon-pencil step-icon' />);
+  }
+
+  renderStep(stage, step_text){
+    if(stage === this.props.task.stage){
+      return (
+        <li>
+          {this.pencilIcon()}{step_text}
+        </li>
+      );
+    } else {
+      return (
+        <li>
+          {step_text}
+        </li>
+      );
+    }
+  }
+
   render(){
     return (
       <div className="new-task-container">
       <section className="task-step-bar">
         <ol>
-          <li>
-            Fill Out Task Details
-          </li>
-
-          <li>
-            View Tasksers & Prices
-          </li>
-
-          <li>
-            Confirm & Book
-          </li>
+          { this.renderStep(1, 'Fill Out Task Details')}
+          { this.renderStep(2, 'View Taskers & Prices')}
+          { this.renderStep(3, 'Confirm & Book')}
         </ol>
       </section>
       <section className="trust-and-safety-container">
@@ -60,6 +73,7 @@ class newTask extends React.Component {
           <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/build/icons/trust_badge-7aa9db43e1fd330df7a2bd3d4d9e120c.svg" />
           <p> <strong> Trust & Safety Guarantee: </strong>
            $1MM insurance guarantee on every task. </p>
+         <i className="icon-info trust-safety-info-icon" />
         </div>
       </section>
 

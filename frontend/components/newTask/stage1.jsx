@@ -5,7 +5,7 @@ import SmoothCollapse from 'react-smooth-collapse';
 import { getTask, setTask, clearTask } from '../../util/session_util';
 import { connect } from 'react-redux';
 import { getTaskers } from '../../actions/user_actions';
-
+import { updateNewTask } from '../../actions/task_actions';
 class Stage1 extends React.Component {
   constructor(props){
     super(props);
@@ -212,7 +212,7 @@ class Stage1 extends React.Component {
           <form className="stage1-form" onClick={this.handleReturnToLocation}>
             <div className="stage1-form-header">
               <h3> YOUR TASK LOCATION </h3>
-              <i className={`${this.state.location_icon} task-location-icon`} />              
+              <i className={`${this.state.location_icon} task-location-icon`} />
             </div>
             {this.locationInput()}
             <span className="addressInputs">

@@ -13,8 +13,7 @@ class Stage2 extends React.Component {
   }
 
   componentDidMount(){
-    let currentTask = getTask();
-    this.props.getTaskers(currentTask.category_id, currentTask.locality);
+    
   }
 
   render(){
