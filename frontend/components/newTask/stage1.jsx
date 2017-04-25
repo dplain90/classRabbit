@@ -37,7 +37,6 @@ class Stage1 extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-
     this.setState({
       tasker_presence: nextProps.present
     });
@@ -178,7 +177,7 @@ class Stage1 extends React.Component {
       address: place.formatted_address
     });
 
-    console.log(this.generateFinalAddress(place.formatted_address));
+
     this.props.getTaskers(this.props.task.category_id, locality);
   }
 
@@ -199,7 +198,6 @@ class Stage1 extends React.Component {
   }
 
   render(){
-    console.log(this.state.location_icon);
     const err = this.state.errors !== "" ? "err" : "";
     let hide = "hidden";
     if(this.state.address === "" || this.state.location ) {
@@ -254,9 +252,9 @@ class Stage1 extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   let taskerPresence;
   let newTask = getTask();
-  if(state.taskers.present === true){
+  if(state.task.present === 'true'){
     taskerPresence = "Good news! ClassRabbit is available in your area";
-  } else if (state.taskers.present === false) {
+  } else if (state.task.present === 'false') {
     taskerPresence = "Sorry! ClassRabbit is not yet available in your area!";
   } else {
     taskerPresence = "";
@@ -264,7 +262,6 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     task: newTask,
-    taskers: state.taskers.present,
     present: taskerPresence
   };
 };

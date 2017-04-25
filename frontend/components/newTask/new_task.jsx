@@ -24,7 +24,7 @@ class newTask extends React.Component {
     if(stage === 1){
       return ( <Stage1 /> );
     } else if( stage === 2) {
-      return ( <Stage2Container updateTask={this.props.updateTask} />);
+      return ( <Stage2Container />);
     } else {
       return ( <Stage3 updateTask={this.props.updateTask} />);
     }

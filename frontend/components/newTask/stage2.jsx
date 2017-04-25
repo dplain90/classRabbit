@@ -13,17 +13,18 @@ class Stage2 extends React.Component {
   }
 
   componentDidMount(){
-    
+
   }
 
   render(){
+
     let taskers = asArray(this.props.taskers).map( (tasker) => {
-      return (
-        <Tasker tasker={tasker} title='Sample' key={tasker.id} />
+      if(tasker !== true){
+        return (
+          <Tasker tasker={tasker} title='Sample' key={tasker.id} />
         );
+      }
     });
-
-
 
     return (
       <div className="stage2-container">
