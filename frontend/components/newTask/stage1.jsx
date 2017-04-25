@@ -110,15 +110,7 @@ class Stage1 extends React.Component {
     }
 
   locationInput(){
-    const err = this.state.errors !== "" ? "err" : "";
-    if(this.state.address === "" || this.state.location){
-      return (
-        <span className="addressInputs">
-          <input id="autocomplete" className={`location-input ${err}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" ></input>
-          <input id="apt-num" onChange={this.update("apt_num")} placeholder="Unit or Apt #"/>
-        </span>
-      );
-    } else {
+    if(this.state.address !== "" && !this.state.location){
       return (
         <span className="addressInputs">
           <p className="selectedAddress"> { this.state.address }</p>
@@ -139,7 +131,9 @@ class Stage1 extends React.Component {
     if(this.state.apt_num !== ""){
      finalAddress = finalAddress.slice(0, 1)
      .concat(this.state.apt_num, finalAddress.slice(1));
-    }
+   } else {
+     return this.autocomplete.getPlace().formatted_address;
+   }
 
     return finalAddress.join(",");
   }
@@ -184,6 +178,11 @@ class Stage1 extends React.Component {
   }
 
   render(){
+    const err = this.state.errors !== "" ? "err" : "";
+    let hide = "hidden";
+    if(this.state.address === "" || this.state.location ) {
+     hide = "";
+    }
     console.log(this.state.address);
     return (
       <div className="stage1-container">
@@ -191,6 +190,10 @@ class Stage1 extends React.Component {
           <form className="stage1-form" onClick={this.handleReturnToLocation}>
             <h3> YOUR TASK LOCATION </h3>
             {this.locationInput()}
+            <span className="addressInputs">
+              <input id="autocomplete" className={`location-input ${err} ${hide}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" ></input>
+              <input id="apt-num" className={`location-input ${hide}`} onChange={this.update("apt_num")} placeholder="Unit or Apt #"/>
+            </span>
             <SmoothCollapse expanded={this.state.location}>
               <span className="continue-container">
                 <button className="location-button" onClick={this.handleToDescription}>Continue</button>
