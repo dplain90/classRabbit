@@ -17,9 +17,12 @@ class Stage1 extends React.Component {
     this.geolocate = this.geolocate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.handlePencilIcon = this.handlePencilIcon.bind(this);
+    this.handleCheckIcon = this.handleCheckIcon.bind(this);
     this.handleReturnToLocation = this.handleReturnToLocation.bind(this);
     this.generateFinalAddress = this.generateFinalAddress.bind(this);
     this.state =  {
+      location_icon: "",
       tasker_presence: "",
       default_desc: true,
       errors: "",
@@ -71,7 +74,8 @@ class Stage1 extends React.Component {
       locality: this.fillInAddress(),
       address: this.state.address,
       apt_num: this.state.apt_num,
-      task_desc: this.state.task_desc
+      task_desc: this.state.task_desc,
+      location_icon: "icon-checkmark"
     };
     const newTaskState = getTask();
     newTaskState.stage = 2;
@@ -113,7 +117,7 @@ class Stage1 extends React.Component {
     if(this.state.address !== "" && !this.state.location){
       return (
         <span className="addressInputs">
-          <p className="selectedAddress"> { this.state.address }</p>
+          <p className="selectedAddress"> <i className="icon-location2" />{ this.state.address }</p>
           <p className="tasker-presence"> { this.state.tasker_presence } </p>
         </span>
       );
@@ -137,6 +141,23 @@ class Stage1 extends React.Component {
 
     return finalAddress.join(",");
   }
+
+  handlePencilIcon(){
+    if(!this.state.location) {
+      this.setState({
+        location_icon: "icon-pencil"
+      });
+    }
+  }
+
+  handleCheckIcon(){
+    if(!this.state.location) {
+      this.setState({
+        location_icon: "icon-checkmark"
+      });
+    }
+  }
+
 
   fillInAddress() {
      let place = this.autocomplete.getPlace();
@@ -178,6 +199,7 @@ class Stage1 extends React.Component {
   }
 
   render(){
+    console.log(this.state.location_icon);
     const err = this.state.errors !== "" ? "err" : "";
     let hide = "hidden";
     if(this.state.address === "" || this.state.location ) {
@@ -186,9 +208,12 @@ class Stage1 extends React.Component {
     console.log(this.state.address);
     return (
       <div className="stage1-container">
-        <div className="location-container" style={{cursor: this.state.cursor}}>
+        <div className="location-container" onMouseOut={this.handleCheckIcon} onMouseOver={this.handlePencilIcon} style={{cursor: this.state.cursor}}>
           <form className="stage1-form" onClick={this.handleReturnToLocation}>
-            <h3> YOUR TASK LOCATION </h3>
+            <div className="stage1-form-header">
+              <h3> YOUR TASK LOCATION </h3>
+              <i className={`${this.state.location_icon} task-location-icon`} />              
+            </div>
             {this.locationInput()}
             <span className="addressInputs">
               <input id="autocomplete" className={`location-input ${err} ${hide}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" ></input>

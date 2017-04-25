@@ -11,9 +11,15 @@
   width: inherit;
 }
 
-.tasker-presence{
+.tasker-presence, .task-location-icon{
   color: #36b5bb;
   font-size: 16px;
+}
+
+.stage1-form-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .task-step-bar {
