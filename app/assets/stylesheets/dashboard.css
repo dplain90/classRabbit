@@ -18,26 +18,6 @@
   margin-top: 18px;
 }
 
-.icon-heart-o:before {
-  content: "\e900";
-}
-.icon-chevron-down:before {
-  content: "\e901";
-  font-size: 12px;
-  vertical-align: middle;
-}
-
-.icon-chevron-up:before {
-  content: "\e902";
-  font-size: 12px;
-  vertical-align: middle;
-}
-
-.icon-location2:before {
-  content: "\e948";
-}
-
-
 .task-header {
   border-bottom: inherit;
   border-radius: inherit;

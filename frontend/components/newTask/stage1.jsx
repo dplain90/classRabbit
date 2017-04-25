@@ -114,7 +114,7 @@ class Stage1 extends React.Component {
       return (
         <span className="addressInputs">
           <p className="selectedAddress"> { this.state.address }</p>
-          { this.state.tasker_presence }
+          <p className="tasker-presence"> { this.state.tasker_presence } </p>
         </span>
       );
     }
@@ -130,7 +130,7 @@ class Stage1 extends React.Component {
     let finalAddress = address.split(",");
     if(this.state.apt_num !== ""){
      finalAddress = finalAddress.slice(0, 1)
-     .concat(this.state.apt_num, finalAddress.slice(1));
+     .concat(this.state.apt_num, finalAddress.slice(-3));
    } else {
      return this.autocomplete.getPlace().formatted_address;
    }

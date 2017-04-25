@@ -9,7 +9,7 @@ class RequestedTask extends React.Component {
     this.showDetails = this.showDetails.bind(this);
     this.state = {
       details: false,
-      chevron: "icon-chevron-down"
+      chevron: "icon-chevron-thin-down"
     };
   }
 
@@ -19,11 +19,11 @@ class RequestedTask extends React.Component {
     if(this.state.details) {
       newDetailState = {
         details: false,
-        chevron: "icon-chevron-down" };
+        chevron: "icon-chevron-thin-down" };
       } else {
         newDetailState = {
           details: true,
-          chevron: "icon-chevron-up"
+          chevron: "icon-chevron-thin-up"
         };
       }
 

@@ -84,7 +84,7 @@ class Search extends React.Component {
         <div id="search-bar">
             <i className="icon-search" />
             <input type="text" className="search-bar input" value={this.state.value} placeholder="What do you need help with?" onChange={this.handleSearch()}/>
-            <i className="icon-cancel-circle" onClick={this.handleCancel} />
+            <i className="icon-x-altx-alt" onClick={this.handleCancel} />
         </div>
         <div className="search-results-container" style={{border: this.state.style}}>
           { resultDivs }
