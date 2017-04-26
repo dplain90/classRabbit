@@ -54,7 +54,6 @@ class LocationForm extends React.Component {
 
   getLocalityAndAddress() {
      let place = this.autocomplete.getPlace();
-     debugger
      let locality = "";
      let componentForm = { locality: 'long_name' };
 
@@ -97,6 +96,7 @@ class LocationForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     if(document.getElementById('autocomplete').value === "") {
       this.raiseLocationError();
     } else {

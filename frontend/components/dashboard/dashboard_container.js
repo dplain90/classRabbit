@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import dashboard from './dashboard';
 import { fetchCategories } from '../../actions/category_actions';
 import { asArray } from '../../reducers/selectors';
-import { receiveNewTask } from '../../actions/task_actions';
+import { receiveNewTask, updateNewTask } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchCategories: () => dispatch(fetchCategories()),
-    receiveNewTask: (task) => dispatch(receiveNewTask(task))
+    receiveNewTask: (task) => dispatch(receiveNewTask(task)),
+    updateNewTask: (task) => dispatch(updateNewTask(task))
   };
 };
 

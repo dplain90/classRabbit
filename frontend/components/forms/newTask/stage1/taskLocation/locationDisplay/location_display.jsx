@@ -20,14 +20,25 @@ class LocationForm extends React.Component {
   }
 
   componentDidMount(){
-    let { getTaskers, updateTask} = this.props;
+    let { updateNewTask, getTaskers } = this.props;
     let {category_id, locality} = this.props.task;
-
     getTaskers(category_id, locality).then((taskers) => {
       if(taskers === {}) {
-        return updateTask({ toggles: [{taskersPresent: noTaskers}] });
+        let newToggleState = {
+          taskersPresent: noTaskers,
+          showDescription: true,
+          showErrors: false,
+          showLocationForm: false
+        };
+        return updateNewTask({ toggles: newToggleState });
       } else {
-        return updateTask({ toggles: [{taskersPresent: yesTaskers}] });
+        let newToggleState = {
+          taskersPresent: yesTaskers,
+          showDescription: true,
+          showErrors: false,
+          showLocationForm: false
+        };
+        return updateNewTask({ toggles: newToggleState });
       }
     });
   }
@@ -37,13 +48,13 @@ class LocationForm extends React.Component {
   }
 
   handleMouseOver(e){
-    if(!showPencil) {
+    if(!this.state.showPencil) {
       this.setState({showPencil: true});
     }
   }
 
   handleMouseOut(e){
-    if(showPencil) {
+    if(this.state.showPencil) {
       this.setState({showPencil: false});
     }
   }

@@ -30,10 +30,8 @@ class TaskDescription extends React.Component {
   }
 
   handleSubmit(){
-    this.props.updateTask({task_description: this.state.task_description});
-
+    this.props.updateNewTask({task_description: this.state.task_description});
     this.props.updateFilterResults(this.props.taskers);
-
     this.props.router.push('/newTask/stage2');
   }
 

@@ -18,10 +18,9 @@ class Dashboard extends React.Component {
 
   handleNewTask(category_id) {
     return () => {
-      setTask({category_id: category_id, title: this.props.categories[category_id].title, stage: 1});
+      this.props.updateNewTask({ category_id: category_id, category_title: this.props.categories[category_id].title, stage: 1});
     };
   }
-
 
   favoriteCategories(){
     let style;

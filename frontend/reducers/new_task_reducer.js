@@ -18,7 +18,7 @@ const newTaskReducer = (state = _initialNewTask, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEW_TASK:
-      const newTaskState = merge({}, state, action.task);
+      const newTaskState = Object.assign({}, state, action.task);
       return newTaskState;
     case RECEIVE_TASKERS:
       const present = {present: action.tasker_data.present};

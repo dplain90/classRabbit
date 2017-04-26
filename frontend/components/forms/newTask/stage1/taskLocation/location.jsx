@@ -17,7 +17,6 @@ class Location extends React.Component {
   }
 
   render() {
-    console.log('printed');
     return (
       <div className="location">
         <SmoothCollapse expanded={this.props.task.toggles.showLocationForm}>
