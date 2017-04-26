@@ -14,7 +14,10 @@ export const uniqTaskers = (availabilities) => {
 
 export const filterTaskers = (filters, taskers, availabilities) => {
   let filteredTaskers = {};
-
+  debugger
+  if(availabilities[filters.date] === undefined) {
+    return [];
+  }
   availabilities[filters.date].forEach( (availability) => {
     if(availability.time === filters.time){
       filteredTaskers[availability.tasker_id] = taskers[availability.tasker_id];

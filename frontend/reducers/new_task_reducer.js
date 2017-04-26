@@ -1,4 +1,4 @@
-import { RECEIVE_NEW_TASK } from '../actions/task_actions';
+import { RECEIVE_NEW_TASK, CLEAR_NEW_TASK } from '../actions/task_actions';
 import { RECEIVE_TASKERS } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
@@ -24,6 +24,8 @@ const newTaskReducer = (state = _initialNewTask, action) => {
       const present = {present: action.tasker_data.present};
       const newTaskStateWithTaskerPresence = Object.assign({}, state, present);
       return newTaskStateWithTaskerPresence;
+    case CLEAR_NEW_TASK:
+      return _initialNewTask;
     default:
       return state;
   }

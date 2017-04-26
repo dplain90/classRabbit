@@ -8,6 +8,7 @@ import NewTaskStage1Container from './forms/newTask/stage1/stage1_container';
 import NewTaskStage2Container from './forms/newTask/stage2/stage2_container';
 import NewTaskStage3Container from './forms/newTask/stage3/stage3_container';
 
+import { clearNewTask } from '../actions/task_actions';
 import { getTask, clearTask } from './forms/newTask/session_util';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
@@ -29,6 +30,11 @@ const Root = ({ store }) => {
     }
   };
 
+  const _clearNewTask = () => {
+    store.dispatch(clearNewTask());
+    return _ensureLoggedIn();
+  }
+
   return (
   <Provider store={store}>
     <Router history={hashHistory}>
@@ -36,7 +42,7 @@ const Root = ({ store }) => {
         <IndexRoute component={SplashPage} />
         <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-        <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
+        <Route path="/dashboard" component={DashboardContainer} onEnter={_clearNewTask} />
           <Route path="/dashboard/newTask" component={newTaskContainer} onEnter={_ensureLoggedIn}>
             <Route path="/dashboard/newTask/stage1" onEnter={_ensureLoggedIn} component={NewTaskStage1Container} />
             <Route path="/dashboard/newTask/stage2" onEnter={_ensureLoggedIn} component={NewTaskStage2Container} />

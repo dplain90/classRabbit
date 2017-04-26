@@ -2,8 +2,14 @@ import * as APIUtil from '../util/api_util';
 import { setTask, getTask } from '../components/forms/newTask/session_util';
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
-
+export const CLEAR_NEW_TASK = "CLEAR_NEW_TASK";
 export const RECEIVE_NEW_TASK = 'RECEIVE_NEW_TASK';
+
+export const clearNewTask = () => {
+  return {
+    type: CLEAR_NEW_TASK
+  }
+}
 
 export const receiveNewTask = task => {
 return {
