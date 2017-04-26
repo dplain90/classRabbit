@@ -4,7 +4,12 @@ import merge from 'lodash/merge';
 
 const _initialNewTask = Object.freeze({
   stage: 1,
-  present: ""
+  present: "",
+  toggles: {
+    showDescription: false,
+    showLocationForm: true,
+    showErrors: false
+  }
 });
 
 

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import sessionForm from './session_form';
-import { login, logout, signup, receiveErrors } from '../../actions/session_actions';
+import { login, logout, signup, receiveErrors } from '../../../actions/session_actions';
+
+
 
 
 const isSignUp = (formType) => Boolean(formType === 'signup');

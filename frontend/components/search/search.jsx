@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link } from 'react-router';
+import { setTask } from '../forms/newTask/session_util';
 
 class Search extends React.Component {
   constructor(props){
@@ -8,6 +9,7 @@ class Search extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.filterResults = this.filterResults.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+
     this.state = {
       value: "",
       results: {},
@@ -17,7 +19,6 @@ class Search extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    console.log(newProps);
     if(this.props.data !== newProps.data){
       this.setState({ results: newProps.data });
     }
@@ -67,14 +68,18 @@ class Search extends React.Component {
     });
   }
 
+  handleSelect(category_id) {
+    setTask( { category_id: category_id, category_title: this.props.categories[category_id].title, stage: 1 });
+  }
+
   render(){
     let resultDivs = this.filterResults(this.state.value).map((category, id) => {
       return (
-        <Link to={`/dashboard/newTask/${category.id}`} key={`search-result-${id}`} onClick={this.handleSelect(category.id)}>
-        <div className={`search-result category ${this.state.active}`}>
-          <img src={category.img_url_search} className="search-cat" />
-          {category.title}
-        </div>
+        <Link to="/dashboard/newTask/stage1" key={`search-result-${id}`} onClick={this.handleSelect(category.id)}>
+          <div className={`search-result category ${this.state.active}`}>
+            <img src={category.img_url_search} className="search-cat" />
+            {category.title}
+          </div>
         </Link>
       );
     });
@@ -94,4 +99,4 @@ class Search extends React.Component {
   }
 }
 
-export default withRouter(Search);
+export default Search;

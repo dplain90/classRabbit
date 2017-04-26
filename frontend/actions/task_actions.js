@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/api_util';
-import { setTask, getTask } from '../util/session_util';
+import { setTask, getTask } from '../components/forms/newTask/session_util';
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 

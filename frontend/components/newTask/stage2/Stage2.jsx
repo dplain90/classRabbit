@@ -25,7 +25,6 @@ class Stage2 extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
     const oldFilter = this.props.filter;
     const newFilter = newProps.filter;
 

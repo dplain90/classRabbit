@@ -16,7 +16,6 @@ const FilterReducer = (state = _defaultFilter, action) => {
     case UPDATE_FILTER_RESULTS:
       const newResults = Object.assign({}, state);
       newResults.results = asArray(action.taskers);
-      debugger
       return newResults;
     case UPDATE_FILTER:
       return Object.assign({}, state, action.parameter);

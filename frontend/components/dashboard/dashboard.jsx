@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router';
 import SearchContainer from '../search/search_container';
 import { asArray } from '../../reducers/selectors';
 import RequestedTasksContainer from './requested_tasks_container';
-import { getTask, setTask } from '../../util/session_util';
+import { getTask, setTask } from '../forms/newTask/session_util';
 
 class Dashboard extends React.Component {
   constructor(props){

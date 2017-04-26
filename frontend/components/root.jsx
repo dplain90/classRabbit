@@ -1,11 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import SessionFormContainer from '../components/sessions/session_form_container';
+import SessionFormContainer from '../components/forms/sessions/session_form_container';
 import DashboardContainer from '../components/dashboard/dashboard_container';
 import SplashPage from '../components/splashPage/splash_page';
-import newTaskContainer from '../components/newTask/new_task';
-import { getTask, clearTask } from '../util/session_util';
+import newTaskContainer from '../components/forms/newTask/new_task_container';
+import NewTaskStage1Container from './forms/newTask/stage1/stage1_container';
+import NewTaskStage2Container from './forms/newTask/stage2/stage2_container';
+import NewTaskStage3Container from './forms/newTask/stage3/stage3_container';
+
+import { getTask, clearTask } from './forms/newTask/session_util';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+
 
 import App from './app';
 
@@ -24,28 +29,23 @@ const Root = ({ store }) => {
     }
   };
 
-
-
-
   return (
-    <Provider store={store}>
-      <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={SplashPage} />
-          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
-            <Route path="/dashboard/newTask/:catId" component={newTaskContainer} onEnter={_ensureLoggedIn}>
-            </Route>
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={SplashPage} />
+        <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+        <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+        <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/dashboard/newTask" component={newTaskContainer} onEnter={_ensureLoggedIn}>
+            <Route path="/dashboard/newTask/stage1" onEnter={_ensureLoggedIn} component={NewTaskStage1Container} />
+            <Route path="/dashboard/newTask/stage2" onEnter={_ensureLoggedIn} component={NewTaskStage2Container} />
+            <Route path="/dashboard/newTask/stage3" onEnter={_ensureLoggedIn} component={NewTaskStage3Container} />
           </Route>
-      </Router>
-    </Provider>
+        </Route>
+    </Router>
+  </Provider>
   );
 };
 
 export default Root;
-
-// <Route path="/dashboard/newTask/stage1/" component={stage1Container} />
-// <Route path="/dashboard/newTask/stage2/" component={stage2Container} />
-// <Route path="/dashboard/newTask/stage3/" component={stage3Container} />
-  //
