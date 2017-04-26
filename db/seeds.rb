@@ -78,7 +78,7 @@ User.create!(
   regular_user_ids << User.last.id
 end
 
-15.times do
+30.times do
 # generate taskers
   User.create!(
     fname: Faker::Name.first_name,

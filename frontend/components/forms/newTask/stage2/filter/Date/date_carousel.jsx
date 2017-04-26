@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import  { uniqTaskers, asArray } from '../../reducers/selectors';
+import  { uniqTaskers, asArray } from '../../../../../../reducers/selectors.js';
 import DateAvailability from './date_availability';
 
 class DateCarousel extends React.Component {

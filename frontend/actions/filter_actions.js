@@ -1,28 +1,27 @@
 import * as APIUtil from '../util/api_util';
 import { filterTaskers } from '../reducers/selectors';
-export const UPDATE_FILTER_RESULTS = "UPDATE_FILTER_RESULTS";
-export const UPDATE_FILTER = "UPDATE_FILTER";
-export const SET_FILTER = "SET_FILTER";
+export const RECEIVE_FILTER_RESULTS = "RECEIVE_FILTER_RESULTS";
+export const RECEIVE_FILTER = "RECEIVE_FILTER";
 
-export const updateFilter = parameter => {
+export const receiveFilter = parameter => {
   return {
-    type: UPDATE_FILTER,
+    type: RECEIVE_FILTER,
     parameter
   };
 };
 
-export const updateFilterResults = taskers => ({
-  type: UPDATE_FILTER_RESULTS,
+export const receiveFilterResults = taskers => ({
+  type: RECEIVE_FILTER_RESULTS,
   taskers
-})
+});
 
 
-export const UpdateFilter = (parameter) => dispatch => {
-  return dispatch(updateFilter(parameter));
-}
+export const updateFilter = (parameter) => (dispatch) => {
+  return dispatch(receiveFilter(parameter));
+};
 
 
-export const calculateFilterResults = (filters, taskers, availabilities) => dispatch => {
+export const updateFilterResults = (filters, taskers, availabilities) => (dispatch) => {
   const filteredTaskers = filterTaskers(filters, taskers, availabilities);
-  return dispatch(updateFilterResults(filteredTaskers));
+  return dispatch(receiveFilterResults(filteredTaskers));
 };

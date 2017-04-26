@@ -13,16 +13,17 @@ export const uniqTaskers = (availabilities) => {
 };
 
 export const filterTaskers = (filters, taskers, availabilities) => {
-
   let filteredTaskers = {};
+
   availabilities[filters.date].forEach( (availability) => {
     if(availability.time === filters.time){
       filteredTaskers[availability.tasker_id] = taskers[availability.tasker_id];
     }
   });
 
+  let { direction, val } = filters.sorted_by;
   filteredTaskers = asArray(filteredTaskers).sort( (tasker1, tasker2) => {
-    return filters.sort_by(tasker1, tasker2);
+    return generateSort(direction, val)(tasker1, tasker2);
   });
 
   return filteredTaskers;

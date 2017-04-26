@@ -4,16 +4,21 @@ import { Link, withRouter } from 'react-router';
 class Tasker extends React.Component {
   constructor(props){
     super(props);
-
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
+  handleSelect(){
+    this.props.updateNewTask({tasker_id: this.props.tasker.id });
+    this.props.router.push('/dashboard/newTask/stage3');
+  }
+  
   render(){
-    let tasker = this.props.tasker;
+    let { tasker, task }  = this.props;
     return (
       <div className="tasker-container">
         <div className="profile-aside">
           <img src={tasker.tasker_avatar_url} />
-          <button className="select-tasker"> Select & Continue </button>
+          <button className="select-tasker" onClick={this.handleSelect}> Select & Continue </button>
           <Link>Reviews & Profile</Link>
         </div>
 
@@ -21,8 +26,8 @@ class Tasker extends React.Component {
           <div className="tasker-header">
             <div className="tasker-title">
               <h3> {tasker.fname} {tasker.lname_initial}</h3>
-              <p> {tasker.task_count} Completed {this.props.title} </p>
-              <p> {tasker.review_count} {this.props.title}: 77% Positive </p>
+              <p> {tasker.task_count} Completed {task.category_title} </p>
+              <p> {tasker.review_count} {task.category_title}: 77% Positive </p>
             </div>
 
             <div className="tasker-body">
@@ -42,4 +47,4 @@ class Tasker extends React.Component {
   }
 }
 
-export default Tasker;
+export default withRouter(Tasker);
