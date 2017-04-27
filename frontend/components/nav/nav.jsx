@@ -47,6 +47,8 @@ class Nav extends React.Component {
       <header className="top-nav">
         <div className="top-nav logo">
           <Link to="/dashboard">
+          <p className="logo-test">  <div className="dark"> Class</div>
+          </p>
             <img className="nav-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
           </Link>
         </div>

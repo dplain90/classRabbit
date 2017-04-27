@@ -116,13 +116,19 @@ class LocationForm extends React.Component {
     let { errors } = this.props.task;
 
     return (
-      <form className="locationForm" onSubmit={this.handleSubmit}>
-        <input id="autocomplete" className={`locationForm address ${err}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" />
+      <form className="stage1-container" onSubmit={this.handleSubmit}>
+        <div className="stage1-form-header">
+          <h3> YOUR TASK LOCATION </h3>
+        </div>
+         <span className="addressInputs">
+          <input id="autocomplete" className={`locationForm address ${err}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" />
 
-        <input id="apt-num" className="locationForm apt-num" onChange={this.updateAptNum} placeholder="Unit or Apt #"/>
-
-        <button className="locationForm submit">Continue</button>
-        <label className="error location"> { errors } </label>
+          <input id="apt-num" className="locationForm apt-num" onChange={this.updateAptNum} placeholder="Unit or Apt #"/>
+        </span>
+        <span className="continue-container">
+          <button className="location-button">Continue</button>
+          <label className="error location"> { errors } </label>
+        </span>
       </form>
     );
   }

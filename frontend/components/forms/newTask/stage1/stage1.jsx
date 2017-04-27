@@ -26,20 +26,15 @@ class Stage1 extends React.Component {
     console.log(this.state.showDescription);
     return (
       <section className="stage1-container">
-        <div className="category-title">
-          <h2> { category_title }</h2>
-          <Link to='/dashboard' onClick={clearTask}> Change </Link>
-        </div>
-
         <div className="location-container" >
           <LocationContainer />
         </div>
 
-          <div className="description-container" >
-            <SmoothCollapse expanded={this.state.showDescription}>
-              <DescriptionContainer />
-            </SmoothCollapse>
-          </div>
+        <div className="description-container" >
+          <SmoothCollapse expanded={this.state.showDescription}>
+            <DescriptionContainer />
+          </SmoothCollapse>
+        </div>
       </section>
     );
   }

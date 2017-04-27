@@ -112,6 +112,24 @@ button {
   display: flex;
   justify-content: flex-end;
 }
+.logo-test{
+  font-size: 50px;
+  font-family: "AvantGarde";
+  letter-spacing: -3px;
+}
+
+.dark {
+  color: rgb(39, 79, 26);
+  font-size: 25px;
+  font-family: "AvantGarde";
+  letter-spacing: -1.8px;
+  background-color: white;
+  position: absolute;
+  left: 5.6px;
+  padding-right: 2px;
+  padding-left: 30px;
+  top: 12px;
+}
 /*377*/
 .auth-main {
   min-height: 377px;

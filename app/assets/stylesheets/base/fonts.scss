@@ -14,8 +14,18 @@
 }
 
 @font-face {
+  font-family: "MyriadPro";
+  src: font-url('./MyriadPro-It.ttf') format("truetype");
+}
+
+@font-face {
   font-family: "Proxima-Nova-Thin";
   src: font-url('./proximanovat-thin-webfont.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "AvantGarde";
+  src: font-url('./avante_garde.ttf') format("truetype");
 }
 
 @font-face {

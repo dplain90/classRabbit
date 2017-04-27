@@ -49,6 +49,7 @@ class Dashboard extends React.Component {
             <div className="welcome">
               <img src={this.props.user.img_url} className="prof-pic" />
               <h2> Welcome, {this.props.user.fname}! </h2>
+
             </div>
             <SearchContainer data={this.props.categories} handleSelect={this.handleNewTask} />
           </section>

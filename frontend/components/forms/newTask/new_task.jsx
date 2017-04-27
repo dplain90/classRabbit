@@ -42,10 +42,19 @@ class newTask extends React.Component {
            <i className="icon-info trust-safety-info-icon" />
           </div>
         </section>
-        <section className="phase-container">
-          { this.props.children }
-        </section>
 
+        <section className="new-task-form">
+          <div className="category-title">
+            <h2>
+              { this.props.task.category_title}
+            </h2>
+            <Link to='/dashboard'> Change </Link>
+          </div>
+
+          <section className="stage-container">
+            { this.props.children }
+          </section>
+        </section>
     </div>
     );
   }
