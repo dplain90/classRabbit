@@ -29,6 +29,11 @@
   padding-top: 6px;
   padding-left: 0px;
   font-size: 1rem;
+
+}
+
+.category-title {
+  width: 47%;
 }
 .stage1-form-header{
   display: flex;
@@ -131,10 +136,15 @@ strong {
   justify-content: flex-start;
   align-items: space-between;
 }
-.stage-container {
-  width: 80%;
+#stage-container {
+  display: flex;
+  justify-content: center;
+  width: 47%;
 }
 
+.stage1-container {
+  width: 100%;
+}
 .stage1-container > div {
   background-color: white;
   padding: 1.375rem;
@@ -144,6 +154,7 @@ strong {
 .stage1-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
 }
 
@@ -173,7 +184,7 @@ width: 100%;
   display: none;
 }
 
-.stage1-form .addressInputs {
+.stage1-container #addressInputs {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -190,8 +201,10 @@ width: 100%;
 
 
 #autocomplete {
+  flex: 2;
   min-height: 40px;
-  width: 70%;
+  width: 100%;
+  max-width: 790px;
 
   font-size: 1em;
   margin-top: 5px;
@@ -206,7 +219,9 @@ width: 100%;
 }
 
 .addressInputs #apt-num {
-  width: 108.594;
+  flex: 1;
+  max-width: 108.594px;
+  width: 100%;
   margin-left: 20px;
   min-height: 40px;
   font-size: 1em;

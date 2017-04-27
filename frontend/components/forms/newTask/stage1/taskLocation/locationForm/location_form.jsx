@@ -120,7 +120,7 @@ class LocationForm extends React.Component {
         <div className="stage1-form-header">
           <h3> YOUR TASK LOCATION </h3>
         </div>
-         <span className="addressInputs">
+         <span className="addressInputs" id="addressInputs">
           <input id="autocomplete" className={`location-input address ${err}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" />
 
           <input id="apt-num" className="location-input apt-num" onChange={this.updateAptNum} placeholder="Unit or Apt #"/>

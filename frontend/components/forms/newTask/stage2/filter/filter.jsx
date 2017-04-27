@@ -6,6 +6,40 @@ import TimeFilterContainer from './Time/time_container';
 class Filter extends React.Component {
   constructor(props){
     super(props);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount(){
+    let filter = document.getElementsByClassName('filter-container')[0];
+    let footer = document.getElementsByTagName('footer')[0];
+
+    filter.setAttribute('data-filter-enter', filter.getBoundingClientRect().top);
+    filter.setAttribute('data-filter-exit', footer.getBoundingClientRect().top);
+
+
+   window.addEventListener('scroll', this.handleScroll);
+
+  }
+  componentWillUnmount(){
+
+    window.removeEventListener('scroll', this.handleScroll);
+
+  }
+
+  handleScroll() {
+    console.log(document.body.scrollTop);
+    let top = document.body.scrollTop;
+    let filter = document.getElementsByClassName('filter-container')[0];
+    let filterInitial = filter.scrollHeight
+
+    let filterEnter = parseInt(filter.getAttribute('data-filter-enter'), 10);
+    let filterExit = parseInt(filter.getAttribute('data-filter-exit'), 10);
+
+    if (filterEnter <= top && top <= filterExit) {
+      filter.classList.add('sticky');
+    } else {
+      filter.classList.remove('sticky');
+    }
   }
 
   componentWillReceiveProps(newProps){

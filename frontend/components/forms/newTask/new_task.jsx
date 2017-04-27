@@ -43,7 +43,7 @@ class newTask extends React.Component {
           </div>
         </section>
 
-        <section className="new-task-form">
+        <section className="main">
           <div className="category-title">
             <h2>
               { this.props.task.category_title}
@@ -51,7 +51,7 @@ class newTask extends React.Component {
             <Link to='/dashboard'> Change </Link>
           </div>
 
-          <section className="stage-container">
+          <section id="stage-container" className="stage-container">
             { this.props.children }
           </section>
         </section>
