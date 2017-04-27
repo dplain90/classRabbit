@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Stage2 from './stage2';
+import Stage2 from './Stage2';
 
 const mapStateToProps = (state, ownProps) => ({ task: state.task });
 
