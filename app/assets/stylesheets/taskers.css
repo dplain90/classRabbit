@@ -3,12 +3,13 @@
 .stage2-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
+
 }
 
 
 .taskers-index {
-  flex: 1;
+  flex: 0.8;
 }
 
 .tasker-container {

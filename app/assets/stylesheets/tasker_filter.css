@@ -1,5 +1,6 @@
 .filter-container {
   width: 30%;
+  max-width: 380px;
   max-height: 480px;
   border: 1px solid rgb(220, 224, 230);
   border-radius: 4px;
@@ -9,6 +10,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: absolute;
+  right: 63%;
 }
 
 /*div[data-index="-2"], div[data-index="-1"], div[data-index="0"], div[data-index="1"] {
@@ -17,7 +20,7 @@
 .sticky {
     position: fixed;
     top: 0;
-    left: 45%;
+    left: 0;
     right: 0;
     border-radius: 0;
     margin: 0;
@@ -46,8 +49,8 @@
 .stage2-container{
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  position: relative;
+  justify-content: flex-start;
+
   width: 125%;
 
 }

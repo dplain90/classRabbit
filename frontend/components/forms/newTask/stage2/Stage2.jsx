@@ -7,7 +7,7 @@ class Stage2 extends React.Component {
   constructor(props){
     super(props);
   }
-  
+
   render(){
     return (
       <div className="stage2-container">
