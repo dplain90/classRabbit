@@ -40,7 +40,7 @@ class TaskDescription extends React.Component {
 
   render(){
     return (
-      <div className="location-container">
+      <div className="description-form-container">
         <div className="description-form" >
           <h3 className="about-task-header">
             TELL US ABOUT YOUR TASK

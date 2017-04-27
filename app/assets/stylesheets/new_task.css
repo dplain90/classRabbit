@@ -196,7 +196,8 @@ width: 100%;
   min-height: 22px;
   padding: 10px 16px;
   margin-bottom: 32px;
-
+  line-height: 24px;
+;
 }
 
 
@@ -207,10 +208,11 @@ width: 100%;
   max-width: 790px;
 
   font-size: 1em;
-  margin-top: 5px;
+
   font-family: "Proxima-Nova-Light";
 
 }
+
 
 .continue-container .location-button {
   width: auto;
@@ -244,10 +246,17 @@ width: 100%;
   box-shadow: inset 0 0 0 1px #51af33;
 }
 
+.description-form-container {
+  margin: 4px 0px 16px 0px;
+  padding: 22px 22px 22px 0px;
+  display: flex;
+  justify-content: flex-start;
+}
 .description-form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border: none;
 }
 
 .continue-container {
@@ -268,6 +277,7 @@ width: 100%;
 }
 
 .description-container{
+  margin-bottom: 5px;
   border: 1px solid rgb(220, 224, 230);
 }
 
