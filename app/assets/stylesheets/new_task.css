@@ -25,6 +25,11 @@
   font-size: 16px;
 }
 
+.stage1-container .stage1-form-header{
+  padding-top: 6px;
+  padding-left: 0px;
+  font-size: 1rem;
+}
 .stage1-form-header{
   display: flex;
   flex-direction: row;
@@ -33,8 +38,10 @@
 
 .task-step-bar {
   background: white;
+
   border-bottom: 1px solid #dce0e6;
   padding: 1px 0;
+  padding-bottom: 13px;
   line-height: 1.25em;
   height: 43.1875px;
 }
@@ -56,7 +63,7 @@
 
 .trust-and-safety-container {
   background-color: rgb(232, 235, 239);
-  padding: 8px 0px 8px 0px;
+  padding: 8px 0px 13px 0px;
   height: 45px;
 }
 
@@ -78,12 +85,17 @@ strong {
   margin-right: 16px;
 }
 
+.new-task-form {
+
+}
+
+
 .new-task-container .new-task-form {
-  width: 65%;
-  padding-top: 32px;
+  width: 59%;
+  padding: 32px 32px 32px 175px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .new-task-form > div {
@@ -113,17 +125,23 @@ strong {
 
 .location-container {
   margin: 4px 0px 16px 0px;
-  padding: 22px;
+  padding: 22px 22px 22px 0px;
   border: 1px solid rgb(220, 224, 230);
   display: flex;
+  justify-content: flex-start;
   align-items: space-between;
+}
+.stage-container {
+  width: 80%;
 }
 
 .stage1-container > div {
   background-color: white;
+  padding: 1.375rem;
+  width: 100%;
 }
 
-.stage1-container .stage1-form {
+.stage1-form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -137,6 +155,9 @@ strong {
   width: 100%;
 }
 
+.location{
+width: 100%;
+}
 .error.location {
   font-size: 16px;
 }
@@ -153,6 +174,7 @@ strong {
 }
 
 .stage1-form .addressInputs {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -163,20 +185,30 @@ strong {
   min-height: 22px;
   padding: 10px 16px;
   margin-bottom: 32px;
+
 }
 
 
 #autocomplete {
-  width: 100%;
-  height: 24px;
+  min-height: 40px;
+  width: 70%;
+
   font-size: 1em;
+  margin-top: 5px;
   font-family: "Proxima-Nova-Light";
+
+}
+
+.continue-container .location-button {
+  width: auto;
+  padding: 0.5em 1.38em 0.5em;
+  margin-bottom: 40px;
 }
 
 .addressInputs #apt-num {
   width: 108.594;
-  margin-left: 16px;
-  height: 24px;
+  margin-left: 20px;
+  min-height: 40px;
   font-size: 1em;
   font-family: "Proxima-Nova-Light";
   border-radius: 4px;
@@ -210,6 +242,26 @@ strong {
   justify-content: center;
 }
 
+.taskLocation.taskersPresent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icon-location2 {
+  margin-right: 15px
+}
+
+.description-container{
+  border: 1px solid rgb(220, 224, 230);
+}
+
+.locationDisplayRow {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 .description-form textarea {
   font-size: 1em;
   font-family: "Proxima-Nova-Light";
