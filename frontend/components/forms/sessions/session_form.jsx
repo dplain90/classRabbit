@@ -9,13 +9,17 @@ class sessionForm extends React.Component {
         lname: "",
         email: "",
         password: "",
-        zip_code: ""
+        zip_code: "",
+        locality: ""
       };
     this.ifSignUp = this.ifSignUp.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.userInput = this.userInput.bind(this);
-    // this.handleRedirect = this.handleRedirect.bind(this);
+    this.calculateLocality = this.calculateLocality.bind(this);
+    this.geocoder = new google.maps.Geocoder;
+
+
   }
 
   componentDidUpdate() {
@@ -28,14 +32,35 @@ class sessionForm extends React.Component {
     }
   }
 
+  calculateLocality(zip) {
+  const callback = (results, status) => {
+       if (status == google.maps.GeocoderStatus.OK) {
+         let { address_components } = results[0];
+         for (var i = 0; i < address_components.length; i++) {
+           let localityIdx = address_components[i].types.indexOf('locality');
+           if(localityIdx !== -1)
+            {
+              this.setState({locality: address_components[i].long_name});
+              const user = this.state;
+              if(this.props.isSignUp){
+                this.props.signup({user});
+              } else {
+                this.props.login({user});
+              }
+            }
+         }
+         } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }};
+      let fixed = callback.bind(this);
+      this.geocoder.geocode.call(this, { 'address': this.state.zip_code}, fixed);
+  }
+
+
+
   handleSubmit(e){
     e.preventDefault();
-    const user = this.state;
-    if(this.props.isSignUp){
-      this.props.signup({user});
-    } else {
-      this.props.login({user});
-    }
+    this.calculateLocality(this.state.zip_code);
   }
 
   update(field){

@@ -1,13 +1,14 @@
 .filter-container {
-  margin: 0px 24px 0px 0px;
   width: 376px;
-  min-width: 376px;
-  max-width: 376px;
-  padding: 24px 85px;
+  position: relative;
   border: 1px solid rgb(220, 224, 230);
   border-radius: 4px;
   background-color: white;
-  height: auto;
+  height: 414px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /*div[data-index="-2"], div[data-index="-1"], div[data-index="0"], div[data-index="1"] {
@@ -18,14 +19,33 @@
   width: 90px !important;
 }
 
+
+.filter-container {
+  position: fixed;
+  top: 230px;
+
+}
+.taskers-index {
+  margin-left: 450px;
+}
+
 .time-and-date-container {
   max-width: 310px;
 }
 
-.sorted-by-title {
+.stage2-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+  width: 150%;
+
+}
+
+.time-and-date-title, .sorted-by-title {
   text-transform: uppercase;
   font-family: "Proxima-Nova-Semibold";
-  font-size: 1em;
+  font-size: 18px;
   line-height: 1em;
   margin: 0;
 }

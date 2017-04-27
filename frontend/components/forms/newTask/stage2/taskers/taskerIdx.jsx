@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskerContainer from './tasker_container';
+
 class TaskerIdx extends React.Component {
   constructor(props){
     super(props);
@@ -18,7 +19,6 @@ class TaskerIdx extends React.Component {
       );
     });
     }
-    console.log(taskerResults);
 
     return (
       <section className="taskers-index">

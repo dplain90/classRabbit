@@ -1,9 +1,14 @@
 class Api::UsersController < ApplicationController
 
 	def create
+		locality = user_params[:locality]
+		if Region.find_by(locality: locality).nil?
+			Region.create(locality: locality)
+		end
+
 		@user = User.new(user_params)
-    @user.locality = "Thisistemporaryfiller"
-		if @user.save
+
+		if @user.save!
 			log_in!(@user)
 			render "api/users/show"
 		else
@@ -45,7 +50,7 @@ class Api::UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:fname, :lname, :email, :password, :zip_code)
+		params.require(:user).permit(:fname, :lname, :email, :password, :zip_code, :locality)
 	end
 
 end

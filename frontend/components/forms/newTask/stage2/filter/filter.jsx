@@ -31,7 +31,7 @@ class Filter extends React.Component {
         <section className="filter-container">
           <SortedByFilter updateFilter={updateFilter} />
           <span className="time-and-date-title">
-            TASK DATE & TIME
+            <i className="icon-clock" /> TASK DATE & TIME
             <div className="date-carousel-container">
                 <DateCarousel availabilities={availabilities} />
             </div>

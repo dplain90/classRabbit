@@ -9,7 +9,7 @@ const _defaultFilter = Object.freeze({
     direction: 'desc',
     val: 'price'
   },
-  date: "2017-04-26",
+  date: "2017-04-27",
   time: "Anytime",
   results: []
 });
