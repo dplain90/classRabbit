@@ -14,9 +14,12 @@ class Filter extends React.Component {
     let footer = document.getElementsByTagName('footer')[0];
 
     filter.setAttribute('data-filter-enter', filter.getBoundingClientRect().top);
+
+    filter.setAttribute('data-filter-left', filter.getBoundingClientRect().left);
+
     filter.setAttribute('data-filter-exit', footer.getBoundingClientRect().top);
 
-
+// 178px
    window.addEventListener('scroll', this.handleScroll);
 
   }
@@ -31,14 +34,16 @@ class Filter extends React.Component {
     let top = document.body.scrollTop;
     let filter = document.getElementsByClassName('filter-container')[0];
     let filterInitial = filter.scrollHeight
-
-    let filterEnter = parseInt(filter.getAttribute('data-filter-enter'), 10);
+    let leftPos = parseInt(filter.getAttribute('data-filter-left'), 10);
+    let filterEnter =  parseInt(filter.getAttribute('data-filter-enter'), 10);
     let filterExit = parseInt(filter.getAttribute('data-filter-exit'), 10);
 
-    if (filterEnter <= top && top <= filterExit) {
+    if (filterEnter <= top + 15 && top <= filterExit) {
       filter.classList.add('sticky');
+      filter.setAttribute("style", `left: ${leftPos}px;`);
     } else {
       filter.classList.remove('sticky');
+      filter.removeAttribute("style");
     }
   }
 

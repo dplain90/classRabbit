@@ -34,6 +34,7 @@
 
 .category-title {
   width: 47%;
+  position: relative;
 }
 .stage1-form-header{
   display: flex;
