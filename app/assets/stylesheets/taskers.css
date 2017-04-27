@@ -27,12 +27,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 2;
+  flex-grow: 2;
+  flex-shrink: 1;
+  min-width: 210px;
 }
 
+
+
 .profile-aside img {
-  height: 200px;
-  width: 200px;
+
 }
 
 .tasker-info {
@@ -40,9 +43,17 @@
   display: inherit;
   flex-direction: column;
   justify-content: center;
-  flex: 5;
+
+  flex-grow: 5;
+  flex-shrink:1;
+
 }
 
+.tasker-quote-container img {
+  min-width: 72px;
+  min-height: 72px;
+
+}
 
 
 .tasker-title  h3{

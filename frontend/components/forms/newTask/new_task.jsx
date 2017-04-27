@@ -18,6 +18,13 @@ class newTask extends React.Component {
   }
 
   render(){
+    const stage2Styling = {
+      // flex: 0.57,
+      // position: 'relative'
+    };
+
+    const { stage } = this.props.task;
+
     return (
       <div className="new-task-container">
         <section className="task-step-bar">
@@ -51,7 +58,7 @@ class newTask extends React.Component {
             <Link to='/dashboard'> Change </Link>
           </div>
 
-          <section id="stage-container" className="stage-container">
+          <section id="stage-container" className="stage-container"  >
             { this.props.children }
           </section>
         </section>

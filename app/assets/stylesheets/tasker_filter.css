@@ -1,10 +1,10 @@
 .filter-container {
-  width: 376px;
-  position: relative;
+  width: 30%;
+  max-height: 480px;
   border: 1px solid rgb(220, 224, 230);
   border-radius: 4px;
   background-color: white;
-  height: 414px;
+  height: auto;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
 .sticky {
     position: fixed;
     top: 0;
-    left: 20%;
+    left: 45%;
     right: 0;
     border-radius: 0;
     margin: 0;
@@ -36,7 +36,7 @@
 
 }
 .taskers-index {
-  margin-left: 450px;
+  margin-left: 10px;
 }
 
 .time-and-date-container {
@@ -48,7 +48,7 @@
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
-  width: 150%;
+  width: 125%;
 
 }
 
