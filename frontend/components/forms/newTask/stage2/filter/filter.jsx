@@ -27,7 +27,7 @@ class Filter extends React.Component {
   }
 
   handleScroll() {
-    console.log(document.body.scrollTop);
+
     let top = document.body.scrollTop;
     let filter = document.getElementsByClassName('filter-container')[0];
     let filterInitial = filter.scrollHeight

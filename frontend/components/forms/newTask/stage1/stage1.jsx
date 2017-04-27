@@ -23,6 +23,7 @@ class Stage1 extends React.Component {
 
   render(){
     let { category_title } = this.props.task;
+
     console.log(this.state.showDescription);
     return (
       <section className="stage1-container">
