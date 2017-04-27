@@ -12,9 +12,14 @@ export const uniqTaskers = (availabilities) => {
   });
 };
 
+export const parseTask = (task) => {
+  let { tasker_id, locality, category_id, time, date, task_description: description, address: location } = task;
+  return { tasker_id, locality, category_id, time, date, description, location };
+};
+
+
 export const filterTaskers = (filters, taskers, availabilities) => {
   let filteredTaskers = {};
-  debugger
   if(availabilities[filters.date] === undefined) {
     return [];
   }

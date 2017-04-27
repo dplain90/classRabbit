@@ -14,6 +14,7 @@ class LocationForm extends React.Component {
     this.addAptNumToAddress = this.addAptNumToAddress.bind(this);
     this.address = this.addAptNumToAddress(address, apt_num);
 
+    this.resetToggles = this.resetToggles.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
@@ -30,7 +31,7 @@ class LocationForm extends React.Component {
           showErrors: false,
           showLocationForm: false
         };
-        return updateNewTask({ toggles: newToggleState });
+        return updateNewTask({ toggles: newToggleState, stage: 1 });
       } else {
         let newToggleState = {
           taskersPresent: yesTaskers,
@@ -38,13 +39,21 @@ class LocationForm extends React.Component {
           showErrors: false,
           showLocationForm: false
         };
-        return updateNewTask({ toggles: newToggleState });
+        return updateNewTask({ toggles: newToggleState, stage: 1 });
       }
     });
   }
 
   handleClick(e){
     this.props.resetToggles();
+  }
+
+  resetToggles(){
+    this.props.updateNewTask({
+      showDescription: false,
+      showErrors: false,
+      showLocationForm: true
+    });
   }
 
   handleMouseOver(e){
@@ -81,12 +90,12 @@ class LocationForm extends React.Component {
         showDescription: true
       };
 
-      this.props.updateNewTask({ apt_num, locality, address, toggles });
+      this.props.updateNewTask({ apt_num, locality, address: this.addAptNumToAddress(address, apt_num), toggles });
     }
   }
 
   render() {
-    let editIcon = this.state.showPencil ? pencilIcon : checkIcon;
+    let editIcon = this.state.showPencil ? pencilIcon() : checkIcon;
 
     return (
       <div className="locationDisplay" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={this.handleClick}>

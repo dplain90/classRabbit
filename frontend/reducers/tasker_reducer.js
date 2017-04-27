@@ -1,5 +1,4 @@
 import { RECEIVE_TASKERS } from '../actions/user_actions';
-import merge from 'lodash/merge';
 
 const initialState = {
   present: ""

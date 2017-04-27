@@ -63,7 +63,7 @@ class RequestedTask extends React.Component {
           { this.showDetails() }
         </SmoothCollapse>
         <div className="task-details-container">
-          <a onClick={this.toggleDetails}> Details <i className={this.state.chevron} /> </a>
+          <a onClick={this.toggleDetails} className="task-details-toggle"> Details <i className={this.state.chevron} /> </a>
         </div>
 
       </div>

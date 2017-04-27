@@ -1,16 +1,20 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import { pencilIcon } from '../../helpers/icon_helper';
+
 
 class newTask extends React.Component {
   constructor(props){
     super(props);
-    this.renderIcon = this.renderIcon.bind(this);
+    this.state = { icon_phase: [this.props.pencil, "", ""] }
   }
 
-  renderIcon(renderStage) {
-    let {currentStage: stage} = this.props.task;
-    return stage === renderStage ? pencilIcon : "";
+  componentWillReceiveProps(newProps) {
+    let { stage } = newProps.task;
+    if(stage !== this.props.task.stage && stage !== undefined){
+      let newIconPhase = ["", "", ""];
+      newIconPhase[stage - 1] = this.props.pencil;
+      this.setState({icon_phase: newIconPhase});
+    }
   }
 
   render(){
@@ -19,13 +23,13 @@ class newTask extends React.Component {
         <section className="task-step-bar">
           <ol>
             <li>
-              {this.renderIcon(1)} Fill Out Task Details
+              { this.state.icon_phase[0] } Fill Out Task Details
             </li>
             <li>
-              {this.renderIcon(2)} View Taskers & Prices
+              { this.state.icon_phase[1] } View Taskers & Prices
             </li>
             <li>
-              {this.renderIcon(3)} Confirm & Book
+              { this.state.icon_phase[2] } Confirm & Book
             </li>
           </ol>
         </section>

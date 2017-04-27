@@ -16,8 +16,8 @@ class DateAvailability extends React.Component {
 
     return `${year}-${month}-${day}`;
   }
+
   handleClick(e){
-    debugger
     this.props.updateFilter({date: this.generateDateString()});
   }
 

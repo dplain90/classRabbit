@@ -7,6 +7,7 @@ class Api::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.requestor_id = current_user.id
     if @task.save
       redirect_to 'api/tasks/index'
     else
@@ -26,6 +27,6 @@ class Api::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:description, :location, :locality, :date, :time, :requestor_id, :category_id, :tasker_id)
+    params.require(:task).permit(:description, :location, :locality, :date, :time, :category_id, :tasker_id)
   end
 end

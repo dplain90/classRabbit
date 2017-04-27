@@ -107,7 +107,7 @@ class LocationForm extends React.Component {
         showDescription: true
       };
 
-      this.props.updateNewTask({ apt_num, locality, address, toggles });
+      this.props.updateNewTask({ apt_num, locality, address, toggles, phase: 1});
     }
   }
 

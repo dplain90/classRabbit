@@ -74,10 +74,20 @@
 }
 
 .task-details-container {
+  padding: 9px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   border-top: 1px solid rgb(220, 224, 230);
+}
+
+.task-details-toggle {
+  display: flex;
+  align-items: baseline;
+}
+
+.icon-chevron-thin-down, .icon-chevron-thin-up {
+  font-size: 10px;
 }
 
 
@@ -129,7 +139,7 @@
 }
 
 .main .current-task-header{
-    margin-top: 50px;
+    margin-top: 43px;
     border-bottom: 1px solid rgb(220, 224, 230);
 }
 

@@ -45,8 +45,7 @@ export const fetchTasks = () => dispatch => {
 };
 
 export const createTask = (task) => dispatch => {
-  return APIUtil.createTask(task).then((task) => {
-    return dispatch(receiveTask(task));
+  return APIUtil.createTask(task).then((tasks) => {
+    return dispatch(receiveTasks(task));
   });
-
 };

@@ -4,7 +4,8 @@ import { updateNewTask } from '../../../../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   task: state.task,
-  tasker: ownProps.tasker
+  tasker: ownProps.tasker,
+  filter: state.filter
  });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -46,7 +46,7 @@ export const createTask = (task) => {
   return $.ajax({
     method: 'POST',
     url: '/api/tasks',
-    data: task
+    data: { task }
   });
 };
 

@@ -46,7 +46,9 @@ class Nav extends React.Component {
     return (
       <header className="top-nav">
         <div className="top-nav logo">
-          <img className="nav-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
+          <Link to="/dashboard">
+            <img className="nav-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
+          </Link>
         </div>
         { this.sessionLinks() }
       </header>

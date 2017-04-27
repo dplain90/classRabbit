@@ -8,10 +8,16 @@ class Tasker extends React.Component {
   }
 
   handleSelect(){
-    this.props.updateNewTask({tasker_id: this.props.tasker.id });
-    this.props.router.push('/dashboard/newTask/stage3');
+    let { tasker, filter, router, updateNewTask } = this.props;
+    updateNewTask ({
+      tasker_id: tasker.id,
+      date: filter.date,
+      time: filter.time,
+      stage: 3
+      });
+    router.push('/dashboard/newTask/stage3');
   }
-  
+
   render(){
     let { tasker, task }  = this.props;
     return (
