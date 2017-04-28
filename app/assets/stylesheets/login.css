@@ -12,7 +12,7 @@
 /*"https://d31ebqhycylygn.cloudfront.net/v3/assets/web/hero_groceries-ba7154fde71c6fa17ace6db2b41f4455.jpg"
 */
 .auth-background{
-  background-image: image_path("./banner2.jpg");
+  background-image: asset_path("./banner2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
