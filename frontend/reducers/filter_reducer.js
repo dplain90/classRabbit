@@ -9,7 +9,7 @@ const _defaultFilter = Object.freeze({
     direction: 'desc',
     val: 'price'
   },
-  date: "2017-04-27",
+  date: "2017-04-28",
   time: "Anytime",
   results: []
 });
@@ -19,6 +19,7 @@ const FilterReducer = (state = _defaultFilter, action) => {
   switch(action.type) {
     case RECEIVE_FILTER_RESULTS:
       const newResults = Object.assign({}, state);
+      debugger
       newResults.results = asArray(action.taskers);
       return newResults;
     case RECEIVE_FILTER:
