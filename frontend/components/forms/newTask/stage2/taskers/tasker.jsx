@@ -31,7 +31,7 @@ class Tasker extends React.Component {
         <div className="tasker-info">
           <div className="tasker-header">
             <div className="tasker-title">
-              <h3> {tasker.fname} {tasker.lname_initial}</h3> <p> -  ${tasker.price}/hr </p>
+              <h3> {tasker.fname} {tasker.lname_initial}</h3> <p>      ${tasker.price}/hr </p>
               <p> {tasker.task_count} {task.category_title} Jobs Completed </p>
               <p> {tasker.review_count} {task.category_title} Reviews ({tasker.rating}% Positive) </p>
             </div>

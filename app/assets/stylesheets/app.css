@@ -20,6 +20,12 @@ a:hover {
   height: 100%;
 }
 
+.auth-logo {
+  background-image: image-url('./images/taskrabbit.png');
+
+}
+
+
 
 header {
   background-color: #ffffff;
