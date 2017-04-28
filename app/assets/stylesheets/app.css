@@ -21,8 +21,7 @@ a:hover {
 }
 
 .auth-logo {
-  background-image: image-url('./images/taskrabbit.png');
-
+  background-image: image_path('./taskrabbit.png');
 }
 
 
