@@ -8,7 +8,7 @@ json.taskers do
       json.price Random.rand(50)
       json.task_count tasker.task_count(@category_id)
       json.review_count tasker.review_count(@category_id)
-
+      json.rating Random.rand(100)
       tasker.skills.each do |skill|
         json.pitch skill.pitch
         json.quote skill.quote

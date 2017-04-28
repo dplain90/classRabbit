@@ -4,14 +4,13 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 repairs = ['air conditioning unit', 'smartboard', 'computer']
 events = ['field trip', 'assembly', 'recess']
 paper_types = ['homework packets', 'field trip forms', 'tests']
 room_numbers = ['209', '301', '422A', '102', '120']
 groups = ['30', '40', '80']
-
+#   Character.create(name: 'Luke', movie: movies.first)
 descriptions = ["I need #{groups.sample} copies of the homework packets delivered to room #{room_numbers.sample} in the morning. Please print double-sided and paperclip in groups of #{groups.sample}.", "Need help with friday\'s #{events.sample}. Responsibilities will include behavior management and attendance.", "Need help with fixing air conditioning unit in room #{room_numbers.sample}. Unit will not turn on.", "Need help with fixing air conditioning unit in room #{room_numbers.sample}. Unit will not turn on.", "Need help with parent follow-up on health forms and attendance for #{Random.rand(6)} students." ]
 
 
@@ -31,14 +30,14 @@ picture_ordering = File.open('app/assets/images/ordering.jpg')
 picture_attendance = File.open('app/assets/images/attendance.png')
 picture_hard_drive = File.open('app/assets/images/hard_drive.jpg')
 
-category_names = ['Copies & Printing', 'Maintanence', 'Classroom Support', 'Orders & Delivery', 'Parent Communication', 'Reformatting Hard Drives']
+category_names = ['Printing', 'Maintanence', 'Classroom Support', 'Orders', 'Parent Support', 'Reformatting Hard Drives']
 category_descriptions = [
-  'Printing, organizing, and stapling galore!',
-  'AC repairs, leaky faucets - you name it, they fix it.',
-  'Schedule teaching assistants and counselors',
-  'Order supplies and have them delivered',
-  'Support with managing attendance follow-up with parents',
-  'You provide the steps, they do the typing'
+  'Printing & organizing',
+  'Maintanence & Repairs',
+  'Teaching Support',
+  'Supply delivery',
+  'Parent follow-up',
+  'Reformat your computer'
  ]
 
 category_images = [ picture_print, picture_repair, picture_ta, picture_ordering, picture_attendance, picture_hard_drive ]

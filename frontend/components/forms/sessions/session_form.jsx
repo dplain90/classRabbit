@@ -117,7 +117,7 @@ class sessionForm extends React.Component {
       <div className="auth-background">
         <div className="auth-container">
           <div className="auth-main">
-            <img className="auth-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
+            <img className="auth-logo" src="./imgs/classrabbit.png" />
 
             <form onSubmit={this.handleSubmit} className="auth-form">
               { this.ifSignUp(fnameInput, "") }

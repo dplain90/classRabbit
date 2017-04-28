@@ -13,6 +13,7 @@ class sortedBy extends React.Component {
     const sortFilters = {
       price_asc: { direction: 'asc', val: 'price' },
       price_desc: { direction: 'desc', val: 'price' },
+      rating: { direction: 'desc', 'val': 'rating' },
       review_count: { direction: 'desc', val: 'review_count' }
      }
     this.props.updateFilter({sorted_by: sortFilters[e.target.value]});
@@ -25,7 +26,7 @@ class sortedBy extends React.Component {
         <select className="sorted-by-filter" onChange={this.handleSelect}>
           <option value='price_asc'>Price (Lowest to Highest)</option>
           <option value='price_desc'>Price (Highest to Lowest)</option>
-          <option value="highest-rating">Highest Rating</option>
+          <option value="rating">Highest Rating</option>
           <option value='review_count'>Most Reviews</option>
         </select>
       </div>
