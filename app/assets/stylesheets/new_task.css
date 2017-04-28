@@ -11,6 +11,36 @@
   width: inherit;
 }
 
+.noResults {
+  width: 100%;
+  min-height: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content:: center;
+
+}
+
+.no-results-response {
+  display: flex;
+  align-items: baseline;
+  border-radius: 4px;
+  border: 1px solid rgb(220, 224, 230);
+  background-color: #ffe6e6;
+
+  padding: 20px;
+  height: 40px;
+}
+
+.noResults .no-results-response h2 {
+  font-family: "Proxima-Nova-Bold";
+}
+.noResults a {
+  font-size: 18px;
+  padding-left: 10px;
+  color: #904343;
+  font-family: "Proxima-Nova-Bold";
+
+}
 div.locationDisplay:hover {
   cursor: pointer;
 }

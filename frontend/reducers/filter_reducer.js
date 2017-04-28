@@ -23,6 +23,14 @@ const FilterReducer = (state = _defaultFilter, action) => {
       return newResults;
     case RECEIVE_FILTER:
       return Object.assign({}, state, action.parameter);
+    case RECEIVE_TASKERS:
+      if(action.tasker_data.present !== "false"){
+      const updatedResults = Object.assign({}, state);
+        updatedResults.results = asArray(action.tasker_data.taskers);
+        return updatedResults;
+      } else {
+        return Object.assign({}, state);
+      }
     default:
       return state;
   }

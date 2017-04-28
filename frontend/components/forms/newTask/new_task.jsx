@@ -1,11 +1,27 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-
+import { getTask, getStorageTaskers} from './session_util';
 
 class newTask extends React.Component {
   constructor(props){
     super(props);
     this.state = { icon_phase: [this.props.pencil, "", ""] }
+    this.getStorageTaskers = getStorageTaskers()
+    this.getTask = getTask()
+  }
+
+  componentDidMount() {
+
+    let { taskers, task, getTaskers, updateNewTask, storage } = this.props;
+    const storageTask = this.getTask.task;
+    if(task !== storageTask){
+      updateNewTask( storageTask );
+    }
+
+    if (this.getStorageTaskers !== null && taskers !== this.getStorageTaskers) {
+          debugger
+      getTaskers(storageTask.category_id, storageTask.locality);
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -15,6 +31,9 @@ class newTask extends React.Component {
       newIconPhase[stage - 1] = this.props.pencil;
       this.setState({icon_phase: newIconPhase});
     }
+    // if(newProps.taskers !== this.props.taskers){
+
+
   }
 
   render(){
