@@ -15,6 +15,13 @@ div.locationDisplay:hover {
   cursor: pointer;
 }
 
+.taskerStatus {
+  color: #36b5bb;
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+
+}
 .trust-safety-info-icon {
   margin-left: 32px;
   color: rgb(81, 175, 51);

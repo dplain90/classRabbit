@@ -109,7 +109,7 @@ class LocationForm extends React.Component {
             { editIcon }
           </label>
         </span>
-          { taskerStatus }
+          <span className="taskerStatus"> { taskerStatus } </span>
       </div>
     );
   }
