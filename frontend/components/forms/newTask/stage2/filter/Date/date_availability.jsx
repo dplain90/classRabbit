@@ -11,8 +11,16 @@ class DateAvailability extends React.Component {
 
   generateDateString(){
     let year = this.date.getFullYear();
-    let month = (parseInt(this.date.getMonth()) + 1).toString();
+    let month = (parseInt(this.date.getMonth()) + 1)
+      if(month < 10) {
+        month = month.toString();
+        month = `0${month}`;
+      }
     let day = this.date.getDate();
+      if(day < 10) {
+        day = day.toString();
+        day = `0${day}`;
+      }
 
     return `${year}-${month}-${day}`;
   }

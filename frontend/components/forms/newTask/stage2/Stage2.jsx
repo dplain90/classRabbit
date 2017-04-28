@@ -9,7 +9,6 @@ class Stage2 extends React.Component {
   }
 
   render(){
-    debugger
     return (
       <div className="stage2-container">
         <FilterContainer />

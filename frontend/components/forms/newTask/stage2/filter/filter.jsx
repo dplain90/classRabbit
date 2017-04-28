@@ -71,7 +71,6 @@ class Filter extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    debugger
     let { time: newTime, date: newDate, sorted_by: newSort } = newProps.filter;
     let { time: oldTime, date: oldDate, sorted_by: oldSort } = this.props.filter;
 
@@ -82,7 +81,6 @@ class Filter extends React.Component {
         sorted_by: newSort
       };
 
-      debugger
       this.props.updateFilterResults(filters, newProps.taskers, newProps.availabilities);
     }
   }

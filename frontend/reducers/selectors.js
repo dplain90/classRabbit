@@ -19,7 +19,6 @@ export const parseTask = (task) => {
 
 
 export const filterTaskers = (filters, taskers, availabilities) => {
-  debugger
   let filteredTaskers = {};
   if(availabilities[filters.date] === undefined) {
     return [];
@@ -34,6 +33,5 @@ export const filterTaskers = (filters, taskers, availabilities) => {
   filteredTaskers = asArray(filteredTaskers).sort( (tasker1, tasker2) => {
     return generateSort(direction, val)(tasker1, tasker2);
   });
-  debugger
   return filteredTaskers;
 };

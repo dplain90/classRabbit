@@ -17,14 +17,14 @@ picture_home = File.open('app/assets/images/home_improvements.jpg')
 picture_bed = File.open('app/assets/images/bed.jpg')
 picture_tv = File.open('app/assets/images/tv.jpg')
 
-category_names = ['Printing', 'Chairs', 'Couch', 'Home', 'Bed', 'TV']
+category_names = ['Copies & Printing', 'Maintanence', 'Classroom Support', 'Orders & Delivery', 'Parent Communication', 'Reformatting Hard Drives']
 category_descriptions = [
-  'Printing, organizing, stapling galore',
-  'Stack the chairs',
-  'Sit on the couch',
-  'Go home and do stuff',
-  'Sleep in the bed',
-  'Cool tv bro'
+  'Printing, organizing, and stapling galore!',
+  'AC repairs, leaky faucets - you name it, they fix it.',
+  'Schedule teaching assistants and counselors',
+  'Order supplies and have them delivered',
+  'Support with managing attendance follow-up with parents',
+  'You provide the steps, they do the typing'
  ]
 
 category_images = [ picture_print, picture_chairs, picture_couch, picture_home, picture_bed ]
@@ -133,3 +133,17 @@ end
     tasker_id: User.last.id
   )
 end
+
+printing_desc = 'I need #{groups.sample} copies of the homework packets delivered to room #{room_numbers.sample} in the morning. Please print double-sided and paperclip in groups of #{groups.sample}.'
+
+teaching_desc = 'Need help with friday\'s #{events.sample}. Responsibilities will include behavior management and attendance.'
+
+repair_desc = 'Need help with fixing air conditioning unit in room #{room_numbers.sample}. Unit will not turn on.'
+
+parent_desc = 'Need help with parent follow-up on health forms and attendance for #{Random.rand(6)} students.'
+
+repairs = ['air conditioning unit', 'smartboard', 'computer']
+events = ['field trip', 'assembly', 'recess']
+paper_types = ['homework packets', 'field trip forms', 'tests']
+room_numbers = ['209', '301', '422A', '102', '120']
+groups = ['30', '40', '80']
