@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   scope :is_tasker, ->  { where(tasker: true) }
 
-  has_attached_file :avatar, default_url: "profile_pictures/default_avatar.jpg", :styles => {
+  has_attached_file :avatar, default_url: "default_avatar.jpg", :styles => {
       :thumb => "50x50#",
       :small  => "72x72>",
       :medium => "200x200" }
