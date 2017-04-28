@@ -11,6 +11,10 @@
   width: inherit;
 }
 
+div.locationDisplay:hover {
+  cursor: pointer;
+}
+
 .trust-safety-info-icon {
   margin-left: 32px;
   color: rgb(81, 175, 51);

@@ -9,7 +9,11 @@ const TaskersReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_TASKERS:
-      return action.tasker_data.taskers;
+      if(action.tasker_data.present === 'false') {
+        return { present: action.tasker_data.present };
+      } else {
+        return action.tasker_data.taskers;
+      }
     default:
       return state;
   }

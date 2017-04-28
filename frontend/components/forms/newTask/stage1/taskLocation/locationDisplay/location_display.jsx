@@ -3,8 +3,7 @@ import * as AutoComplete from '../google_autocomplete';
 import React from 'react';
 import { checkIcon, pencilIcon, locationIcon } from '../../../../../helpers/icon_helper';
 
-const noTaskers = 'Sorry! No taskers available in your area!';
-const yesTaskers = 'Yay! There are taskers in your area!';
+
 
 class LocationForm extends React.Component {
   constructor(props){
@@ -14,46 +13,38 @@ class LocationForm extends React.Component {
     this.addAptNumToAddress = this.addAptNumToAddress.bind(this);
     this.address = this.addAptNumToAddress(address, apt_num);
 
+
     this.resetToggles = this.resetToggles.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
   }
 
-  componentDidMount(){
-    let { updateNewTask, getTaskers } = this.props;
-    let {category_id, locality} = this.props.task;
-    getTaskers(category_id, locality).then((taskers) => {
-      if(taskers === {}) {
-        let newToggleState = {
-          taskersPresent: noTaskers,
-          showDescription: true,
-          showErrors: false,
-          showLocationForm: false
-        };
-        return updateNewTask({ toggles: newToggleState, stage: 1 });
-      } else {
-        let newToggleState = {
-          taskersPresent: yesTaskers,
-          showDescription: true,
-          showErrors: false,
-          showLocationForm: false
-        };
-        return updateNewTask({ toggles: newToggleState, stage: 1 });
-      }
-    });
+  componentWillReceiveProps(newProps){
+
+    if(this.props.task.address !== newProps.task.address){
+
+      this.address = this.addAptNumToAddress(newProps.task.address, newProps.task.apt_num);
+    }
+
   }
+  // componentDidMount(){
+  //   this.updateTaskersAndTask(this.props);
+  // }
+
+
 
   handleClick(e){
-    this.props.resetToggles();
+    this.resetToggles();
   }
 
   resetToggles(){
-    this.props.updateNewTask({
+    this.props.updateNewTask(
+      {toggles: {
       showDescription: false,
       showErrors: false,
       showLocationForm: true
-    });
+    }});
   }
 
   handleMouseOver(e){
@@ -96,6 +87,15 @@ class LocationForm extends React.Component {
 
   render() {
     let editIcon = this.state.showPencil ? pencilIcon() : checkIcon;
+    let taskerStatus;
+    if(this.props.task.present === "false")
+    {
+      taskerStatus = "Sorry! No taskers available in your area!";
+    } else if (this.props.task.present === "true") {
+      taskerStatus = "Yay! There are taskers in your area!";
+    } else {
+      taskerStatus = "";
+    }
 
     return (
       <div className="locationDisplay" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={this.handleClick}>
@@ -109,7 +109,7 @@ class LocationForm extends React.Component {
             { editIcon }
           </label>
         </span>
-          { this.state.taskersPresent }
+          { taskerStatus }
       </div>
     );
   }

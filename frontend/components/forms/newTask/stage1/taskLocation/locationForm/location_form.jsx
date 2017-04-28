@@ -1,6 +1,8 @@
 import * as AutoComplete from '../google_autocomplete';
 
 import React from 'react';
+const noTaskers = 'Sorry! No taskers available in your area!';
+const yesTaskers = 'Yay! There are taskers in your area!';
 
 class LocationForm extends React.Component {
   constructor(props){
@@ -15,12 +17,13 @@ class LocationForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateAptNum = this.updateAptNum.bind(this);
     this.raiseLocationError = this.raiseLocationError.bind(this);
-
+    this.updateTaskersAndTask = this.updateTaskersAndTask.bind(this);
     this.getLocalityAndAddress = this.getLocalityAndAddress.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.initAutocomplete = this.initAutocomplete.bind(this);
 
     this.autocomplete = "";
+
 
   }
 
@@ -29,6 +32,7 @@ class LocationForm extends React.Component {
     this.autocomplete.addListener('place_changed', this.getLocalityAndAddress);
     this.geolocate = this.geolocate(this.autocomplete);
   }
+
 
 
   initAutocomplete() {
@@ -69,6 +73,15 @@ class LocationForm extends React.Component {
 
 
   componentWillReceiveProps(newProps) {
+
+        // if(this.props.task.address !== newProps.task.address || this.props.task.apt_num !== newProps.task.apt_num) {
+        //   this.updateTaskersAndTask(newProps);
+        // }
+
+
+    if(this.props.task.address !== newProps.task.address || this.props.task.apt_num !== newProps.task.apt_num) {
+      this.updateTaskersAndTask(newProps);
+    }
     let { locality: newLocality, address: newAddress } = newProps.task;
     let { locality: oldLocality, address: oldAddress } = this.props.task;
     let { showErrors: newShowErrors } = newProps.task.toggles
@@ -110,6 +123,31 @@ class LocationForm extends React.Component {
       this.props.updateNewTask({ apt_num, locality, address, toggles, phase: 1});
     }
   }
+
+  updateTaskersAndTask(props) {
+    let { updateNewTask, getTaskers } = props;
+    let {category_id, locality} = props.task;
+    getTaskers(category_id, locality).then((taskers) => {
+      if(taskers.present === "false") {
+        let newToggleState = {
+          taskersPresent: noTaskers,
+          showDescription: true,
+          showErrors: false,
+          showLocationForm: false
+        };
+        return updateNewTask({ toggles: newToggleState, stage: 1 });
+      } else {
+        let newToggleState = {
+          taskersPresent: yesTaskers,
+          showDescription: true,
+          showErrors: false,
+          showLocationForm: false
+        };
+        return updateNewTask({ toggles: newToggleState, stage: 1 });
+      }
+    });
+  }
+
 
   render() {
     let err = this.state.showErrors ? "err" : "";

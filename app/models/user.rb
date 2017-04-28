@@ -54,7 +54,7 @@ class User < ApplicationRecord
       end
     end
 
-    all_availabilities
+    all_availabilities.sort { |a, b| a.date <=> b.date }
   end
 
   def self.in_region_with_skill(locality, category_id)
