@@ -114,7 +114,27 @@ select {
 }
 
 .date-carousel-container {
-  position: relative;
+
+}
+
+.hidden {
+  display: none;
+}
+
+.carousel-container .avail-container{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.carousel-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.carousel-container button {
+  width: 5px;
+  height: 30px;
 }
 
 .date-carousel{
@@ -123,6 +143,7 @@ select {
 .date-availability-container{
   background: #f9fafb;
   border: 1px solid #b1b9c3;
+  margin: 0px 2px;
   border-radius: 4px;
   color: #545e69;
   height: 80px;

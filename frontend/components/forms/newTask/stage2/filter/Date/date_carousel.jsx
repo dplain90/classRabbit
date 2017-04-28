@@ -8,12 +8,12 @@ class DateCarousel extends React.Component {
     super(props);
     this.dateAvailabilities = this.dateAvailabilities.bind(this);
     this.settings = {
-      arrows: true,
       centerMode: true,
       infinite: true,
-      slidesToShow: 2,
+      slidesToShow: 3,
       speed: 500,
-      variableWidth: true
+      variableWidth: false,
+      focusOnSelect: true,
     };
   }
 
