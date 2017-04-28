@@ -19,7 +19,6 @@ class newTask extends React.Component {
     }
 
     if (this.getStorageTaskers !== null && taskers !== this.getStorageTaskers) {
-          debugger
       getTaskers(storageTask.category_id, storageTask.locality);
     }
   }

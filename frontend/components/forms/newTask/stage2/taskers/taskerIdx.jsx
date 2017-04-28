@@ -18,18 +18,16 @@ class TaskerIdx extends React.Component {
       </div>
     );
   }
+  
   render() {
     let taskerResults = "Sorry no results!";
 
-    if(this.props.results.length === 0) {
-      taskerResults = this.noResults();
-    } else {
       taskerResults = this.props.results.map( (tasker) => {
       return (
         <TaskerContainer tasker={tasker} key={tasker.id} />
       );
     });
-    }
+
 
     return (
       <section className="taskers-index">

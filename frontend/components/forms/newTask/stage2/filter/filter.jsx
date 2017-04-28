@@ -13,19 +13,18 @@ class Filter extends React.Component {
   componentDidMount(){
     let filter = document.getElementsByClassName('filter-container')[0];
     let footer = document.getElementsByTagName('footer')[0];
-  
+
     filter.setAttribute('data-filter-enter', filter.getBoundingClientRect().top);
 
     filter.setAttribute('data-filter-left', filter.getBoundingClientRect().left);
 
     filter.setAttribute('data-filter-exit', footer.getBoundingClientRect().top);
 
-    console.log('mounting via componentdidmount listener');
+
    window.addEventListener('scroll', this.handleScroll);
 
   }
   componentWillUnmount(){
-    console.log('unmounting listener');
     window.removeEventListener('scroll', this.handleScroll);
   }
 
@@ -41,7 +40,6 @@ class Filter extends React.Component {
   setFilterScroll() {
     let filter = document.getElementsByClassName('filter-container')[0];
     let footer = document.getElementsByTagName('footer')[0];
-    debugger
     filter.setAttribute('data-filter-enter', filter.getBoundingClientRect().top);
 
     filter.setAttribute('data-filter-left', filter.getBoundingClientRect().left);

@@ -10,6 +10,7 @@
 
 .taskers-index {
   flex: 0.8;
+  min-height: 300px;
 }
 
 .tasker-container {
