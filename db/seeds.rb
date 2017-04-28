@@ -5,17 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+repairs = ['air conditioning unit', 'smartboard', 'computer']
+events = ['field trip', 'assembly', 'recess']
+paper_types = ['homework packets', 'field trip forms', 'tests']
+room_numbers = ['209', '301', '422A', '102', '120']
+groups = ['30', '40', '80']
+
+descriptions = ["I need #{groups.sample} copies of the homework packets delivered to room #{room_numbers.sample} in the morning. Please print double-sided and paperclip in groups of #{groups.sample}.", "Need help with friday\'s #{events.sample}. Responsibilities will include behavior management and attendance.", "Need help with fixing air conditioning unit in room #{room_numbers.sample}. Unit will not turn on.", "Need help with fixing air conditioning unit in room #{room_numbers.sample}. Unit will not turn on.", "Need help with parent follow-up on health forms and attendance for #{Random.rand(6)} students." ]
+
+
+
+
+
+
 profile_pictures = ['prof_pic1.jpg', "prof_pic2.jpeg", 'prof_pic3.jpg', "prof_pic4.png", "prof_pic5.jpg"]
-taskers = ['tasker1.jpg', 'tasker2.jpg', 'tasker3.jpg', 'tasker4.jpg']
+taskers = ['tasker_prof1.jpg', 'tasker_prof2.jpeg', 'tasker_prof3.jpeg', 'tasker_prof4.jpeg', 'tasker1.jpg', 'tasker3.jpg']
 sample_dates = (Date.today..Date.today + 12).to_a
 sample_times = ['Morning', 'Afternoon', 'Evening', 'Anytime']
 
-picture_print = File.open('app/assets/images/cleaning.jpg')
-picture_chairs = File.open('app/assets/images/chairs.jpg')
-picture_couch = File.open('app/assets/images/couch-w-pillow.jpg')
-picture_home = File.open('app/assets/images/home_improvements.jpg')
-picture_bed = File.open('app/assets/images/bed.jpg')
-picture_tv = File.open('app/assets/images/tv.jpg')
+picture_print = File.open('app/assets/images/printing.jpg')
+picture_repair = File.open('app/assets/images/repairs.jpg')
+picture_ta = File.open('app/assets/images/teaching_assistant.jpg')
+picture_ordering = File.open('app/assets/images/ordering.jpg')
+picture_attendance = File.open('app/assets/images/attendance.png')
+picture_hard_drive = File.open('app/assets/images/hard_drive.jpg')
 
 category_names = ['Copies & Printing', 'Maintanence', 'Classroom Support', 'Orders & Delivery', 'Parent Communication', 'Reformatting Hard Drives']
 category_descriptions = [
@@ -27,7 +41,7 @@ category_descriptions = [
   'You provide the steps, they do the typing'
  ]
 
-category_images = [ picture_print, picture_chairs, picture_couch, picture_home, picture_bed ]
+category_images = [ picture_print, picture_repair, picture_ta, picture_ordering, picture_attendance, picture_hard_drive ]
 category_ids = []
 regular_user_ids = []
 localities = ['New York', 'Clinton']
@@ -122,8 +136,8 @@ end
     tasker_id: User.last.id
   )
   #make some tasks!
-  Task.create!(
-    description: Faker::ChuckNorris.fact,
+  Task.create(
+    description: descriptions.sample,
     location: Faker::Address.street_address,
     locality: localities.sample,
     date: Faker::Date.between(2.days.ago, Date.today),
@@ -133,17 +147,3 @@ end
     tasker_id: User.last.id
   )
 end
-
-printing_desc = 'I need #{groups.sample} copies of the homework packets delivered to room #{room_numbers.sample} in the morning. Please print double-sided and paperclip in groups of #{groups.sample}.'
-
-teaching_desc = 'Need help with friday\'s #{events.sample}. Responsibilities will include behavior management and attendance.'
-
-repair_desc = 'Need help with fixing air conditioning unit in room #{room_numbers.sample}. Unit will not turn on.'
-
-parent_desc = 'Need help with parent follow-up on health forms and attendance for #{Random.rand(6)} students.'
-
-repairs = ['air conditioning unit', 'smartboard', 'computer']
-events = ['field trip', 'assembly', 'recess']
-paper_types = ['homework packets', 'field trip forms', 'tests']
-room_numbers = ['209', '301', '422A', '102', '120']
-groups = ['30', '40', '80']

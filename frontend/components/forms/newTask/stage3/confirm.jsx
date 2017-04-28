@@ -10,7 +10,6 @@ class Confirm extends React.Component {
   }
 
   handleSubmit(e){
-
     this.props.createTask(this.parseTask(this.props.task));
     this.props.router.push('/dashboard');
   }
