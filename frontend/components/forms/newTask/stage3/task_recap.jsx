@@ -18,7 +18,7 @@ class TaskRecap extends React.Component {
 
     return (
       <div className="stage3-taskDetails">
-        <div className="stage3-title" >
+        <div id="stage3-title" >
           <h2> { category_title } </h2>
           <h3> ${ price }/hr </h3>
         </div>
@@ -28,7 +28,9 @@ class TaskRecap extends React.Component {
             <label className="date-time">
               Date & Time
             </label>
+            <p className="date-time-content">
             { date } { time }
+          </p>
           </div>
 
 
@@ -36,22 +38,27 @@ class TaskRecap extends React.Component {
             <label className="tasker">
               Tasker
             </label>
-            <p className="stage3-content">
+            <p id="stage3-content-name">
               { fname } {lname_initial}
             </p>
           </div>
         </div>
 
         <div className="stage3-location">
-          <label className="location">
-            Task Location
-          </label>
-          <p className="stage3-content">
-            { address }
-          </p>
+          <div className="stage3-location-container">
+            <label className="stage3-location-header">
+              Task Location
+            </label>
+            <p id="stage3-content-address">
+              { address }
+            </p>
+          </div>
         </div>
 
         <div className="stage3-description">
+          <label className="stage3-description-title">
+            Description
+          </label>
           <textarea onChange={this.handleDescription} >
             {description}
           </textarea>

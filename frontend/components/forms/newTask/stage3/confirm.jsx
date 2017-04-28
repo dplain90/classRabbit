@@ -16,7 +16,7 @@ class Confirm extends React.Component {
 
   render(){
     return (
-      <div className="confirm-container">
+      <div id="confirm-container">
         <button className="confirmButton" onClick={this.handleSubmit}> Confirm & Book
         </button>
         <p className="button-subtext">You are only charged after your task is complete.</p>

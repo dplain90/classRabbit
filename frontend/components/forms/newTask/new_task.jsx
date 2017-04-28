@@ -37,12 +37,22 @@ class newTask extends React.Component {
   }
 
   render(){
-    const stage2Styling = {
-      // flex: 0.57,
-      // position: 'relative'
-    };
+    let categoryTitle = () => {
+      return (
+        <div className="category-title">
+          <h2>
+            { this.props.task.category_title}
+          </h2>
+          <Link to='/dashboard'> Change </Link>
+        </div>);
+  };
+
 
     const { stage } = this.props.task;
+
+    if(stage === 3){
+      categoryTitle = "";
+    }
 
     return (
       <div className="new-task-container">
@@ -70,12 +80,7 @@ class newTask extends React.Component {
         </section>
 
         <section className="main">
-          <div className="category-title">
-            <h2>
-              { this.props.task.category_title}
-            </h2>
-            <Link to='/dashboard'> Change </Link>
-          </div>
+          {categoryTitle}
 
           <section id="stage-container" className="stage-container"  >
             { this.props.children }

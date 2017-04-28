@@ -1,0 +1,147 @@
+.stage3-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px 0px 40px;
+  border: 1px solid rgb(220, 224, 230);
+  border-radius: 4px;
+}
+.stage3-taskDetails {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.stage3-taskDetails #stage3-title h3 {
+  font-size: 25px;
+}
+.stage3-taskDetails #stage3-title h2 {
+  font-weight: 300px;
+}
+
+.stage3-taskDetails #stage3-title {
+border-top: none;
+margin-top: 30px;
+font-family: "Proxima-Nova-Light";
+}
+.stage3-tasker .tasker {
+    margin-right: 30%;
+}
+
+.tasker, .date-time, .stage3-content
+
+.stage3-content {
+  line-height: 27px;
+  font-size: 20px;
+}
+
+.date-time-content {
+  font-size: 20px;
+
+}
+.stage3-taskDetails > div {
+  padding: 15px 25px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid rgb(220, 224, 230);
+
+}
+
+#stage3-content-address {
+  font-size: 20px;
+}
+.stage3-location-header {
+  font-size: 20px;
+}
+
+.stage3-tasker {
+  margin-right: 30%;
+}
+.stage3-title{
+  padding: 24px 0px 22px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.stage3-time {
+
+}
+.stage3-title h2 {
+
+  font-size: 32px;
+  font-family: "Proxima-Nova-Bold";
+  line-height: 1.25;
+}
+
+.stage3-title h3 {
+    font-size: 28px;
+}
+
+.time-and-tasker {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  margin-top: 40px;
+
+}
+
+.stage3-time .date-time {
+  color: #545e69;
+  font-size: 0.875rem;
+}
+
+.stage3-location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+#stage3-content-name {
+  font-size: 20px;
+
+}
+
+
+.stage3-location {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ .stage3-description .stage3-description-title {
+   font-size: 20px;
+
+ }
+.stage3-taskDetails .stage3-description{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stage3-description textarea{
+  padding: 8px 12px;
+  border: 1px solid #b1b9c3;
+  font-size: 1em;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.stage3-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+#confirm-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.date-and-time, .location, .tasker, .stage3-location-header {
+    color: #545e69;
+    font-size: 0.875rem;
+}
