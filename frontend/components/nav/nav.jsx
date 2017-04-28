@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { Link, withRouter } from 'react-router';
 
 class Nav extends React.Component {
@@ -10,7 +10,7 @@ class Nav extends React.Component {
   }
 
   handleLogOut(){
-    this.props.logout().then(this.props.router.push('/'));
+    this.props.logout().then(this.props.router.push('/login'));
   }
 
   handleDemo(){

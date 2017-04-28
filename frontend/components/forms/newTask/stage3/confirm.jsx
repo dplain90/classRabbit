@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { parseTask } from '../../../../reducers/selectors';
-
 class Confirm extends React.Component {
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = { errors: "" };
+    this.parseTask = parseTask;
   }
 
   handleSubmit(e){
-    this.props.createTask(parseTask(this.props.task))
+
+    this.props.createTask(this.parseTask(this.props.task));
     this.props.router.push('/dashboard');
   }
 

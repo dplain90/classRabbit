@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
         <li key={`favcat-${idx}`} style={style}>
           <div className="category title">{category.description}</div>
           <div className="category link">
-            <Link to={`/dashboard/newTask/${category.id}`} onClick={this.handleNewTask(category.id)} className="category link">{category.title}</Link>
+            <Link to={'/dashboard/newTask/stage1'} onClick={this.handleNewTask(category.id)} className="category link">{category.title}</Link>
           </div>
         </li>
       );

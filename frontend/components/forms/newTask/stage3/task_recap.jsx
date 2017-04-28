@@ -6,6 +6,7 @@ class TaskRecap extends React.Component {
   constructor(props){
     super(props)
     this.handleDescription = this.handleDescription.bind(this);
+
   }
 
   handleDescription(e){
@@ -13,7 +14,7 @@ class TaskRecap extends React.Component {
   }
 
   render(){
-    let { date, time, address, description, category_title } = this.props.task;
+    let { date, time, address, task_description, category_title } = this.props.task;
     let { tiny_avatar_url, fname, lname_initial, price } = this.props.tasker;
 
     return (
@@ -60,7 +61,7 @@ class TaskRecap extends React.Component {
             Description
           </label>
           <textarea onChange={this.handleDescription} >
-            {description}
+            {task_description}
           </textarea>
         </div>
     </div>
