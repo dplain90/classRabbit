@@ -103,6 +103,7 @@ class sessionForm extends React.Component {
   }
 
   render(){
+    debugger
     const fnameInput = this.userInput("text", "First Name", "fname", this.state.fname, "name-label");
 
     const lnameInput = this.userInput("text", "Last Name", "lname", this.state.lname, "name-label");

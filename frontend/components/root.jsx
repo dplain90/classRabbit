@@ -1,7 +1,9 @@
 import React from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import SessionFormContainer from '../components/forms/sessions/session_form_container';
 import DashboardContainer from '../components/dashboard/dashboard_container';
+import { getTask, clearTask } from './forms/newTask/session_util';
 import SplashPage from '../components/splashPage/splash_page';
 import newTaskContainer from '../components/forms/newTask/new_task_container';
 import NewTaskStage1Container from './forms/newTask/stage1/stage1_container';
@@ -9,8 +11,6 @@ import NewTaskStage2Container from './forms/newTask/stage2/stage2_container';
 import NewTaskStage3Container from './forms/newTask/stage3/stage3_container';
 import { clearTaskers } from '../actions/user_actions';
 import { clearNewTask } from '../actions/task_actions';
-import { getTask, clearTask } from './forms/newTask/session_util';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 
 import App from './app';
@@ -18,6 +18,7 @@ import App from './app';
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
+    debugger
     if (!currentUser) {
       replace('/login');
     }
@@ -25,6 +26,7 @@ const Root = ({ store }) => {
 
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
+    debugger
     if (currentUser) {
       replace('/dashboard');
     }
@@ -33,7 +35,7 @@ const Root = ({ store }) => {
   const _clearNewTask = () => {
     store.dispatch(clearNewTask());
     store.dispatch(clearTaskers());
-    return _ensureLoggedIn();
+
   }
 
   return (

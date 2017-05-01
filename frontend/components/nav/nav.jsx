@@ -9,8 +9,17 @@ class Nav extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.loggedIn !== this.props.loggedIn) {
+      if(newProps.loggedIn === null) {
+        this.props.router.push('/login');
+      }
+    }
+  }
+
   handleLogOut(){
-    this.props.logout().then(this.props.router.push('/login'));
+    this.props.logout();
   }
 
   handleDemo(){
@@ -20,7 +29,7 @@ class Nav extends React.Component {
         password: 'starwars'
       }
     };
-
+    debugger
     this.props.login(guestUser);
   }
 
@@ -47,7 +56,7 @@ class Nav extends React.Component {
       <header className="top-nav">
         <div className="top-nav logo">
           <Link to="/dashboard">
-          <p className="logo-test">  <div className="dark"> Class</div>
+          <p className="logo-test dark">  Class
           </p>
             <img className="nav-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
           </Link>
