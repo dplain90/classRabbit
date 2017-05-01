@@ -1,15 +1,21 @@
 import { RECEIVE_FILTER, RECEIVE_FILTER_RESULTS } from '../actions/filter_actions';
 import { RECEIVE_TASKERS } from '../actions/user_actions';
+import { generateDateString } from '../util/date_util';
 
 import { generateSort } from '../util/sort_util';
 import { asArray } from './selectors';
 
+const currentDate = () => {
+  let todayDate = new Date();
+  return generateDateString(todayDate);
+};
+
 const _defaultFilter = Object.freeze({
   sorted_by: {
-    direction: 'desc',
+    direction: 'asc',
     val: 'price'
   },
-  date: "2017-04-28",
+  date: currentDate(),
   time: "Anytime",
   results: []
 });

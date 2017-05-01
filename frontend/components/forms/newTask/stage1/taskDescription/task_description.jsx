@@ -35,6 +35,8 @@ class TaskDescription extends React.Component {
       stage: 2
     });
 
+    let { filter, availabilities, taskers } = this.props;
+    this.props.updateFilterResults(filter, taskers, availabilities);
     this.props.router.push('/dashboard/newTask/stage2');
   }
 
