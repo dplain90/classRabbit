@@ -29,7 +29,6 @@ class Nav extends React.Component {
         password: 'starwars'
       }
     };
-    debugger
     this.props.login(guestUser);
   }
 

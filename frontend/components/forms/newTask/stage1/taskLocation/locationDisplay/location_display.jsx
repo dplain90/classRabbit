@@ -21,7 +21,6 @@ class LocationForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    console.log(newProps);
     if(this.props.task.address !== newProps.task.address){
 
       this.address = this.addAptNumToAddress(newProps.task.address, newProps.task.apt_num);
