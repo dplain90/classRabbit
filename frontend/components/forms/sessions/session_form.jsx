@@ -33,7 +33,10 @@ class sessionForm extends React.Component {
   }
 
   calculateLocality(zip) {
-  const callback = (results, status) => {
+    if(this.state.zip_code === ""){
+      return this.props.receiveError({zip_code: 'Zip code required'});
+    }
+    const callback = (results, status) => {
        if (status == google.maps.GeocoderStatus.OK) {
          let { address_components } = results[0];
          for (var i = 0; i < address_components.length; i++) {
@@ -50,7 +53,7 @@ class sessionForm extends React.Component {
             }
          }
          } else {
-        alert("Geocode was not successful for the following reason: " + status);
+           this.props.receiveError({zip_code: 'Invalid Zip Code'});
       }};
       let fixed = callback.bind(this);
       this.geocoder.geocode.call(this, { 'address': this.state.zip_code}, fixed);

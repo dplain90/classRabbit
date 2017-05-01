@@ -22,7 +22,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     signup: (user) => dispatch(signup(user)),
     login: (credentials) => dispatch(login(credentials)),
-    clearErrors: () => dispatch(receiveErrors({}))
+    clearErrors: () => dispatch(receiveErrors({})),
+    receiveError: (error) => dispatch(receiveErrors(error))
   };
 };
 
