@@ -29,7 +29,7 @@ class Search extends React.Component {
     const keys = Object.keys(this.state.results);
     const results = this.state.results;
 
-    if(this.state.results === {}){
+    if(this.state.results === {} && val !== ""){
       return [];
     } else if( val === "") {
       keys.forEach( (key) => {
@@ -88,7 +88,7 @@ class Search extends React.Component {
       <div className="search-container">
         <div id="search-bar">
             <i className="icon-search" />
-            <input type="text" className="search-bar input" value={this.state.value} placeholder="What do you need help with?" onChange={this.handleSearch()}/>
+            <input type="text" className="search-bar input" value={this.state.value} placeholder="What do you need help with?" onClick={this.handleSearch()} onChange={this.handleSearch()}/>
             <i className="icon-x-altx-alt" onClick={this.handleCancel} />
         </div>
         <div className="search-results-container" style={{border: this.state.style}}>
