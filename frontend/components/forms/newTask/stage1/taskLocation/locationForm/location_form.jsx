@@ -77,9 +77,7 @@ class LocationForm extends React.Component {
         // if(this.props.task.address !== newProps.task.address || this.props.task.apt_num !== newProps.task.apt_num) {
         //   this.updateTaskersAndTask(newProps);
         // }
-
-
-    if(this.props.task.address !== newProps.task.address || this.props.task.apt_num !== newProps.task.apt_num) {
+    if(this.props.task.address !== newProps.task.address || this.props.task.apt_num !== newProps.task.apt_num || this.props.task.present !== newProps.task.present) {
       this.updateTaskersAndTask(newProps);
     }
     let { locality: newLocality, address: newAddress } = newProps.task;
@@ -120,7 +118,10 @@ class LocationForm extends React.Component {
         showDescription: true
       };
 
-      this.props.updateNewTask({ apt_num, locality, address, toggles, phase: 1});
+      let { updateNewTask, getTaskers, task } = this.props;
+
+      updateNewTask({ apt_num, locality, address, toggles, phase: 1});
+      getTaskers(task.category_id, task.locality);
     }
   }
 
@@ -128,7 +129,7 @@ class LocationForm extends React.Component {
     let { updateNewTask, getTaskers } = props;
     let {category_id, locality} = props.task;
     getTaskers(category_id, locality).then((taskers) => {
-      if(taskers.present === "false") {
+      if(taskers.present === "") {
         let newToggleState = {
           taskersPresent: noTaskers,
           showDescription: true,

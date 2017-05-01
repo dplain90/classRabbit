@@ -18,12 +18,15 @@ const newTaskReducer = (state = _initialNewTask, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEW_TASK:
+    console.log(action.task);
+    debugger
       const newTaskState = Object.assign({}, state, action.task);
       setTask({ task: newTaskState});
       return newTaskState;
     case RECEIVE_TASKERS:
       const present = {present: action.tasker_data.present};
       const newTaskStateWithTaskerPresence = Object.assign({}, state, present);
+      setTask({ task: newTaskStateWithTaskerPresence});
       return newTaskStateWithTaskerPresence;
     case CLEAR_NEW_TASK:
       clearTask();
