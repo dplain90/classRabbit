@@ -60,7 +60,12 @@ class sessionForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    if(this.props.formType === 'login') {
+      const user = this.state;
+      this.props.login({user});
+    } else {
     this.calculateLocality(this.state.zip_code);
+    }
   }
 
   update(field){
@@ -103,7 +108,6 @@ class sessionForm extends React.Component {
   }
 
   render(){
-    debugger
     const fnameInput = this.userInput("text", "First Name", "fname", this.state.fname, "name-label");
 
     const lnameInput = this.userInput("text", "Last Name", "lname", this.state.lname, "name-label");
