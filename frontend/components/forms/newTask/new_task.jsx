@@ -50,7 +50,7 @@ class newTask extends React.Component {
     const { stage } = this.props.task;
 
     if(stage === 3){
-      categoryTitle = "";
+      categoryTitle = () => "";
     }
 
     return (
@@ -79,7 +79,7 @@ class newTask extends React.Component {
         </section>
 
         <section className="main">
-          {categoryTitle}
+          {categoryTitle()}
 
           <section id="stage-container" className="stage-container"  >
             { this.props.children }
