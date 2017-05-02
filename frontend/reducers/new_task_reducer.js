@@ -18,8 +18,6 @@ const newTaskReducer = (state = _initialNewTask, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEW_TASK:
-    console.log(action.task);
-    debugger
       const newTaskState = Object.assign({}, state, action.task);
       setTask({ task: newTaskState});
       return newTaskState;
@@ -31,7 +29,6 @@ const newTaskReducer = (state = _initialNewTask, action) => {
     case CLEAR_NEW_TASK:
       clearTask();
       return _initialNewTask;
-
     default:
       return state;
   }
