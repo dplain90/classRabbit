@@ -32,6 +32,7 @@ footer span {
 
 .download-app.desc {
   color: white;
+  margin-bottom: 15px;
 }
 
 .bottom-nav {
@@ -77,6 +78,22 @@ footer span {
   margin-top: 5px;
 }
 
+.microcity {
+  height: 100px;
+  width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: image_url("./microcitybutton2.png");
+}
+
+.plainchess {
+  margin-left: 15px;
+  height: 100px;
+  width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: image_url("./plainChessButton.png");
+}
 footer span {
   color: #b1b9c3;
   font-size: 20px;
@@ -85,6 +102,7 @@ footer span {
   height: auto;
   line-height: 30px;
 }
+
 
 footer > section {
   width: 65%;

@@ -25,9 +25,6 @@ const Root = ({ store }) => {
       if(redirect) replace('/dashboard/newTask/stage1');
     }
 
-        // store.dispatch(updateNewTask({redirect: false}));
-
-
   };
 
   const _redirectIfLoggedIn = (nextState, replace) => {

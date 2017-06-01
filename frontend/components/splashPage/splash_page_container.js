@@ -7,7 +7,8 @@ import { receiveNewTask, updateNewTask } from '../../actions/task_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.session.currentUser,
-    categories: state.categories
+    categories: state.categories,
+    redirect: state.task.redirect
   };
 };
 

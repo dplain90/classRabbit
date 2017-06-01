@@ -11,7 +11,7 @@ class BottomNav extends React.Component {
       <footer>
         <section className="social-media">
           <span className="social-media title">
-            Follow Us! We are friendly:
+            Want to find out more? Connect with me today:
           </span>
           <a href="#" className="social-media links">
             <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/facebook-white-c3a6136eef265690fc96b6d0d4ab06e4.svg" alt="facebook" />
@@ -26,36 +26,34 @@ class BottomNav extends React.Component {
 
         <section className="bottom-nav">
           <div className="discover">
-            <span className="footer-title">Discover</span>
+            <span className="footer-title">Discover Other Great Projects</span>
             <ul>
-              <li><a href="#">Become a Tasker</a></li>
-              <li><a href="#">The TaskRabbit Elite</a></li>
-              <li><a href="#">Buy a Gift Card</a></li>
-              <li><a href="#">TaskRabbit for Good</a></li>
-              <li><a href="#">Help</a></li>
+              <li><a href="https://www.beatsmaster.us">BeatsMaster</a></li>
+              <li><a href="https://www.on-tap.us">On Tap</a></li>
+              <li><a href="https://getflix-app.herokuapp.com/#/">GetFlix</a></li>
+              <li><a href="http://billionairbnb.us/">BillionairBnB</a></li>
+              <li><a href="https://keep-scrolling.herokuapp.com">KeepScrolling</a></li>
             </ul>
           </div>
 
           <div className="company">
-            <span className="footer-title">Company</span>
+            <span className="footer-title">About Me</span>
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Press</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Terms   Policy</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="#">GitHub</a></li>
             </ul>
           </div>
 
           <div className="download-app">
-            <span className="footer-title">Download our app</span>
+            <span className="footer-title">Games for Students:</span>
               <span className="download-app desc">
-                Tackle your to list wherever you are the best damn mobile app the world has ever seen.
+                Need some games to play with your students? Check out some of my other projects:
               </span>
 
             <span className="app-store-buttons">
-              <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/appstore_badge-b38296811f274beb5cf9e8811fd0ea73.svg" alt="App Store" />
-              <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/google_play_badge-f22ef50734324ff62305edcefa657fc0.svg" alt="Google Play" />
+              <div className="microcity"></div>
+              <div className="plainchess"> </div>
             </span>
           </div>
         </section>
