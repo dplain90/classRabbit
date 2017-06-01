@@ -9,7 +9,8 @@ const _initialNewTask = Object.freeze({
     showDescription: false,
     showLocationForm: true,
     showErrors: false
-  }
+  },
+  redirect: false
 });
 
 

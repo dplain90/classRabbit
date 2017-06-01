@@ -1,0 +1,43 @@
+.splashContainer {
+  width: 100%;
+  min-height: 800px;
+}
+
+.splashBanner {
+  width: 100%;
+  min-height: 600px;
+  background-image: image_url("./splash_background_blur.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splashBox {
+  background-color: white;
+  width: 500px;
+  height: 389px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem;
+}
+
+.splashBox_title {
+  line-height: 1.2;
+  font-size: 2.5rem;
+  font-family: "Proxima-Nova-Light";
+}
+
+.splashBox_spacer {
+  border-bottom: 1px solid rgb(81, 175, 51);
+  height: 0px;
+  width: 50px;
+  margin: 32px 0px;
+}
+
+.splashBox_subtitle {
+  font-family: "Proxima-Nova-Thin";
+  font-size: 1.5rem;
+}

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import sessionForm from './session_form';
 import { login, logout, signup, receiveErrors } from '../../../actions/session_actions';
+import { updateNewTask } from '../../../actions/task_actions';
 
 const isSignUp = (formType) => Boolean(formType === 'signup');
 
@@ -10,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     isSignUp: isSignUp(formType),
     loggedIn: state.session.currentUser,
     formType: formType,
-    errors: state.session.errors
+    errors: state.session.errors,
+    redirect: state.task.redirect
   };
 
 };
@@ -23,7 +25,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     signup: (user) => dispatch(signup(user)),
     login: (credentials) => dispatch(login(credentials)),
     clearErrors: () => dispatch(receiveErrors({})),
-    receiveError: (error) => dispatch(receiveErrors(error))
+    receiveError: (error) => dispatch(receiveErrors(error)),
+    updateNewTask: (task) => dispatch(updateNewTask(task))
   };
 };
 

@@ -28,7 +28,12 @@ class sessionForm extends React.Component {
 
   redirectIfLoggedIn(){
     if(this.props.loggedIn){
-      this.props.router.push('/dashboard');
+      if(this.props.redirect){
+        this.props.updateNewTask({redirect: false});
+        this.props.router.push('dashboard/newTask/stage1');
+      } else {
+        this.props.router.push('/dashboard');
+      }
     }
   }
 
