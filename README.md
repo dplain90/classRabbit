@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+classRabbit is a task requesting tool for teachers built with React, Rails, & Postgres - inspired by TaskRabbit. Teachers can request support on a variety of operational tasks and are matched with community members who would like to volunteer.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+### Tasks & Categories
 
-* System dependencies
+Users can create a task and search through task categories (ie Printing, Ordering).
 
-* Configuration
+### Taskers, Regions, & Availabilities
 
-* Database creation
+Taskers are workers who complete user provided tasks.
 
-* Database initialization
+Users can view a curated list of taskers that are within proximity to their school. Additionally, they can filter taskers by date and time of day availability, number of reviews, and price.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Future Improvements
+* Interface for Tasker Sign Up
+* Tasker/User Chat Interface  
