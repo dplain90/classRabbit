@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
+import AccountContainer from './account/account_container';
 import SessionFormContainer from '../components/forms/sessions/session_form_container';
 import DashboardContainer from '../components/dashboard/dashboard_container';
 import { getTask, clearTask } from './forms/newTask/session_util';
@@ -31,6 +32,7 @@ const Root = ({ store }) => {
     const currentUser = store.getState().session.currentUser;
     const redirect = store.getState().task.redirect;
     if (currentUser) {
+      debugger
       replace('/dashboard');
     }
   };
@@ -46,6 +48,7 @@ const Root = ({ store }) => {
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={SplashPageContainer} onEnter={_redirectIfLoggedIn} />
+        <Route path="/account" component={AccountContainer} onEnter={_ensureLoggedIn} />
         <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/dashboard" component={DashboardContainer} onEnter={_clearNewTask} />

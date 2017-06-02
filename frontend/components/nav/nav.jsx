@@ -38,7 +38,7 @@ class Nav extends React.Component {
       return (<div className="top-nav links-container">
         <a onClick={this.handleLogOut} className="nav-links">Log Out</a>
         <Link to="/dashboard" className="nav-links"> Dashboard </Link>
-        <a className="nav-links last"> Account </a>
+        <Link to="/account" id="nav-links-last"> Account </Link> 
       </div>);
     } else {
       return(

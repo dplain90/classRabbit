@@ -29,19 +29,19 @@ class LocationForm extends React.Component {
 
   componentDidMount() {
     this.autocomplete = this.initAutocomplete();
+    this.geolocate();
     this.autocomplete.addListener('place_changed', this.getLocalityAndAddress);
-    this.geolocate = this.geolocate(this.autocomplete);
   }
 
 
 
   initAutocomplete() {
     return new google.maps.places.Autocomplete(
-      (document.getElementById('autocomplete')), {types: ['geocode']});
+      (document.getElementById('autocomplete')), {types: ['establishment']});
   };
 
   geolocate() {
-      if (navigator.geolocation) {
+        if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           const geolocation = {
             lat: position.coords.latitude,
@@ -160,9 +160,9 @@ class LocationForm extends React.Component {
           <h3> YOUR TASK LOCATION </h3>
         </div>
          <span className="addressInputs" id="addressInputs">
-          <input id="autocomplete" className={`location-input address ${err}`} placeholder="Enter your address" onFocus={this.geolocate} type="text" />
+          <input id="autocomplete" className={`location-input address ${err}`} placeholder="Enter the name of your school" onFocus={this.geolocate} type="text" />
 
-          <input id="apt-num" className="location-input apt-num" onChange={this.updateAptNum} placeholder="Unit or Apt #"/>
+          <input id="apt-num" className="location-input apt-num" onChange={this.updateAptNum} placeholder="Room #"/>
         </span>
         <span className="continue-container">
           <button className="location-button">Continue</button>

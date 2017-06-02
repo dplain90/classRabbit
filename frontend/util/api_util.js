@@ -21,6 +21,14 @@ export const signup = (user) => {
   });
 };
 
+export const edit = (user) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: '/api/users',
+    data: user
+  });
+};
+
 export const categories = () => {
   return $.ajax({
     method: 'GET',

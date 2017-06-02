@@ -1,6 +1,6 @@
 export const initAutocomplete = () => {
   return new google.maps.places.Autocomplete(
-    (document.getElementById('autocomplete')), {types: ['geocode']});
+    (document.getElementById('autocomplete')), {types: ['geocode', 'establishment']});
 };
 
 export const geolocate = (autocomplete) => {

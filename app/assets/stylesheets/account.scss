@@ -1,0 +1,129 @@
+.account-container {
+ display: column;;
+ // flex-direction:row;
+ min-height: 650px;
+ align-items: flex-start;
+ width: 66%;
+}
+
+.account-header {
+ font-size: 40px;
+ font-weight: 800px;
+ font-family: "Proxima-Nova";
+ margin-top: 32px;
+ margin-bottom: 8px;
+}
+
+
+.account-portal {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 1px solid rgb(220, 224, 230);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.account-panel {
+  flex: .3;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(220, 224, 230);
+
+}
+.panel-link {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.panel-link a {
+  margin: 10px 16px;
+  background-color: inherit;
+  // padding: 10px 0px;
+  width: 100%;
+}
+
+.panel-link.activated {
+  border-left: 2px solid rgb(81, 175, 51);
+  color: rgb(81, 175, 51);
+  background-color: "#f9fafb";
+}
+.account-main {
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+  padding: 16px;
+
+}
+.account-details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  min-height: 300px;
+}
+
+
+.account-prof {
+  display: flex;
+  flex-direction: column;
+  flex: .6;
+  align-items: center;
+}
+
+.account-desc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.account-main-title button {
+  background-color: white;
+  padding: 10px 22.08px;
+  outline-color: rgb(81, 175, 51);
+  color: rgb(81, 175, 51);
+  border: 1px solid rgb(81, 175, 51);
+  width: 100px;
+  font-size: 16px;
+  margin: 0px 0px 5px 0px;
+}
+.account-desc.item {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  button {
+    background-color: white;
+    padding: 10px 22.08px;
+    outline-color: rgb(177, 185, 195);
+    color: rgb(177, 185, 195);
+    border: 1px solid rgb(177, 185, 195);
+    width: 120px;
+    font-size: 16px;
+    margin: 0px 0px 5px 0px;
+
+  }
+}
+
+.account-prof-pic {
+  height: 150px;
+  width: 150px;
+
+  border-radius: 50%;
+}
+
+.desc-content {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+
+.account-main-title {
+  font-family: "Proxima-Nova";
+  font-size: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgb(220, 224, 230);
+  margin-bottom: 28px;
+}

@@ -15,8 +15,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  min-height: 950px;
+  height: 100%;
+  min-height: 600px;
+  // max-width: ;
   position: relative;
+  display: block;
 }
 
 
