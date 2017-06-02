@@ -7,6 +7,7 @@ class SplashPage extends React.Component {
     super(props);
     this.handleSplashSelect = this.handleSplashSelect.bind(this);
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
+
   }
 
   componentDidMount(){
@@ -33,7 +34,6 @@ class SplashPage extends React.Component {
   }
 
   render(){
-    //
 
     return (
       <div className="splashContainer">
@@ -49,6 +49,21 @@ class SplashPage extends React.Component {
             </div>
             <div className="splashBox_search">
               <Search data={this.props.categories} handleSelect={this.handleSplashSelect} />
+            </div>
+          </div>
+        </div>
+        <div className="splashLinks_container">
+          <div className="splashLinks_title">
+            Get Inspired.
+          </div>
+          <div className="splashLinks_row">
+            <div className="splashLink_photo_med">
+
+            </div>
+            <div className="splashLink_content">
+
+              Tackle those projects when you need them to be tackled.
+              <button onClick={this.handleSplashSelect(3)}>Book a Teaching Assistant</button>
             </div>
           </div>
         </div>

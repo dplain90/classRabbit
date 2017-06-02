@@ -88,8 +88,9 @@ footer span {
 
 .plainchess {
   margin-left: 15px;
-  height: 100px;
   width: 200px;
+  margin-top: 6px;
+  height: 60px;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: image_url("./plainChessButton.png");

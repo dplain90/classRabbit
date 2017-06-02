@@ -101,7 +101,7 @@ class LocationForm extends React.Component {
     return (
       <div className="locationDisplay" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={this.handleClick}>
         <label className="taskLocation">
-          <h3> TASK LOCATION: </h3>
+          <h3> SCHOOL: </h3>
         </label>
         <span className="locationDisplayRow">
           { locationIcon }
