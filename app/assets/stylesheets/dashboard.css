@@ -182,16 +182,18 @@
   justify-content: space-between;
   flex-wrap: wrap;
   flex: auto;
-  padding-top: 10px;
+  width: 100%;
+
 }
 
 .can-we-help.list li{
+
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 32%;
-  height: 400px;
+  height: 240px;
   margin-top: 10px;
   padding-bottom: 47px;
   padding-top: 57px;
