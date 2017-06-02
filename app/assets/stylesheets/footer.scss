@@ -74,7 +74,7 @@ footer span {
 .app-store-buttons {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 125%;
   margin-top: 5px;
 }
 
@@ -86,8 +86,11 @@ footer span {
   background-image: image_url("./microcitybutton2.png");
 }
 
-.plainchess {
+.app-store-buttons a {
   margin-left: 15px;
+}
+.plainchess {
+
   width: 200px;
   margin-top: 6px;
   height: 60px;

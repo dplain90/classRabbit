@@ -32,7 +32,7 @@ const Root = ({ store }) => {
     const currentUser = store.getState().session.currentUser;
     const redirect = store.getState().task.redirect;
     if (currentUser) {
-      debugger
+
       replace('/dashboard');
     }
   };

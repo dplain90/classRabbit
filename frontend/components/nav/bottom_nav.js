@@ -39,9 +39,9 @@ class BottomNav extends React.Component {
           <div className="company">
             <span className="footer-title">About Me</span>
             <ul>
-              <li><a href="#">Portfolio</a></li>
+              <li><a href="http://dannyplain.com">Portfolio</a></li>
               <li><a href="#">Resume</a></li>
-              <li><a href="#">GitHub</a></li>
+              <li><a href="http://github.com/dplain90">GitHub</a></li>
             </ul>
           </div>
 
@@ -52,7 +52,7 @@ class BottomNav extends React.Component {
               </span>
 
             <span className="app-store-buttons">
-              <div className="microcity"></div>
+              <a href="http://microcity.builders"><div className="microcity"></div></a>
               <div className="plainchess"> </div>
             </span>
           </div>
