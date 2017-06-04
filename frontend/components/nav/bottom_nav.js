@@ -14,13 +14,21 @@ class BottomNav extends React.Component {
             Want to find out more? Connect with me today:
           </span>
           <a href="#" className="social-media links">
-            <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/facebook-white-c3a6136eef265690fc96b6d0d4ab06e4.svg" alt="facebook" />
+            <div className="linkedin">
+
+            </div>
+
           </a>
           <a href="#" className="social-media link twitter">
-            <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/twitter-white-3079b06bb5d6e9db5d69a649abc70a32.svg" alt="twitter" />
+            <div className="github">
+
+            </div>
+
           </a>
           <a href="#" className="social-media links">
-            <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/icons/instagram-white-8371c5be5bffe9b46f865c33738d4187.svg" alt="instagram" />
+            <div className="angel-list">
+
+            </div>
           </a>
         </section>
 

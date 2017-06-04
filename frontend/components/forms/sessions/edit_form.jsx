@@ -3,19 +3,18 @@ import { Link, withRouter } from 'react-router';
 class EditForm extends React.Component {
   constructor(props){
     super(props);
+      let { fname, lname, email, phone_number, zip_code } = this.props.user;
       this.state = {
-        fname: "",
-        lname: "",
-        email: "",
-        password: "",
-        zip_code: "",
-        locality: ""
+        fname: fname,
+        lname: lname,
+        email: email,
+        phone_number: phone_number,
+        zip_code: zip_code
       };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.userInput = this.userInput.bind(this);
-
   }
 
 
@@ -39,12 +38,9 @@ class EditForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    if(this.props.formType === 'login') {
-      const user = this.state;
-      this.props.login({user});
-    } else {
-    this.calculateLocality(this.state.zip_code);
-    }
+    let { id } = this.props.user;
+    let { fname, lname, zip_code, email, phone_number } = this.state;
+    this.props.editUser({id, fname, lname, zip_code, email, phone_number});
   }
 
   render() {
@@ -56,16 +52,29 @@ class EditForm extends React.Component {
 
     const emailAddressInput = this.userInput("text", "Email Address", "email", this.state.email);
 
-    const passwordInput = this.userInput("password", "Password", "password", this.state.password);
+    const phoneInput = this.userInput("text", "Phone Number", "phone_number", this.state.phone_number);
 
     return (
       <div className="editFormContainer" >
-        <form onSubmit={this.handleSubmit} >
-          { fnameInput }
-          { lnameInput }
-          { emailAddressInput }
-          { passwordInput }
-          { zipCodeInput }
+        <div className="account-prof">
+          <img src={this.props.user.img_url_med} className="account-prof-pic" />
+        </div>
+        <form className="editForm" onSubmit={this.handleSubmit} >
+          <ul>
+            <li className="edit-form-field">
+              { fnameInput }
+              { lnameInput }
+            </li>
+            <li className="edit-form-field">
+              { emailAddressInput }
+            </li>
+            <li className="edit-form-field">
+              { phoneInput }
+            </li>
+            <li>
+              { zipCodeInput }
+            </li>
+          </ul>
           <button type="submit">Update</button>
         </form>
       </div>

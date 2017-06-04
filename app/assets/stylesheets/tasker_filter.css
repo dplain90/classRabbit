@@ -75,7 +75,7 @@ select {
   padding: 0.5em 0.75em;
   background-color: white;
   height: 40px;
-
+  outline: none;
 }
 
 
@@ -85,7 +85,10 @@ select {
   min-width: 0;
 }
 
+.filter-container select:active {
 
+
+}
 .time-and-date-container {
   border-top: 1px solid #dce0e6;
   padding-top: 1.75rem;
@@ -99,6 +102,10 @@ select {
   cursor: pointer;
   border-radius: 4px;
   height: 80px;
+}
+
+.date-availability-container > * {
+  cursor: pointer;
 }
 
 

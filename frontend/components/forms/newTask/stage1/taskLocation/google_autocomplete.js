@@ -41,8 +41,9 @@ export const getLocalityAndAddress = () => {
       let addressType = place.address_components[i].types[0];
       if (componentForm[addressType]) {
         locality = place.address_components[i][componentForm[addressType]];
+        console.log(locality);
       }
     }
-
+    
     return callback({ locality: locality, address: place.formatted_address });
 }

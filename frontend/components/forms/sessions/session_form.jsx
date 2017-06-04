@@ -45,7 +45,7 @@ class sessionForm extends React.Component {
        if (status == google.maps.GeocoderStatus.OK) {
          let { address_components } = results[0];
          for (var i = 0; i < address_components.length; i++) {
-           let localityIdx = address_components[i].types.indexOf('locality');
+           let localityIdx = address_components[i].types.indexOf('sublocality');
            if(localityIdx !== -1)
             {
               this.setState({locality: address_components[i].long_name});

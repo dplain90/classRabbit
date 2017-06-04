@@ -8,6 +8,7 @@ class newTask extends React.Component {
     this.state = { icon_phase: [this.props.pencil, "", ""] }
     this.getStorageTaskers = getStorageTaskers()
     this.getTask = getTask()
+    this.handlePopOut = this.handlePopOut.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,12 @@ class newTask extends React.Component {
     // if(newProps.taskers !== this.props.taskers){
 
 
+  }
+
+  handlePopOut(e){
+    let popout = document.getElementById("popout");
+    let display = popout.style.display;
+    popout.style.display = "block";
   }
 
   render(){
@@ -74,7 +81,9 @@ class newTask extends React.Component {
             <img src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/build/icons/trust_badge-7aa9db43e1fd330df7a2bd3d4d9e120c.svg" />
             <p> <strong> Trust & Safety Guarantee: </strong>
              All taskers have completed DOE background checks</p>
-           <i className="icon-info trust-safety-info-icon" />
+           <i className="icon-info trust-safety-info-icon" onClick={this.handlePopOut} >
+             <div className="popout trust-safety" id="popout"> Hi </div>
+           </i>
           </div>
         </section>
 

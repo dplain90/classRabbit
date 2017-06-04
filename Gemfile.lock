@@ -109,12 +109,16 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
+    os (0.9.6)
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-compression (0.3.16)
+      os (~> 0.9.6)
+      paperclip (>= 4.3.6)
     pg (0.20.0)
     phonelib (0.5.6)
     pry (0.10.4)
@@ -214,6 +218,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   paperclip (~> 5.0.0)
+  paperclip-compression
   pg (~> 0.18)
   pry-rails
   puma (~> 3.0)

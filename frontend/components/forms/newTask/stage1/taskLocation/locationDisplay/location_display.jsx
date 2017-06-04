@@ -82,7 +82,7 @@ class LocationForm extends React.Component {
         showDescription: true
       };
 
-      this.props.updateNewTask({ apt_num, locality, address: this.addAptNumToAddress(address, apt_num), toggles });
+      this.props.updateNewTask({ apt_num, locality, address: this.addAptNumToAddress(address, apt_num), toggles});
     }
   }
 
@@ -91,13 +91,13 @@ class LocationForm extends React.Component {
     let taskerStatus;
     if(this.props.task.present === "false")
     {
-      taskerStatus = "Sorry! No taskers available in your area!";
+      taskerStatus = "Sorry! No taskers in your area! Try NYC :)";
     } else if (this.props.task.present === "true") {
       taskerStatus = "Yay! There are taskers in your area!";
     } else {
       taskerStatus = "";
     }
-
+    let title = this.props.task.name + ", Room:" + this.props.task.apt_num;
     return (
       <div className="locationDisplay" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={this.handleClick}>
         <label className="taskLocation">
@@ -106,7 +106,7 @@ class LocationForm extends React.Component {
         <span className="locationDisplayRow">
           { locationIcon }
           <label className="taskLocation taskersPresent">
-            { this.address }
+            { title }
             { editIcon }
           </label>
         </span>

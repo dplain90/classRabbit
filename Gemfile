@@ -46,6 +46,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'faker'
+  gem 'paperclip-compression'
 end
 
 group :development do

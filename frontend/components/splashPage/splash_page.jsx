@@ -7,7 +7,7 @@ class SplashPage extends React.Component {
     super(props);
     this.handleSplashSelect = this.handleSplashSelect.bind(this);
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
-
+    this.handleButton = this.handleButton.bind(this);
   }
 
   componentDidMount(){
@@ -26,6 +26,11 @@ class SplashPage extends React.Component {
     }
   }
 
+  handleButton(){
+    this.props.updateNewTask({ category_id: 3, category_title: this.props.categories[3].title, stage: 1, redirect: true});
+
+    this.props.router.push('/dashboard/newTask/stage1');
+  }
 
   handleSplashSelect(category_id){
     return () => {
@@ -63,7 +68,7 @@ class SplashPage extends React.Component {
             <div className="splashLink_content">
 
               Tackle those projects when you need them to be tackled.
-              <button onClick={this.handleSplashSelect(3)}>Book a Teaching Assistant</button>
+              <button onClick={this.handleButton}>Book a Teaching Assistant</button>
             </div>
           </div>
         </div>

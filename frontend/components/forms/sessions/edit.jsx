@@ -21,11 +21,12 @@ class Edit extends React.Component {
   }
 
   render() {
-    let { user, signout } = this.props;
+    let { user, logout } = this.props;
+
     let { active } = this.state;
     const edit = () => (<EditFormContainer />);
     const details = () => {
-      return (<AccountDetails user={user} signOut={signout} />);
+      return (<AccountDetails user={user} logout={logout} />);
     };
     const btn = (desc) => (
       <button onClick={this.handleEdit}>

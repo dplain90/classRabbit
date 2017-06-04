@@ -44,9 +44,24 @@ footer span {
   width: 33%;
 }
 
-.social-media img {
+.social-media div {
   height: 24px;
   width: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.linkedin {
+  background-image: image_url("./linkedin-icon-final.png");
+}
+
+.github {
+  background-image: image_url("./github-icon-final.png");
+}
+
+.angel-list {
+  background-image: image_url("./angel-list-icon.png");
+
 }
 
 .social-media {

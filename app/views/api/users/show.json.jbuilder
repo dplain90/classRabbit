@@ -1,1 +1,9 @@
-json.extract! @user, :id, :fname, :lname, :email, :phone_number, :zip_code
+json.zip_code @user.zip_code
+json.phone_number @user.phone_number
+json.email @user.email
+json.lname @user.lname
+json.fname @user.fname
+json.id @user.id
+json.img_url asset_path(@user.avatar.url(:thumb))
+json.img_url_small asset_path(@user.avatar.url(:small))
+json.img_url_med asset_path(@user.avatar.url(:medium))

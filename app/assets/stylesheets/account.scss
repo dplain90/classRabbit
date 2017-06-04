@@ -127,3 +127,38 @@
   border-bottom: 1px solid rgb(220, 224, 230);
   margin-bottom: 28px;
 }
+
+.editFormContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+    justify-content: center;
+}
+.edithForm {
+  flex: 1;
+}
+.editForm input {
+  width: 183px;
+
+}
+
+.editForm label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+}
+.editForm ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.editForm li:first-child {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

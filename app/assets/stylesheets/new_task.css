@@ -20,6 +20,22 @@
 
 }
 
+.icon-info.trust-safety-info-icon {
+  position: relative;
+}
+
+i.icon-info.trust-safety-info-icon:hover {
+  cursor: pointer;
+}
+
+div.popout.trust-safety {
+  position: absolute;
+  left: 25px;
+  display: none;
+}
+
+
+
 .no-results-response {
   display: flex;
   align-items: baseline;

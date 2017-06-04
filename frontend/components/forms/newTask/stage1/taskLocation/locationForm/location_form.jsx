@@ -11,7 +11,8 @@ class LocationForm extends React.Component {
       showErrors: false,
       apt_num: "",
       address: "",
-      locality: ""
+      locality: "",
+      name: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,18 +58,20 @@ class LocationForm extends React.Component {
   }
 
   getLocalityAndAddress() {
+
      let place = this.autocomplete.getPlace();
      let locality = "";
-     let componentForm = { locality: 'long_name' };
+     let componentForm = { sublocality: 'long_name' };
 
     for (var i = 0; i < place.address_components.length; i++) {
-      let addressType = place.address_components[i].types[0];
+
+      let addressType = place.address_components[i].types[1];
       if (componentForm[addressType]) {
         locality = place.address_components[i][componentForm[addressType]];
       }
     }
 
-    this.setState({ locality: locality, address: place.formatted_address });
+    this.setState({ locality: locality, address: place.formatted_address, name: place.name });
   }
 
 
@@ -111,7 +114,7 @@ class LocationForm extends React.Component {
     if(document.getElementById('autocomplete').value === "") {
       this.raiseLocationError();
     } else {
-      let { apt_num, locality, address } = this.state;
+      let { apt_num, locality, address, name } = this.state;
       let toggles = {
         showErrors: false,
         showLocationForm: false,
@@ -120,8 +123,8 @@ class LocationForm extends React.Component {
 
       let { updateNewTask, getTaskers, task } = this.props;
 
-      updateNewTask({ apt_num, locality, address, toggles, phase: 1});
-      getTaskers(task.category_id, task.locality);
+      updateNewTask({ apt_num, locality, address, name, toggles, phase: 1});
+      getTaskers(task.category_id, locality);
     }
   }
 

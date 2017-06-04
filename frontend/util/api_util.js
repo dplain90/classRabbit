@@ -24,8 +24,8 @@ export const signup = (user) => {
 export const edit = (user) => {
   return $.ajax({
     method: 'PATCH',
-    url: '/api/users',
-    data: user
+    url: `/api/users/${user.id}`,
+    data: {user: user}
   });
 };
 
@@ -59,6 +59,7 @@ export const createTask = (task) => {
 };
 
 export const fetchTaskers = (category_id, locality) => {
+
   return $.ajax({
     method: 'GET',
     url: '/api/taskers',

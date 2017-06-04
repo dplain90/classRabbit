@@ -25,7 +25,7 @@ class Tasker extends React.Component {
         <div className="profile-aside">
           <img src={tasker.tasker_avatar_url} />
           <button className="select-tasker" onClick={this.handleSelect}> Select & Continue </button>
-          <Link>Reviews & Profile</Link>
+
         </div>
 
         <div className="tasker-info">

@@ -6,6 +6,7 @@ class AccountDetails extends React.Component {
   }
 
   render(){
+
     let { img_url_med, fname, lname, email, zip_code, phone_number } = this.props.user;
     return (
       <div className="account-details">
@@ -39,7 +40,7 @@ class AccountDetails extends React.Component {
               </div>
             </li>
             <li className="account-desc item">
-              <button> Log Out </button>
+              <button onClick={this.props.logout}> Log Out </button>
             </li>
 
 
