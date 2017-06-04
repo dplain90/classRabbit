@@ -93,9 +93,9 @@
   flex-direction: row;
   align-items: baseline;
   button {
+    outline: none;
     background-color: white;
     padding: 10px 22.08px;
-    outline-color: rgb(177, 185, 195);
     color: rgb(177, 185, 195);
     border: 1px solid rgb(177, 185, 195);
     width: 120px;

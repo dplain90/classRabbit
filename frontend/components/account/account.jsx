@@ -17,9 +17,7 @@ class Account extends React.Component {
               <li className="panel-link activated">
                 <a className="account profile "> Profile </a>
               </li>
-              <li className="panel-link">
-                <a className="account password"> Password </a>
-              </li>
+              
             </ul>
           </div>
 

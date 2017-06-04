@@ -47,7 +47,7 @@ class Dashboard extends React.Component {
           <section className="search">
 
             <div className="welcome">
-              <img src={this.props.user.img_url} className="prof-pic" />
+              <img src={this.props.user.img_url_small} className="prof-pic" />
               <h2> Welcome, {this.props.user.fname}! </h2>
 
             </div>
@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
           </section>
           <RequestedTasksContainer />
 
-      
+
         </div>
         <div className="main-bottom">
           <section className="can-we-help">

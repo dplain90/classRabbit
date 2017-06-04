@@ -39,7 +39,7 @@ class newTask extends React.Component {
   handlePopOut(e){
     let popout = document.getElementById("popout");
     let display = popout.style.display;
-    popout.style.display = "block";
+    // popout.style.display = "block";
   }
 
   render(){
