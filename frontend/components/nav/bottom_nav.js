@@ -13,19 +13,19 @@ class BottomNav extends React.Component {
           <span className="social-media title">
             Want to find out more? Connect with me today:
           </span>
-          <a href="#" className="social-media links">
+          <a href="http://linkedin.com/in/dan-plain-a89734b2" className="social-media links">
             <div className="linkedin">
 
             </div>
 
           </a>
-          <a href="#" className="social-media link twitter">
+          <a href="https://github.com/dplain90" className="social-media link twitter">
             <div className="github">
 
             </div>
 
           </a>
-          <a href="#" className="social-media links">
+          <a href="https://angel.co/danny-plain" className="social-media links">
             <div className="angel-list">
 
             </div>
@@ -61,7 +61,9 @@ class BottomNav extends React.Component {
 
             <span className="app-store-buttons">
               <a href="http://microcity.builders"><div className="microcity"></div></a>
-              <div className="plainchess"> </div>
+              <a href="http://plain-chess.herokuapp.com/">
+                <div className="plainchess"> </div>
+              </a>
             </span>
           </div>
         </section>
