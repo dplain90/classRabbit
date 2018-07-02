@@ -38,7 +38,7 @@ class Nav extends React.Component {
       return (<div className="top-nav links-container">
         <a onClick={this.handleLogOut} className="nav-links">Log Out</a>
         <Link to="/dashboard" className="nav-links"> Dashboard </Link>
-        <Link to="/account" id="nav-links-last"> Account </Link> 
+        <Link to="/account" id="nav-links-last"> Account </Link>
       </div>);
     } else {
       return(
@@ -58,7 +58,7 @@ class Nav extends React.Component {
           <Link to="/">
           <p className="logo-test dark">  Class
           </p>
-            <img className="nav-logo" src="https://d31ebqhycylygn.cloudfront.net/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
+            <img className="nav-logo" src="https://assets.taskrabbit.com/v3/assets/web/logos/logo-h-3f5a5ffaf590a5dcff9ae06f47e7e67f.svg" />
           </Link>
         </div>
         { this.sessionLinks() }
